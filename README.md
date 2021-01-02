@@ -16,7 +16,7 @@ Los integrantes del equipo son:
     
 -   Juan Fraga: a rellenar
     
--   Franco Assaneo: a rellenar
+-   Franco Assaneo: Estudiante de Analista de Sistemas en ORT.
     
 
 Wireframes:  [https://www.figma.com/file/Yj6jBdLR8hw49Y2i7OjXeO/Wireframes?node-id=23%3A92](https://www.figma.com/file/Yj6jBdLR8hw49Y2i7OjXeO/Wireframes?node-id=23%3A92) (cambiar el link al nuestro)
