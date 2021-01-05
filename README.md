@@ -19,13 +19,13 @@ Los integrantes del equipo son:
 -   Franco Assaneo: Estudiante de Analista de Sistemas en ORT.
     
 
-Wireframes:  [https://www.figma.com/file/Yj6jBdLR8hw49Y2i7OjXeO/Wireframes?node-id=23%3A92](https://www.figma.com/file/Yj6jBdLR8hw49Y2i7OjXeO/Wireframes?node-id=23%3A92) (cambiar el link al nuestro)
+Wireframes:  [https://www.figma.com/file/UxGvovcVSYaoHbWKj5hjJ5/Proyecto-Digital-House?node-id=0%3A1](https://www.figma.com/file/UxGvovcVSYaoHbWKj5hjJ5/Proyecto-Digital-House?node-id=0%3A1)
 
 Paginas de Referencia:
 
 -   [https://www.kingofthekongo.com.ar/](https://www.kingofthekongo.com.ar/)  --> El carrito de compras de este sitio tiene una disposición que nos parece agradable a la vista y funcional.
 -   [https://www.nike.com/es/](https://www.nike.com/es/)  --> Su propuesta de menú principal nos parece atractiva.
--   [link3](https://www.nike.com/es/)  --> Descripción.
+-   [https://www.indiastyle.com.ar/shop/moda.html](https://www.indiastyle.com.ar/shop/moda.html)  --> La forma en que se pueden filtrar las categorias para buscar nos parece particularmente efectiva y minimalista.
 -   [link4](https://www.nike.com/es/)  --> Descripción.
 -   [link5](https://www.nike.com/es/)  --> Descripción.
 
@@ -34,4 +34,4 @@ Paleta de colores:  [https://coolors.co/113c4a-265a5c-3f7b70-5893d4-1f3c88-070d5
 
 Fuente:  [https://fonts.google.com/specimen/Spartan?category=Sans+Serif&vfonly=true](https://fonts.google.com/specimen/Spartan?category=Sans+Serif&vfonly=true) (cambiar por la nuestra)
 
-Tablero de trabajo:  [https://trello.com/b/FoIZcJcE](https://trello.com/b/FoIZcJcE) (cambiar por el nuestro)
+Tablero de trabajo:  [https://trello.com/b/qdtGZZpR/digital-house-grupo-1](https://trello.com/b/qdtGZZpR/digital-house-grupo-1)
