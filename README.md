@@ -14,7 +14,7 @@ Los integrantes del equipo son:
 
 -   Guido Maimone: Estudiante de Licenciatura en Sistemas en la Universidad Nacional de La Plata.
     
--   Juan Fraga: a rellenar
+-   Juan Fraga: Estudiante de Ingeniería en Computación en la Universidad de la República.
     
 -   Franco Assaneo: Estudiante de Analista de Sistemas en ORT.
     
