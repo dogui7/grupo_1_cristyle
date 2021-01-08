@@ -24,7 +24,7 @@ Paginas de Referencia:
 -   [https://www.adidas.com.ar/](https://www.adidas.com.ar//)  --> El carrito de compras de este sitio tiene una disposición que nos parece agradable a la vista y funcional.
 -   [https://www.nike.com/es/](https://www.nike.com/es/)  --> Su propuesta de menú principal nos parece atractiva.
 -   [https://www.indiastyle.com.ar/shop/moda.html](https://www.indiastyle.com.ar/shop/moda.html)  --> La forma en que se pueden filtrar las categorias para buscar nos parece particularmente efectiva y minimalista.
--   [link4](https://www.nike.com/es/)  --> Descripción.
+-   [https://www.macowens.com.ar/](https://www.macowens.com.ar/)  --> El detalle del producto de este sitio, nos pareció muy acertado con nuestra propuesta.
 -   [link5](https://www.nike.com/es/)  --> Descripción.
 
 
