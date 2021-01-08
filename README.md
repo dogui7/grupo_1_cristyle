@@ -14,8 +14,6 @@ Los integrantes del equipo son:
 
 -   Guido Maimone: Estudiante de Licenciatura en Sistemas en la Universidad Nacional de La Plata.
     
--   Juan Fraga: Estudiante de Ingeniería en Computación en la Universidad de la República.
-    
 -   Franco Assaneo: Estudiante de Analista de Sistemas en ORT.
     
 
@@ -23,7 +21,7 @@ Wireframes:  [https://www.figma.com/file/UxGvovcVSYaoHbWKj5hjJ5/Proyecto-Digital
 
 Paginas de Referencia:
 
--   [https://www.kingofthekongo.com.ar/](https://www.kingofthekongo.com.ar/)  --> El carrito de compras de este sitio tiene una disposición que nos parece agradable a la vista y funcional.
+-   [https://www.adidas.com.ar/](https://www.adidas.com.ar//)  --> El carrito de compras de este sitio tiene una disposición que nos parece agradable a la vista y funcional.
 -   [https://www.nike.com/es/](https://www.nike.com/es/)  --> Su propuesta de menú principal nos parece atractiva.
 -   [https://www.indiastyle.com.ar/shop/moda.html](https://www.indiastyle.com.ar/shop/moda.html)  --> La forma en que se pueden filtrar las categorias para buscar nos parece particularmente efectiva y minimalista.
 -   [link4](https://www.nike.com/es/)  --> Descripción.
