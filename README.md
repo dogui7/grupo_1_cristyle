@@ -25,11 +25,12 @@ Paginas de Referencia:
 -   [https://www.nike.com/es/](https://www.nike.com/es/)  --> Su propuesta de menú principal nos parece atractiva.
 -   [https://www.indiastyle.com.ar/shop/moda.html](https://www.indiastyle.com.ar/shop/moda.html)  --> La forma en que se pueden filtrar las categorias para buscar nos parece particularmente efectiva y minimalista.
 -   [https://www.macowens.com.ar/](https://www.macowens.com.ar/)  --> El detalle del producto de este sitio, nos pareció muy acertado con nuestra propuesta.
--   [link5](https://www.nike.com/es/)  --> Descripción.
+-   [https://www.levi.com.ar/customer/account/login](https://www.levi.com.ar/customer/account/login/)  --> Este sitio tiene un login que nos parece sobrio e interesante.
 
 
 Paleta de colores:  [https://coolors.co/113c4a-265a5c-3f7b70-5893d4-1f3c88-070d59](https://coolors.co/113c4a-265a5c-3f7b70-5893d4-1f3c88-070d59) (cambiar por la nuestra)
 
-Fuente:  [https://fonts.google.com/specimen/Spartan?category=Sans+Serif&vfonly=true](https://fonts.google.com/specimen/Spartan?category=Sans+Serif&vfonly=true) (cambiar por la nuestra)
+Fuente Logo: [https://fonts.google.com/specimen/Poiret+One?query=poir&preview.text=CRISTYLE&preview.text_type=custom](Poiret One)
+Fuente Textos:[https://fonts.google.com/specimen/Playfair+Display?query=playf](Playfair Display)
 
 Tablero de trabajo:  [https://trello.com/b/qdtGZZpR/digital-house-grupo-1](https://trello.com/b/qdtGZZpR/digital-house-grupo-1)
