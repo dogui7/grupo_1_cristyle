@@ -30,7 +30,7 @@ Paginas de Referencia:
 
 Paleta de colores:  [https://coolors.co/113c4a-265a5c-3f7b70-5893d4-1f3c88-070d59](https://coolors.co/113c4a-265a5c-3f7b70-5893d4-1f3c88-070d59) (cambiar por la nuestra)
 
-Fuente Logo: [Poiret One](https://fonts.google.com/specimen/Poiret+One?query=poir&preview.text=CRISTYLE&preview.text_type=custom)
+Fuente Logo: [Poiret One](https://fonts.google.com/specimen/Poiret+One?query=poir&preview.text=CRISTYLE&preview.text_type=custom)  
 Fuente Textos: [Playfair Display](https://fonts.google.com/specimen/Playfair+Display?query=playf)
 
 Tablero de trabajo:  [https://trello.com/b/qdtGZZpR/digital-house-grupo-1](https://trello.com/b/qdtGZZpR/digital-house-grupo-1)
