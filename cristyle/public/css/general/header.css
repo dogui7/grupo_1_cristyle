@@ -9,3 +9,25 @@
 /*
     PD: Usemos estos comentarios en el codigo, tanto HTML como CSS para comunicarnos
 */
+
+.main-header {
+    display: flex;
+    justify-content: space-around;  
+}
+
+.img-logo{
+    width: 150px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+}
+
+.navbar li {
+    padding: 15px;
+}
+
+.left-navbar {
+    display: flex;
+}
