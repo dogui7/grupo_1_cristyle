@@ -7,7 +7,9 @@ const publicPath = path.resolve (__dirname, './public');
 
 app.use(express.static (publicPath));
 
-app.listen (3500, () => {
+app.set('puerto', process.env.PORT || 3500);
+
+app.listen (app.get('puerto'), () => {
     console.log ( 'Servidor Funcionando')
 } );
 
