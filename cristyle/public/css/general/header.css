@@ -11,21 +11,31 @@
 */
 
 .main-header {
-    display: flex; 
-    justify-content: space-between;
-    align-items: center; 
-    background-color: #1b1b1b;
-    position: relative;
-    
+    background-color: #1b1b1b; 
+}
+
+.top-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.burger-menu i {
+    color: #be9e44;
+    font-size: 30px;
 }
 
 .img-logo{
-    position: absolute;
     width: 130px;
-    left: 120px;
-    top: 10px;
+    
 }
 
+.user i{
+    color:  #be9e44 ;
+    font-size: 30px;
+    margin-left: 35px;
+}
 
 .left-navbar {
     display: none;
@@ -41,16 +51,30 @@
     margin-right: 15px;
 }
 
+.search-bar {
+    display: flex;
+    margin: auto;
+    margin-top: 10px;
+    background-color: white;
+    width: 350px;
+    border-radius: 5px;
+}
+
 .search-bar input {
-    display: none;
+    padding: 5px;
+    width: 325px;
+    outline: none;
+}
+
+.search-bar i{
+    background-color: white;
+    outline: none;
 }
 
 .cart {
-    position: absolute;
-    right: 15px;
-    top: 15px;
     font-size: 30px;
-    color: #be9e44;
+    color: #57430D;
+    outline: none;
 }
 
 /* -----------------------------------------DESKTOP-------------------------------------------------*/
@@ -67,6 +91,7 @@
 }
 
 .search-bar input {
+    display: flex;
     margin:auto;
     outline: none;
     width: 320px;
