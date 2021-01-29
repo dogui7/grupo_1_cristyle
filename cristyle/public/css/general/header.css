@@ -11,7 +11,8 @@
 */
 
 .main-header {
-    background-color: #1b1b1b; 
+    background-color: #1b1b1b;
+    position: relative; 
 }
 
 .top-header {
@@ -73,20 +74,148 @@
 
 .cart {
     font-size: 30px;
-    color: #57430D;
+    color:#be9e44;
     outline: none;
 }
+
+/* -----------------------------------------TABLET-------------------------------------------------*/
+
+@media (min-width: 768px) {
+    .top-header {
+        display: flex;
+        justify-content: space-between;
+    
+    }
+    
+    .img-logo {
+        position: absolute;
+        width: 140px;
+        margin-left: 15px;
+        left: 0;
+        top: 0;
+        
+    }
+    
+    .user i {
+        position: absolute;
+        right: 60px;
+        font-size: 20px;
+        top: 21px;
+    }
+    
+    .burger-menu {
+        display: none;
+    }
+        
+    .search-bar {
+        position: absolute;
+        background-color: white;
+        padding: 3px;
+        margin: auto;
+        width: 220px;
+        border-radius: 5px;
+        top: 15px;
+        right: 100px;
+    
+    }
+    
+    .search-bar input {
+        display: flex;
+        margin:auto;
+        outline: none;
+        width: 200px;
+    
+    }
+    
+    .icono-barrabusqueda {
+        outline: none;
+        margin-right: 2px;
+    }
+    
+    .search-bar i {
+        background-color: white;
+        outline: none;
+    }
+    
+    .navbar {
+        display: flex;
+        justify-content: space-around;
+        
+    }
+    
+    .navbar ul {
+        list-style-type: none;
+    }
+    
+    .navbar a {
+        color: white;
+        
+    }
+    
+    .left-navbar {
+        display: flex;
+        position: absolute;
+        left: 180px;
+        top: 20px;
+    }
+    
+    .left-navbar li {
+        margin-right: 50px;
+    }
+    
+    .right-navbar {
+        display: none;
+        
+    }
+    
+    .right-navbar li {
+        margin-bottom: 15px;
+    }
+    
+    .cart {
+     padding: 20px;
+     font-size: 20px;
+    }
+    
+}
+
 
 /* -----------------------------------------DESKTOP-------------------------------------------------*/
  
 @media (min-width: 992px) {
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.img-logo {
+    position: absolute;
+    width: 160px;
+    margin-left: 15px;
+    left: 0;
+    top: 0;
+    
+}
+
+.user {
+    display: none;
+}
+
+.burger-menu {
+    display: none;
+}
     
 .search-bar {
+    position: absolute;
     background-color: white;
-    padding: 5px;
+    padding: 3px;
     margin: auto;
     width: 350px;
     border-radius: 5px;
+    top: 15px;
+    right: 100px;
 
 }
 
@@ -100,6 +229,7 @@
 
 .icono-barrabusqueda {
     outline: none;
+    margin-right: 2px;
 }
 
 .search-bar i {
@@ -125,22 +255,29 @@
 .left-navbar {
     display: flex;
     position: absolute;
-    margin-left: 80px;
+    left: 500px;
     top: 20px;
 }
 
 .left-navbar li {
-    margin-right: 15px;
+    margin-right: 150px;
 }
 
 .right-navbar {
-    display: flex;
     position: absolute;
-    margin-top: 40px ;
+    display: block;
+    top: 2px;
+    right: 480px;
+    
 }
 
 .right-navbar li {
-    padding: 0 20px;
+    margin-bottom: 15px;
+}
+
+.cart {
+    padding: 15px;
+    margin-right: 10px;
 }
 
 }
