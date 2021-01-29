@@ -11,23 +11,111 @@
 */
 
 .main-header {
-    display: flex;
-    justify-content: space-around;  
+    display: flex; 
+    justify-content: space-between;
+    align-items: center; 
+    background-color: #1b1b1b;
+    position: relative;
+    
 }
 
 .img-logo{
-    width: 150px;
+    position: absolute;
+    width: 130px;
+    left: 120px;
+    top: 10px;
+}
+
+
+.left-navbar {
+    display: none;
+}
+
+.right-navbar {
+    display: flex;
+    display: none;
+}
+
+.right-navbar a {
+    color: white;
+    margin-right: 15px;
+}
+
+.search-bar input {
+    display: none;
+}
+
+.cart {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 30px;
+    color: #be9e44;
+}
+
+/* -----------------------------------------DESKTOP-------------------------------------------------*/
+ 
+@media (min-width: 992px) {
+    
+.search-bar {
+    background-color: white;
+    padding: 5px;
+    margin: auto;
+    width: 350px;
+    border-radius: 5px;
+
+}
+
+.search-bar input {
+    margin:auto;
+    outline: none;
+    width: 320px;
+
+}
+
+.icono-barrabusqueda {
+    outline: none;
+}
+
+.search-bar i {
+    background-color: white;
+    outline: none;
 }
 
 .navbar {
     display: flex;
     justify-content: space-around;
+    
 }
 
-.navbar li {
-    padding: 15px;
+.navbar ul {
+    list-style-type: none;
+}
+
+.navbar a {
+    color: white;
+    
 }
 
 .left-navbar {
     display: flex;
+    position: absolute;
+    margin-left: 80px;
+    top: 20px;
+}
+
+.left-navbar li {
+    margin-right: 15px;
+}
+
+.right-navbar {
+    display: flex;
+    position: absolute;
+    margin-top: 40px ;
+}
+
+.right-navbar li {
+    padding: 0 20px;
+}
+
 }

@@ -24,33 +24,42 @@
 <body>
     <div>
         <header class="main-header">
-            <figure class="img-logo">
-                <img src="images\Logo_1.jpg" alt="Logo Pagina">
-            </figure>
+            <section>
+                <a href="#" class="burger-menu"> 
+                    <i class="fa fa-bars burger"></i>
+                </a>  
+                <figure class="img-logo">
+                    <img src="images\Logo_1.jpg" alt="Logo Pagina">
+                </figure>
+            </section>
+            <section>
+                <nav class="navbar">
+                    <ul class="left-navbar">
+                        <li><a href="#">Hombre</a></li>
+                        <li><a href="#">Mujer</a></li>
+                        <li><a href="#">Ofertas</a></li>
+                    </ul>
 
-            <nav class="navbar">
-                <ul class="left-navbar">
-                    <li><a href="#">Hombre</a></li>
-                    <li><a href="#">Mujer</a></li>
-                    <li><a href="#">Ofertas</a></li>
-                </ul>
+                    <ul class="right-navbar">
+                        <li><a href="#">Iniciar Sesión</a></li>
+                        <li><a href="#">Registrarse</a></li>
+                    </ul>
 
-                <ul class="right-navbar">
-                    <li><a href="#">Iniciar Sesión</a></li>
-                    <li><a href="#">Registrarse</a></li>
-                </ul>
-
-            </nav>
-            <form action="GET">
-                <input type="search" name="BarraBusqueda" placeholder="Buscar productos">
-                <button type="submit" class="icono-barrabusqueda">
-                    <i class="fas fa-search"></i>
+                </nav>
+            </section>
+            <section>
+                <form action="GET" class="search-bar">
+                    <input type="search" name="BarraBusqueda" placeholder="Buscar productos">
+                    <button type="submit" class="icono-barrabusqueda">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </section>
+            <section>
+                <button class="cart">
+                    <i class="fas fa-shopping-cart"></i>
                 </button>
-            </form>
-            <button>
-                <i class="fas fa-shopping-cart"></i>
-            </button>
-
+            </section>
         </header>
         <main>
             <div>
