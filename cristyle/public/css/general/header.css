@@ -10,6 +10,8 @@
     PD: Usemos estos comentarios en el codigo, tanto HTML como CSS para comunicarnos
 */
 
+/*-----------------------------------------MOBILE-------------------------------------------------*/
+
 .main-header {
     background-color: #1b1b1b; 
 }
@@ -28,7 +30,6 @@
 
 .img-logo{
     width: 130px;
-    
 }
 
 .user i{
@@ -56,7 +57,7 @@
     margin: auto;
     margin-top: 10px;
     background-color: white;
-    width: 350px;
+    width: 350px; /* Ojo que al hacer esto si la resolucion es menor a 350px se rompe el sitio. Preferible ponerlo en % o en vw*/
     border-radius: 5px;
 }
 
@@ -77,7 +78,7 @@
     outline: none;
 }
 
-/* -----------------------------------------DESKTOP-------------------------------------------------*/
+/*-----------------------------------------DESKTOP-------------------------------------------------*/
  
 @media (min-width: 992px) {
     
@@ -87,7 +88,6 @@
     margin: auto;
     width: 350px;
     border-radius: 5px;
-
 }
 
 .search-bar input {
@@ -95,7 +95,6 @@
     margin:auto;
     outline: none;
     width: 320px;
-
 }
 
 .icono-barrabusqueda {
