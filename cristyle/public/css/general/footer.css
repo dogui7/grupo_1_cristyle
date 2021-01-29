@@ -18,6 +18,12 @@ footer{
     color: #ffffff;
     margin: 1rem;
     border-bottom: 1px #7e7e7e solid;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-links div{
+    border: red 1px solid;
 }
 
 .footer-links div p{
@@ -34,17 +40,23 @@ footer{
 
 /*-----------------------------------------TABLET-------------------------------------------------*/
 
-@media (min-width: 361px){
+@media (min-width: 768px){
 
-    .footer-links div{
-        width: 33%
-    }
+    
 }
 
 /*-----------------------------------------DESKTOP-------------------------------------------------*/
 
 @media (min-width: 992px){
+
+    .footer-links{
+        flex-direction: row;
+        
+    }
+
     .footer{
         flex-direction: row;
     }
+
+    
 }
