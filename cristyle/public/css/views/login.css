@@ -1,1 +1,63 @@
 /**** Login *****/
+
+/*-----------------------------------------MOBILE-------------------------------------------------*/
+
+main{
+    margin: 2rem 1rem;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+}
+
+/********************Registro********************/
+
+.registro{
+    border-bottom: 1px #7e7e7e solid;
+}
+
+.registro h2{
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.registro p{
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+#boton-registro{
+    margin-bottom: 2rem;
+}
+
+#boton-registro a{
+    color: #ffffff;
+    background-color: #57430D;
+    padding: 0.25rem;
+    border-radius: 2px;
+}
+
+#boton-registro a:hover{
+    background-color: #be9e44;
+}
+
+/********************Formulario********************/
+
+#formulario{
+    margin-top: 2rem;
+}
+
+
+
+/*-----------------------------------------TABLET-------------------------------------------------*/
+
+@media (min-width: 768px){
+
+}
+
+/*-----------------------------------------DESKTOP-------------------------------------------------*/
+
+@media (min-width: 992px){
+
+}
