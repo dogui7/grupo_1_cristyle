@@ -86,35 +86,41 @@
             <div class="main">
 
                 <section class="registro">
-                    <h2>NUEVOS CLIENTES</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt odit cupiditate adipisci hic consequuntur, eius optio nobis beatae ipsam. Dolor tenetur, doloribus unde quae reprehenderit suscipit cumque explicabo assumenda repudiandae.</p>
-                    <div id="boton-registro">
+                    <h2 class="titulo">NUEVOS CLIENTES</h2>
+                    <p class="parrafo">Al registrarte en nuestro sitio web, agilizaras el proceso de compra, te enterarás cuando tengamos ofertas especiales, ver y hacer un seguimiento de tus pedidos, y mucho más.</p>
+                    <div class="boton" id="registrarse">
                         <a href="/register">REGISTRARSE</a>
                     </div>
                 </section>
 
                 <section id="formulario">
+
+                    <section>
+                        <h2 class="titulo">CLIENTES REGISTRADOS</h2>
+                        <p class="parrafo">Si ya tienes una cuenta, ingresá tus datos a continuación</p>
+                    </section>
+
                     <form action="/" method="POST" class="formulario-login">
 
-                        <div class="campo">
-                            <input type="text" placeholder="Nombre de usuario" required>
+                        <div class="campo-texto">
+                            <input type="text" placeholder="Dirección de email" required>
                         </div>
                         
-                        <div class="campo">
+                        <div class="campo-texto">
                             <input type="password" placeholder="Contraseña" required>
                         </div>
         
-                        <div class="campo, boton-entrar">
-                            <button type="submit">Entrar</button>
+                        <div id="mantener-conectado">
+                            <input type="checkbox" name="mantener-conectado" value="mantener-conectado" id="mantener">
+                            <label for="mantener">Mantenerme conectado</label>
                         </div>
 
-                        <div>
-                            <input type="checkbox" name="mantener-conectado" value="true" id="mantener-conectado">
-                            <label for="mantener-conectado">Mantenerme conectado</label>
+                        <div class="boton" id="ingresar">
+                            <button type="submit">INGRESAR</button>
                         </div>
 
-                        <div>
-                            <p>Olvidaste tu contraseña?</p>
+                        <div id="olvidar-contraseña">
+                            <a href="#">Olvidaste tu contraseña?</a> 
                         </div>
 
                     </form>

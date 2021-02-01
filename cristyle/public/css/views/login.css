@@ -11,49 +11,136 @@ main{
     flex-direction: column;
 }
 
-/********************Registro********************/
+/********************Sugerencia Registro********************/
 
 .registro{
     border-bottom: 1px #7e7e7e solid;
+    padding-bottom: 2rem;
 }
 
-.registro h2{
+.titulo{
     font-size: 1rem;
     margin-bottom: 1rem;
 }
 
-.registro p{
+.parrafo{
     font-size: 0.8rem;
     margin-bottom: 1rem;
 }
 
-#boton-registro{
-    margin-bottom: 2rem;
-}
-
-#boton-registro a{
-    color: #ffffff;
+.boton{
     background-color: #57430D;
     padding: 0.25rem;
     border-radius: 2px;
+    width: fit-content;
 }
 
-#boton-registro a:hover{
+.boton a{
+    color: #ffffff;
+}
+
+.boton button{
+    color: #ffffff;
+}
+
+.boton:hover{
     background-color: #be9e44;
+    cursor: pointer;
 }
 
-/********************Formulario********************/
+.boton:hover button{
+    cursor: pointer;
+}
+
+/********************Formulario Login********************/
 
 #formulario{
     margin-top: 2rem;
 }
 
+.campo-texto{
+    display: flex;
+    align-items: center;
+    border: 1px #9e9e9e solid;
+    height: 2rem;
+    margin: 1rem 0;
+}
 
+.campo-texto input{
+    margin: 0 1rem;
+    width: 100%;
+}
 
+#mantener-conectado{
+    margin-bottom: 1rem;
+}
+
+#mantener-conectado input:hover{
+    cursor: pointer;
+}
+
+#mantener-conectado label{
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+#ingresar{
+    margin-bottom: 1rem;
+}
+
+#olvidar-contraseña a{
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+#olvidar-contraseña a:hover{
+    font-size: 0.8rem;
+    font-weight: 600;
+}
 /*-----------------------------------------TABLET-------------------------------------------------*/
 
 @media (min-width: 768px){
 
+    .main{
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        margin: 15vh 0;
+    }
+
+    .registro, #formulario{
+        width: 23rem;
+        height: 25rem;
+        border: 1px #7e7e7e solid;
+        margin: 0;
+        padding: 1rem;
+    }
+
+    .registro{
+        display: flex;
+        flex-direction: column;
+        position: relative
+    }
+
+    #registrarse{
+        position: absolute;
+        bottom: 1rem;
+    }
+
+    #formulario{
+        position: relative;
+    }
+
+    #ingresar{
+        position: absolute;
+        bottom: 0;
+    }
+
+    #olvidar-contraseña{
+        position: absolute;
+        bottom: 3rem;
+    }
 }
 
 /*-----------------------------------------DESKTOP-------------------------------------------------*/
