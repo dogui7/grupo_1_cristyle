@@ -15,14 +15,17 @@
 .main-header {
     background-color: #1b1b1b;
     position: relative; 
-}
+}   
 
 .top-header {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 5%;
+    margin: 0;
+    padding: 0;
+    
 }
+
 
 .burger-menu i {
     color: #be9e44;
@@ -57,9 +60,11 @@
     display: flex;
     margin: auto;
     margin-top: 5%;
+    margin-bottom: 5%;
     background-color: white;
-    width: 92%;
-    border-radius: 5px;
+    width: 100%;
+    border: 0.0625rem solid rgb(100, 100, 100);
+    
 }
 
 .search-bar input {
@@ -85,7 +90,8 @@
     .top-header {
         display: flex;
         justify-content: space-between;
-        margin-top: 2%;
+        margin: 0;
+        padding: 0;
     }
     
     .img-logo {
@@ -178,7 +184,8 @@
 .top-header {
     display: flex;
     justify-content: space-between;
-    margin-top: 1%;
+    margin:0;
+    padding: 0;
 }
 
 .img-logo {
