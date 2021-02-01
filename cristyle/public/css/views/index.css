@@ -49,3 +49,38 @@ main{
 .productos-home p {
     padding: 2%;
 }
+
+/* ===============================================================TABLET==============================================================*/
+
+@media (min-width:768px) {
+    .top-carrusel img {
+        height: 20rem;
+    }
+    
+    .productos-flex {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .productos-home {
+        width: 40%;
+    }
+}
+
+/* ==============================================================DESKTOP==============================================================*/
+
+@media (min-width: 992px) {
+    .top-carrusel img {
+        height: 25rem;
+        width: 80%;
+    }
+    
+    .productos-flex {
+        display: flex;
+        flex-wrap: wrap;
+    }
+   
+    .productos-home {
+       width: 20%;
+    }
+}
