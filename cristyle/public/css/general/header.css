@@ -254,13 +254,13 @@
 }
 
 .left-navbar li {
-    margin-right: 100%;
+    margin-right: 50%;
 }
 
 .right-navbar {
     position: absolute;
     display: block;
-    width: 10%;
+    width: 15%;
     top: 0;
     right:30%;
 }
