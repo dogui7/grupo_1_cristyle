@@ -1,1 +1,93 @@
 /**** productDetail *****/
+ul {
+    text-decoration: none;
+    list-style: none;
+}
+
+.titulo-producto {
+    text-align: center;
+}
+
+.left-images{
+    text-align: center;
+    display: flex;
+    margin-top: 1rem;
+}
+
+
+.left-images img {
+    width: 80%;
+    
+}
+
+.main-images {
+    text-align: center;
+}
+
+.main-images img {
+    width: 90%;
+}
+
+.left-flexbox {
+    margin-top: 1rem;
+}
+
+.colores-images {
+    display: none;
+}
+
+.descripcion-producto {
+    text-align: center;
+    margin: 0.8rem 0px;
+}
+
+.talles-producto {
+    text-align: center;
+}
+
+.label-talles {
+   margin: 0.5rem 0rem;
+}
+
+.botones-producto ul li {
+    background-color: black;
+    color: white;
+    text-align: center;
+    height: 3rem;
+    width: 90%;
+    margin: 0.5rem auto;
+    border-radius: 1.5rem;
+}
+
+.botones-producto ul li a {
+    color: white;
+    padding: 1rem;
+    
+}
+
+.botones-producto ul li i {
+     margin-top: 1rem;
+}
+
+.last-p {
+    display: none;
+}
+
+
+/*===================================TABLET=====================================*/
+/*===================================TABLET=====================================*/
+/*===================================TABLET=====================================*/
+/*===================================TABLET=====================================*/
+
+@media (min-width: 768px){
+
+};
+
+/*===================================DESKTOP=====================================*/
+/*===================================DESKTOP=====================================*/
+/*===================================DESKTOP=====================================*/
+/*===================================DESKTOP=====================================*/
+
+@media (min-width: 992px){
+
+};

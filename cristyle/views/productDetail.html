@@ -22,38 +22,194 @@
 </head>
 
 <body>
-    <div>
-        <!--************************************************************************************************************* 
-            Header
-        **************************************************************************************************************-->
-        
-        <header>
-            <!-------------------------------------------------------------------
-                 Etiqueta de ejemplo (utilizar para marcar logo, barra busqueda, login, registro, etc)
-            -------------------------------------------------------------------->
+    <!--============================================================================ HEADER===========================================================================================-->
+    <!--============================================================================ HEADER===========================================================================================-->
+    <!--============================================================================ HEADER===========================================================================================-->
+  <div>
+        <header class="main-header">
+            <section class="top-header">
+                <article>
+                    <a href="#" class="burger-menu"> 
+                        <i class="fa fa-bars burger"></i>
+                    </a>
+                </article>
+                <article>      
+                    <figure class="img-logo">
+                        <a href="/"><img src="images\Logo_1.jpg" alt="Logo Pagina"></a>
+                    </figure>
+                </article>
+                <article>    
+                    <a href="#" class="user">
+                        <i class="fas fa-user"></i>
+                    </a>
+                </article>
+                <article>
+                    <nav class="navbar">
+                        <ul class="left-navbar">
+                            <li><a href="#">Hombre</a></li>
+                            <li><a href="#">Mujer</a></li>
+                            <li><a href="#">Ofertas</a></li>
+                        </ul>
+
+                        <ul class="right-navbar">
+                            <li><a href="#">Iniciar Sesión</a></li>
+                            <li><a href="#">Registrarse</a></li>
+                        </ul>
+
+                    </nav>
+                </article>
+                <article>
+                    <button class="cart">
+                        <i class="fas fa-shopping-cart"></i>
+                    </button>
+                </article>
+            </section>
+            <section>
+                <article class="main-searchbar">
+                    <form action="GET" class="search-bar">
+                        <input type="search" name="BarraBusqueda" placeholder="Buscar productos">
+                        <button type="submit" class="icono-barrabusqueda">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </article>
+            </section>
         </header>
+  </div>
+  <!--============================================================================ MAIN===========================================================================================-->
+  <!--============================================================================ MAIN===========================================================================================-->
+  <!--============================================================================ MAIN===========================================================================================-->
+  <div>
+      <main>
+            <div class="titulo-producto">
+                <h2>PRODUCTO X</h2>
+            </div>
+            <div class="left-flexbox">
+                <section class="main-images">
+                    <figure>
+                        <img src="/images/ropamujer.jpg">
+                    </figure>
+                </section>
+                <section class="left-images">
+                    <figure>
+                        <img src="/images/ropamujer.jpg">
+                    </figure>
+                    <figure>
+                        <img src="/images/ropamujer.jpg">
+                    </figure>
+                    <figure>
+                        <img src="/images/ropamujer.jpg">
+                    </figure>
+                    <figure>
+                        <img src="/images/ropamujer.jpg">
+                    </figure>
+                </section>
+            </div>
+            <div>
+                <section>
+                    
+                    <div>
+                        <article class="colores-images">
+                            <figure>
+                                <img src="/images/ropamujer.jpg">
+                            </figure>
+                            <figure>
+                                <img src="/images/ropamujer.jpg">
+                            </figure>
+                        </article>
+                        <article>
+                            <p>  </p>
+                        </article>
+                    </div>
+                    
+                </section>
+                <section>
+                    <div class="descripcion-producto">
+                        <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
+                </section>
+                <section>
+                    <div  class="talles-producto">
+                        <form action="#" method="POST">
+                            <div class="label-talles">
+                                <label>Seleccione su talle</label>
+                            </div>
+                            <input  type= "checkbox" name="Talle" value= "Talle-S">
+                            <label for="Talle-S">S</label>
+                            <input  type= "checkbox" name="Talle" value= "Talle-M">
+                            <label for="Talle-M">M</label>
+                            <input  type= "checkbox" name="Talle" value= "Talle-L">
+                            <label for="Talle-L">L</label>
+                        </form>
+                    </div>
+                </section>
+                <section>
+                    <div class="botones-producto">
+                        <ul>
+                            <li><a href="/productCart">Añadir al carrito</a><i class="fas fa-shopping-cart"></i></li>
+                            <li><a href="#">Favoritos</a><i class="far fa-heart"></i></li>
+                        </ul>
+                    </div>
+                </section>
+                <section>
+                    <div class="last-p">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
+                    </div>
+                </section>
+            </div>
+      </main>
+  </div>
+  <!--============================================================================ FOOTER===========================================================================================-->
+  <!--============================================================================ FOOTER===========================================================================================-->
+  <!--============================================================================ FOOTER===========================================================================================-->
+  <div>
+      <footer>
+            <section class="footer">
 
-        <!--************************************************************************************************************* 
-            Main
-        **************************************************************************************************************-->
-        
-        <main>
-            <!-------------------------------------------------------------------
-                 Etiqueta de ejemplo (utilizar para marcar producto, carrousel, imagenes, etc)
-            -------------------------------------------------------------------->
-        </main>
+                <section class="footer-links">
+                    <section class="footer-links-izq">
+                        <div>
+                            <p>Hazte miembro</p>
+                        </div>
+                        <div>
+                            <p>Buscar una tienda</p>
+                        </div>
+                        <div>
+                            <p>Newsletter</p>
+                        </div>
+                    </section>
+                    
+                    <section class="footer-links-der"> 
+                        <div>
+                            <p>Estado del pedido</p>
+                        </div>
+                        <div>
+                            <p>Envío y seguimiento</p>
+                        </div>
+                        <div>
+                            <p>Contacto</p>
+                        </div>
+                    </section>
+                </section>
 
-        <!--************************************************************************************************************* 
-            Footer
-        **************************************************************************************************************-->
-        
-        <footer>
-            <!-------------------------------------------------------------------
-                 Etiqueta de ejemplo (utilizar para marcar redes sociales, textos, etc)
-            -------------------------------------------------------------------->
+                <section class="social-media">
+                    <div>
+                        <i class="fab fa-twitter-square"></i>
+                    </div>
+                    <div>
+                        <i class="fab fa-facebook-square"></i>    
+                    </div>
+                    <div>
+                        <i class="fab fa-youtube-square"></i>    
+                    </div>
+                    <div>
+                        <i class="fab fa-instagram-square"></i>    
+                    </div>
+                </section>
+
+            </section>
         </footer>
-    </div>
-    
+  </div>
 </body>
 <script src="https://kit.fontawesome.com/613ba21445.js" crossorigin="anonymous"></script>
 </html>

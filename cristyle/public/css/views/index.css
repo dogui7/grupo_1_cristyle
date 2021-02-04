@@ -12,7 +12,7 @@ main{
 }
 
 .top-carrusel h1 {
-    padding: 3% ;
+    padding: 2% ;
 }
 
 .top-carrusel img {
@@ -25,7 +25,7 @@ main{
 .top-carrusel p {
     width: 80%;
     margin: auto;
-    padding: 3%;
+    padding: 1%;
 }
 
 .boton-comprar {
