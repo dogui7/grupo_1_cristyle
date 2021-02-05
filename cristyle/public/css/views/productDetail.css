@@ -39,6 +39,7 @@ ul {
 .descripcion-producto {
     text-align: center;
     margin: 0.8rem 0px;
+    margin-bottom: 1rem;
 }
 
 .talles-producto {
@@ -48,6 +49,30 @@ ul {
 .label-talles {
    margin: 0.5rem 0rem;
 }
+
+.label-talles label {
+    font-weight: 100;
+}
+
+.check-list {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1rem 0rem;
+}
+
+.style-checklist {
+    background-color: #be9e44;
+    color: black;
+    width: 3rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+}
+
+.style-checklist div {
+    margin-top: 0.35rem;
+}
+
 
 .botones-producto ul li {
     background-color: black;
@@ -75,19 +100,29 @@ ul {
 
 
 /*===================================TABLET=====================================*/
-/*===================================TABLET=====================================*/
-/*===================================TABLET=====================================*/
-/*===================================TABLET=====================================*/
 
 @media (min-width: 768px){
 
-};
+}
 
-/*===================================DESKTOP=====================================*/
-/*===================================DESKTOP=====================================*/
-/*===================================DESKTOP=====================================*/
 /*===================================DESKTOP=====================================*/
 
 @media (min-width: 992px){
 
-};
+    main {
+        display: flex;
+    }
+
+    .main-images img {
+        width: 50%;
+    }
+
+    .left-images {
+        display: block;
+    }
+
+    .left-images img {
+        width: 10%;
+    }
+
+}
