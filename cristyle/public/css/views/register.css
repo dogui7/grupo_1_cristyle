@@ -1,1 +1,70 @@
 /**** Register *****/
+
+main {
+    margin: 10vh 1rem;
+}
+
+#titulo {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+/********************* Inputs *********************/
+
+.campo-texto {
+    display: flex;
+    align-items: center;
+    border: 1px #9e9e9e solid;
+    height: 2rem;
+    margin: 1rem 0;
+}
+
+.campo-texto input {
+    margin: 0 1rem;
+    width: 100%;
+}
+
+/********************* Terminos y condiciones *********************/
+
+#terminos-condiciones {
+    margin-bottom: 1rem;
+}
+
+#terminos-condiciones label {
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+#terminos-condiciones input:hover  {
+    cursor: pointer;
+}
+
+/********************* Botones *********************/
+
+.boton {
+    background-color: #57430D;
+    padding: 0.25rem;
+    border-radius: 2px;
+    width: fit-content;
+}
+
+.boton button {
+    color: #ffffff;
+}
+
+.boton:hover {
+    background-color: #be9e44;
+    cursor: pointer;
+}
+
+.boton:hover button {
+    cursor: pointer;
+}
+
+/*-----------------------------------------TABLET-------------------------------------------------*/
+
+@media (min-width: 768px) {
+
+}
+
+/*-----------------------------------------DESKTOP-------------------------------------------------*/
