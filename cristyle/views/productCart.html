@@ -23,14 +23,59 @@
 
 <body>
     <div>
+
         <!--************************************************************************************************************* 
             Header
         **************************************************************************************************************-->
-        
-        <header>
-            <!-------------------------------------------------------------------
-                 Etiqueta de ejemplo (utilizar para marcar logo, barra busqueda, login, registro, etc)
-            -------------------------------------------------------------------->
+
+        <header class="main-header">
+            <section class="top-header">
+                <article>
+                    <a href="#" class="burger-menu"> 
+                        <i class="fa fa-bars burger"></i>
+                    </a>
+                </article>
+                <article>      
+                    <figure class="img-logo">
+                        <a href="/"><img src="images\Logo_1.jpg" alt="Logo Pagina"></a>
+                    </figure>
+                </article>
+                <article>    
+                    <a href="#" class="user">
+                        <i class="fas fa-user"></i>
+                    </a>
+                </article>
+                <article>
+                    <nav class="navbar">
+                        <ul class="left-navbar">
+                            <li><a href="#">Hombre</a></li>
+                            <li><a href="#">Mujer</a></li>
+                            <li><a href="#">Ofertas</a></li>
+                        </ul>
+
+                        <ul class="right-navbar">
+                            <li><a href="/login">Iniciar Sesión</a></li>
+                            <li><a href="/register">Registrarse</a></li>
+                        </ul>
+
+                    </nav>
+                </article>
+                <article>
+                    <button class="cart">
+                        <i class="fas fa-shopping-cart"></i>
+                    </button>
+                </article>
+            </section>
+            <section>
+                <article class="main-searchbar">
+                    <form action="GET" class="search-bar">
+                        <input type="search" name="BarraBusqueda" placeholder="Buscar productos">
+                        <button type="submit" class="icono-barrabusqueda">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </article>
+            </section>
         </header>
 
         <!--************************************************************************************************************* 
@@ -43,14 +88,55 @@
             -------------------------------------------------------------------->
         </main>
 
-        <!--************************************************************************************************************* 
+       <!--************************************************************************************************************* 
             Footer
         **************************************************************************************************************-->
-        
+
         <footer>
-            <!-------------------------------------------------------------------
-                 Etiqueta de ejemplo (utilizar para marcar redes sociales, textos, etc)
-            -------------------------------------------------------------------->
+            <section class="footer">
+
+                <section class="footer-links">
+                    <section class="footer-links-izq">
+                        <div>
+                            <p>Hazte miembro</p>
+                        </div>
+                        <div>
+                            <p>Buscar una tienda</p>
+                        </div>
+                        <div>
+                            <p>Newsletter</p>
+                        </div>
+                    </section>
+                    
+                    <section class="footer-links-der"> 
+                        <div>
+                            <p>Estado del pedido</p>
+                        </div>
+                        <div>
+                            <p>Envío y seguimiento</p>
+                        </div>
+                        <div>
+                            <p>Contacto</p>
+                        </div>
+                    </section>
+                </section>
+
+                <section class="social-media">
+                    <div>
+                        <i class="fab fa-twitter-square"></i>
+                    </div>
+                    <div>
+                        <i class="fab fa-facebook-square"></i>    
+                    </div>
+                    <div>
+                        <i class="fab fa-youtube-square"></i>    
+                    </div>
+                    <div>
+                        <i class="fab fa-instagram-square"></i>    
+                    </div>
+                </section>
+
+            </section>
         </footer>
     </div>
     
