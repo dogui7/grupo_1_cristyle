@@ -11,6 +11,13 @@ main {
 
 /********************* Inputs *********************/
 
+#logo-formulario {
+    width: 50%;
+    margin: auto;
+}
+
+/********************* Inputs *********************/
+
 .campo-texto {
     display: flex;
     align-items: center;
@@ -65,6 +72,31 @@ main {
 
 @media (min-width: 768px) {
 
+    main {
+        margin: 10vh 1rem;
+    }
+
+    #main {
+        margin: auto;
+    }
+
+    #formulario {
+        width: 23rem;
+        height: 35rem;
+        margin: auto;
+        border: 1px #7e7e7e solid;
+        padding: 1rem;
+        position: relative;
+    }
+
+    #terminos-condiciones {
+        margin-bottom: 6 px;
+    }
+
+    #registrarme {
+        position: absolute;
+        bottom: 1rem;
+    }
 }
 
 /*-----------------------------------------DESKTOP-------------------------------------------------*/
