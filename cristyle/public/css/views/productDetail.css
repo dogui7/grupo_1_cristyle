@@ -141,15 +141,15 @@ ul {
     .left-flexbox {
         display: flex;
         justify-content: left;
-        width: 70%;
-        margin-left: 3%;
-        padding: 2%;
+        width: 50%;
+        margin-left: 12%;
+    
 
     }
 
     .right-flexbox {
        text-align: center;
-       width: 18%;
+       width: 25%;
        margin: 0 auto;
        position: relative;
     }
