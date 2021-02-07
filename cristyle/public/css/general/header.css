@@ -78,7 +78,7 @@
     outline: none;
 }
 
-.cart {
+.cart a {
     font-size: 160%;
     color:#be9e44;
     outline: none;

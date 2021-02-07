@@ -1,1 +1,20 @@
 /**** productCart *****/
+.titulo {
+    margin-left: 3%;
+    margin-right: 5%;
+}
+
+.flex-total {
+    display:flex;
+    justify-content: space-between;
+}
+
+.flex-total button  {
+    background-color: black;
+    color: white;
+}
+
+.total-margin {
+    margin-top: 5%;
+}
+
