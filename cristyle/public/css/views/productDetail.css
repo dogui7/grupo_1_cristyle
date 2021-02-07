@@ -48,10 +48,12 @@ ul {
 
 .label-talles {
    margin: 0.5rem 0rem;
+   text-align: center;
 }
 
 .label-talles label {
     font-weight: 100;
+
 }
 
 .check-list {
@@ -98,6 +100,14 @@ ul {
     display: none;
 }
 
+.colores {
+    display: none;
+}
+
+.titulo-producto-desktop {
+    display: none;
+}
+
 
 /*===================================TABLET=====================================*/
 
@@ -109,20 +119,122 @@ ul {
 
 @media (min-width: 992px){
 
+    .titulo-producto {
+        display: none;
+    }
+
+    .titulo-producto-desktop {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 4%;
+        
+    }
+
     main {
         display: flex;
+        margin-bottom: 1%;
+    
+        
+    }
+
+    .left-flexbox {
+        display: flex;
+        justify-content: left;
+        width: 70%;
+        margin-left: 3%;
+        padding: 2%;
+
+    }
+
+    .right-flexbox {
+       text-align: center;
+       width: 18%;
+       margin: 0 auto;
+       position: relative;
+    }
+
+    .in-flexbox {
+        margin-top: 13%;
+    }
+
+    .descripcion-producto {
+        text-align: right;
+        margin-bottom: 5%;
+        font-size: 1.2rem;
+    }
+
+    .descripcion-producto h3 {
+        display: none;
+    }
+
+    .colores{
+        margin-left: 1%;
+        display: block;
+        text-align: left;
+    }
+
+    .colores p {
+        color: gray;
+    }
+
+    .colores-images {
+        display: flex;
+        width: 80%;
+        align-items: center;
+        margin-bottom: 10%;
+
+    }
+
+    .colores-images img {
+        padding: 0.3rem;
+    }
+    
+    .label-talles {
+        text-align: left;
+    }
+
+    .label-talles label {
+        font-size: 1.1rem;
+        margin: auto;
+        text-align: left;
+    }
+
+    .check-list {
+        justify-content: space-between;
+    }
+
+    .botones-producto ul li {
+        width: 100%;
+        margin: 7% 0%;
+    }
+
+    .last-p {
+        display: block;
+        
+    }
+
+    .main-images {
+        order: 2;
+        width: 80%;
     }
 
     .main-images img {
-        width: 50%;
+        width: 100%;
+       
     }
 
     .left-images {
         display: block;
+        text-align: center;
+        width: 20%;
+        margin-top: 0.5%;
+        
     }
 
     .left-images img {
-        width: 10%;
+        width: 100%;  
+        padding: 5%;
     }
 
 }
