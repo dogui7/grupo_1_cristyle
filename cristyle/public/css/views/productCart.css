@@ -49,7 +49,6 @@
 .total-margin {
     margin-top: 4%;
     width: 20%;
-    border: red 1px dotted;
 }
 
 /************************* Productos *******************************/
@@ -173,8 +172,7 @@
 /************************* Izquierda carrito *******************************/
 
     #izquierda-carrito {
-        width: 50vw;
-        
+        width: 40vw;
     }
 
 /************************* Derecha carrito *******************************/
