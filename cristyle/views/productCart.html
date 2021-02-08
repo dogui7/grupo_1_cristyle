@@ -85,117 +85,174 @@
         <main>
             <div>
                 <div class="titulo">
-                    <section>
+
+                    <section id="tu-carrito">
                         <h1> TU CARRITO </h1>
                     </section>
+
                     <div class="flex-total">
+
                         <div class="total-margin">
                             <p> TOTAL </p>
                             <p> $$$$ </p>
                         </div>
-                        <button type="submit">
-                            <a href="#">IR A PAGAR <i class="fas fa-long-arrow-alt-right"></i></a>
-                        </button>              
+
+                        <form action="/productCart" method="POST" id="boton-pagar-1">
+                            <div class="boton" id="pagar">
+                                <button type="submit">IR A PAGAR</button>
+                            </div>
+                        </form>             
                     </div>
                 </div>
-                <div class="border">
 
-                </div>
-                <div class= 'flex-main'>
-                    <section class="img-main">
-                        <figure>
-                            <img src="images/ropamujer.jpg">
-                        </figure>
-                    </section>
-                    <section class="section-flex">
-                        <div class="descripcion-producto">
-                            <p>VESTIDO</p>
-                            <p>MODELO</p>
-                            <p>COLOR</p>
-                            <p>TAMANIO</p>
-                            <p>PRECIO</p>
-                        </div>
-                        <div>
-                            <div><a href="#"><i class="fas fa-times"></i></a></div>
-                            <div><a href="#"><i class="far fa-heart"></i></a></div>
-                        </div>
-                    </section>
-                    
-                </div>
-                <div class="border">
+                <section id="carrito">
+                    <section id="izquierda-carrito">
 
-                </div>
-                <div class="resumen-pedido">
-                    <section class="titulo-resumen">
-                        <h3> RESUMEN DEL PEDIDO </h3>
+                        <!------------------------------------------------------------------------ 
+                            Producto 1 
+                        -------------------------------------------------------------------------->
+    
+                        <div class= 'flex-main'>
+                        
+                            <figure class="img-main">
+                                <img src="images/carrito/tuxedo_blanco.jpg">
+                            </figure>
+                           
+                            <section class="section-flex">
+        
+                                <div class="descripcion-producto">
+                                    <p>TUXEDO</p>
+                                    <p>MODELO:</p>
+                                    <p>COLOR: Blanco</p>
+                                    <p>TAMAÑO: S</p>
+                                    <p>PRECIO: $7600</p>
+                                </div>
+        
+                                <div>
+                                    <a href="#"><i class="fas fa-times"></i></a>
+                                    <a href="#"><i class="far fa-heart"></i></a>
+                                </div>
+        
+                            </section>
+                            
+                        </div>
+        
+                        <!------------------------------------------------------------------------ 
+                            Producto 2 
+                        -------------------------------------------------------------------------->
+        
+                        <div class= 'flex-main'>
+                            
+                            <figure class="img-main">
+                                <img src="images/carrito/vestido_rojo.jpg">
+                            </figure>
+            
+                            <section class="section-flex">
+        
+                                <div class="descripcion-producto">
+                                    <p>VESTIDO</p>
+                                    <p>MODELO: </p>
+                                    <p>COLOR: Rojo</p>
+                                    <p>TAMAÑO: L</p>
+                                    <p>PRECIO: $8550</p>
+                                </div>
+        
+                                <div>
+                                    <a href="#"><i class="fas fa-times"></i></a>
+                                    <a href="#"><i class="far fa-heart"></i></a>
+                                </div>
+        
+                            </section>
+                            
+                        </div>
                     </section>
-                    <section>
-                        <article class="flex-resumen">
-                            <p> PRECIO ORGINAL</p>
-                            <P>$$$$</P>
-                        </article>
-                        <article class="flex-resumen">
-                            <p> DESCUENTO</p>
-                            <P>-$$$$</P>
-                        </article>
-                        <article class="flex-resumen">
-                            <p>1 PRODUCTO</p>
-                            <P>$$$$</P>
-                        </article>
-                        <article class="flex-resumen">
-                            <p>ENTREGA</p>
-                            <P>$$$$</P>
-                        </article>
-                        <article class="flex-resumen">
-                            <p> TOTAL</p>
-                            <P>$$$$</P>
-                        </article>
-                        <article>
-                            <P>(IVA incluido en todos los prductos)</P>
-                        </article>
+    
+                    <section id="derecha-carrito">
+    
+                        <!------------------------------------------------------------------------ 
+                            Resumen pedido 
+                        -------------------------------------------------------------------------->
+    
+                        <div class="resumen-pedido">
+                            <section class="titulo-resumen">
+                                <h3> RESUMEN DEL PEDIDO </h3>
+                            </section>
+                            <section>
+                                <section class="flex-resumen">
+                                    <p>2 PRODUCTOS</p>
+                                </section>
+                                <section class="flex-resumen">
+                                    <p>PRECIO ORIGINAL</p>
+                                    <P>$16150</P>
+                                </section>
+                                <section class="flex-resumen">
+                                    <p>DESCUENTO</p>
+                                    <P>-$2000</P>
+                                </section>
+                                <section class="flex-resumen">
+                                    <p>ENTREGA</p>
+                                    <P>$800</P>
+                                </section>
+                                <section class="flex-resumen">
+                                    <p>TOTAL</p>
+                                    <P>14950</P>
+                                </section>
+                                <section>
+                                    <P>(IVA incluido en todos los productos)</P>
+                                </section>
+                            </section>
+    
+                            <section>
+                                
+                                <form action="/productCart" method="POST" id="boton-pagar-2">
+                                    <div class="boton" id="pagar">
+                                        <button type="submit">IR A PAGAR</button>
+                                    </div>
+                                </form>   
+                                
+                            </section>
+                        </div>
+    
+                        
+                        <section class="extras">
+        
+                            <article class="extras2">
+                                <p><i class="fas fa-truck"></i> ENVIO GRATIS A PARTIR DE $2500</p>
+                            </article>
+        
+                            <article class="extras2">
+                                <p><i class="fas fa-exchange-alt"></i> CAMBIOS GRATIS</p>
+                            </article>
+        
+                            <article class="extras2">
+                                <p><i class="fas fa-exclamation-triangle"></i> ¡COMPRA AHORA! TU CARRITO NO ASEGURA TU INVENTARIO</p>
+                            </article>
+        
+                        </section>
+    
+                        <section class="opciones-pago">
+                            <p>OPCIONES DE PAGO</p>
+                        </section>
+                        <section class="flex-opcionespago">
+                            <div>
+                                <i class="fab fa-cc-visa"></i>
+                            </div>
+                            <div>
+                                <i class="fab fa-cc-mastercard"></i>
+                            </div>
+                            <div>
+                                <i class="fab fa-cc-amex"></i>
+                            </div>
+                            <div>
+                                <i class="fas fa-comment-dollar"></i>
+                            </div>
+        
+                        </section>
+                        
                     </section>
-                    <section class="boton-pagar2">
-                        <button>
-                            <p><a href="#" class="a-pagar">IR A PAGAR  <i class="fas fa-long-arrow-alt-right"></i></a></p>
-                        </button>
-                    </section>
-                </div>
-                <div>
-                    <section class="extras">
-                        <article class="extras2">
-                            <p><i class="fas fa-truck"></i> ENVIO GRATIS A PARTIR DE $2500</p>
-                        </article>
-                        <article class="extras2">
-                            <p><i class="fas fa-exchange-alt"></i> CAMBIOS GRATIS</p>
-                        </article>
-                        <article class="extras2">
-                            <p><i class="fas fa-exclamation-triangle"></i> ¡COMPRA AHORA! TU CARRITO NO ASEGURA TU INVENTARIO</p>
-                        </article>
-                    </section>
-                </div>
-                <div class="border">
+                </section>
+                
 
-                </div>
-                <div>
-                    <section class="opciones-pago">
-                        <p>OPCIONES DE PAGO</p>
-                    </section>
-                    <section class="flex-opcionespago">
-                        <div>
-                            <i class="fab fa-cc-visa"></i>
-                        </div>
-                        <div>
-                            <i class="fab fa-cc-mastercard"></i>
-                        </div>
-                        <div>
-                            <i class="fab fa-cc-amex"></i>
-                        </div>
-                        <div>
-                            <i class="fas fa-comment-dollar"></i>
-                        </div>
-
-                    </section>
-                </div>
             </div>   
         </main>
 
