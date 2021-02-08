@@ -2,13 +2,11 @@
 
 main{
     background-color: white;
-    
 }
 
 .top-carrusel {
     text-align: center;
     margin: 1rem;
-   
 }
 
 .top-carrusel h1 {
@@ -16,8 +14,6 @@ main{
 }
 
 .top-carrusel img {
-    width: 100%;
-    height: 100%;
     margin: 0;
     padding: 0;
 }
@@ -87,7 +83,6 @@ main{
 @media (min-width: 992px) {
     .top-carrusel img {
         height: 25rem;
-        width: 80%;
     }
     
     .productos-flex {

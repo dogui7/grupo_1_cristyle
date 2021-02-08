@@ -125,17 +125,13 @@ ul {
 
     .titulo-producto-desktop {
         display: block;
-        position: absolute;
-        left: 0;
-        top: 4%;
-        
+        text-align: left;
+        margin-top: 2rem;
     }
 
     main {
         display: flex;
         margin-bottom: 1%;
-    
-        
     }
 
     .left-flexbox {
@@ -143,8 +139,6 @@ ul {
         justify-content: left;
         width: 50%;
         margin-left: 12%;
-    
-
     }
 
     .right-flexbox {
@@ -155,12 +149,12 @@ ul {
     }
 
     .in-flexbox {
-        margin-top: 13%;
+        margin-top: 1rem;
     }
 
     .descripcion-producto {
-        text-align: right;
-        margin-bottom: 5%;
+        text-align: left;
+        margin-bottom: 1rem;
         font-size: 1.2rem;
     }
 
