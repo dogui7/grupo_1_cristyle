@@ -2,19 +2,121 @@
 .titulo {
     margin-left: 3%;
     margin-right: 5%;
+    
+}
+
+.border {
+    margin: 5% 3%;
+    border-bottom: solid 1px grey;
+    
 }
 
 .flex-total {
     display:flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .flex-total button  {
     background-color: black;
+    width: 45%;
+    height: 3rem;
+    border-radius: 0.5rem;
+}
+
+.flex-total button a {
     color: white;
 }
 
 .total-margin {
-    margin-top: 5%;
+    margin-top: 4%;
+}
+
+.flex-main {
+    display: flex;
+    justify-content: flex-start;
+    align-items: initial;
+    margin-bottom: 5%;
+   
+}
+
+.img-main{
+    width: 50%;
+    margin-left: 3%;
+}
+
+.section-flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.descripcion-producto {
+    margin-right: 30%;
+    margin-left: 40%;
+}
+
+.descripcion-producto p {
+    margin-bottom: 20%;
+}
+
+.resumen-pedido {
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.titulo-resumen {
+    margin: 2% 0%;
+}
+
+.flex-resumen {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5%;
+}
+
+.boton-pagar2 {
+    margin:3% auto;
+    background-color: black;
+    width: 50%; 
+    height: 3rem;
+    text-align: center;
+    border-radius: 0.5rem;
+}
+
+.boton-pagar2 button p a {
+    color: white;  
+}
+
+.boton-pagar2 button p {
+    margin-top: 10%;
+}
+
+.extras {
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.extras2 {
+    margin-bottom: 2%;
+    
+}
+
+.opciones-pago {
+    margin-left: 3%;
+}
+
+.flex-opcionespago {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.flex-opcionespago div {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.flex-opcionespago div i {
+    font-size: 2rem;
 }
 
