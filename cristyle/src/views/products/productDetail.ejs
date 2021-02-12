@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CriStyle</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Poiret+One&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="​https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css​">
+
+    <!-- Css generico -->
+    <link rel="stylesheet" href="/css/general/normalize.css">
+    <link rel="stylesheet" href="/css/general/footer.css">
+    <link rel="stylesheet" href="/css/general/header.css">
+    <!-- Css real -->
+    <link rel="stylesheet" href="/css/views/productDetail.css">
+    
+</head>
+
+<body>
+
+    <%- include("../partials/header") %>
+
+    <main>
+        <div class="titulo-producto">
+            <h2>PRODUCTO X</h2>
+        </div>
+        <div class="left-flexbox">
+            <section class="main-images">
+                <figure>
+                    <img src="/images/productDetail/ropamujer.jpg">
+                </figure>
+            </section>
+            <section class="left-images">
+                <figure>
+                    <img src="/images/productDetail/ropamujer.jpg">
+                </figure>
+                <figure>
+                    <img src="/images/productDetail/ropamujer.jpg">
+                </figure>
+                <figure>
+                    <img src="/images/productDetail/ropamujer.jpg">
+                </figure>
+                <figure>
+                    <img src="/images/productDetail/ropamujer.jpg">
+                </figure>
+            </section>
+        </div>
+        <div class="right-flexbox">
+            <div class="titulo-producto-desktop">
+                <h3>PRODUCTO X</h3>
+            </div>
+            <div class="in-flexbox">
+                <section>
+                    <div class="descripcion-producto">
+                        <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h3>
+                        <p> $4500 </p>
+                    </div>
+                </section>
+
+                <section>
+        
+                    <div>
+                        <article class="colores">
+                            <p>Color</p>
+                        </article>
+                        <article class="colores-images">
+                            <figure>
+                                <img src="/images/productDetail/ropamujer.jpg">
+                            </figure>
+                            <figure>
+                                <img src="/images/productDetail/ropamujer.jpg">
+                            </figure>
+        
+                        </article>
+                    </div>
+        
+                </section>
+        
+                <section>
+                    <div class="label-talles">
+                        <label>Seleccione su talle</label>
+                    </div>
+                    <div class="talles-producto">
+                        <form action="#" method="POST">
+        
+                            <div class="check-list">
+                                <div class="style-checklist">
+                                    <div>
+                                        <label for="Talle-S"><a href="#">S</a></label>
+                                    </div>
+                                </div>
+                                <div class="style-checklist">
+                                    <div>
+                                        <label for="Talle-M"><a href="#">M</a></label>
+                                    </div>
+                                </div>
+                                <div class="style-checklist">
+                                    <div>
+                                        <label for="Talle-L"><a href="#">L</a></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+                <section>
+                    <div class="botones-producto">
+                        <ul>
+                            <li><a href="/products/cart">Añadir al carrito</a><i class="fas fa-shopping-cart"></i></li>
+                            <li><a href="#">Favoritos</a><i class="far fa-heart"></i></li>
+                        </ul>
+                    </div>
+                </section>
+                <section>
+                    <div class="last-p">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+        
+    <%- include("../partials/footer") %>
+
+</body>
+<script src="https://kit.fontawesome.com/613ba21445.js" crossorigin="anonymous"></script>
+</html>

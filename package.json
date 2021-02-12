@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "node cristyle/app.js",
-    "test": "nodemon cristyle/app.js"
+    "start": "node cristyle/src/app.js",
+    "test": "nodemon cristyle/src/app.js"
   },
   "author": "",
   "license": "ISC",

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CriStyle</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Poiret+One&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="​https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css​">
+
+    <!-- Css generico -->
+    <link rel="stylesheet" href="/css/general/normalize.css">
+    <link rel="stylesheet" href="/css/general/footer.css">
+    <link rel="stylesheet" href="/css/general/header.css">
+    <!-- Css real -->
+    <link rel="stylesheet" href="/css/views/index.css">
+    
+</head>
+
+<body>
+    
+    <%- include("./partials/header") %>
+
+    <main>
+
+        <!-- Implementar carrusel a futuro -->
+        <div class="top-carrusel">
+            <section>
+                <figure>
+                    <img src="images/index/carrusel.jpg" class="imagen-carrusel">
+                </figure>
+                <h1>¡Rebajas CriStyle!</h1>
+                <p> Una página donde las prendas estan a la altura de tu estilo </p>
+            </section>
+        </div>
+
+        <div class="productos-flex">
+            <div class="productos-home">
+                <section>
+                    <figure>
+                        <a href="/products/detail"><img src="images/index/vestido_rojo.jpg" class="imgagen-productos"></a>
+                    </figure>
+                    <h3>VESTIDO SUNRISE</h3>
+                    <p>$4.500</p>
+                    <button type="submit" class="boton-comprar">
+                        <a href="/products/cart">COMPRAR</a>
+                    </button>
+                </section>
+            </div>
+            <div class="productos-home">
+                <section>
+                    <figure>
+                        <a href="/products/detail"><img src="images/index/campera-pretty.jpg"
+                                class="imgagen-productos"></a>
+                    </figure>
+                    <h3> CAMPERA PRETTYSTYLE</h3>
+                    <p>$12.000</p>
+                    <button type="submit" class="boton-comprar">
+                        <a href="/products/cart">COMPRAR</a>
+                    </button>
+                </section>
+            </div>
+            <div class="productos-home">
+                <section>
+                    <figure>
+                        <a href="/products/detail"><img src="images/index/campera_black_stone.jpg"
+                                class="imgagen-productos"></a>
+                    </figure>
+                    <h3>CAMPERA ROMA BLACK STONE</h3>
+                    <p>$3.000</p>
+                    <button type="submit" class="boton-comprar">
+                        <a href="/products/cart">COMPRAR</a>
+                    </button>
+                </section>
+            </div>
+            <div class="productos-home">
+                <section>
+                    <figure>
+                        <a href="/products/detail"><img src="images/index/top-venec.jpg" class="imgagen-productos"></a>
+                    </figure>
+                    <h3>TOP VENEC PRINT</h3>
+                    <p>$3.750</p>
+                    <button type="submit" class="boton-comprar">
+                        <a href="/products/cart">COMPRAR</a>
+                    </button>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <%- include("./partials/footer") %>
+    
+</body>
+<!-- FontAwesome -->
+<script src="https://kit.fontawesome.com/613ba21445.js" crossorigin="anonymous"></script>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CriStyle</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Poiret+One&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="​https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css​">
+
+    <!-- Css generico -->
+    <link rel="stylesheet" href="/css/general/normalize.css">
+    <link rel="stylesheet" href="/css/general/footer.css">
+    <link rel="stylesheet" href="/css/general/header.css">
+    <!-- Css real -->
+    <link rel="stylesheet" href="/css/views/login.css">
+    
+</head>
+
+<body>
+
+    <%- include("../partials/header") %>
+    
+    <main>
+        <div class="main">
+    
+            <section class="registro">
+                <h2 class="titulo">NUEVOS CLIENTES</h2>
+                <p class="parrafo">Al registrarte en nuestro sitio web, agilizaras el proceso de compra, te enterarás
+                    cuando tengamos ofertas especiales, podrás hacer un seguimiento de tus pedidos, y mucho más.</p>
+                <div class="boton" id="registrarse">
+                    <a href="/register">REGISTRARSE</a>
+                </div>
+            </section>
+    
+            <section id="formulario">
+    
+                <section>
+                    <h2 class="titulo">CLIENTES REGISTRADOS</h2>
+                    <p class="parrafo">Si ya tienes una cuenta, ingresá tus datos a continuación</p>
+                </section>
+    
+                <form action="/" method="POST" class="formulario-login">
+    
+                    <div class="campo-texto">
+                        <input type="email" placeholder="Dirección de email" required>
+                    </div>
+    
+                    <div class="campo-texto">
+                        <input type="password" placeholder="Contraseña" required minlength="8">
+                    </div>
+    
+                    <div id="mantener-conectado">
+                        <input type="checkbox" name="mantener-conectado" value="mantener-conectado" id="mantener">
+                        <label for="mantener">Mantenerme conectado</label>
+                    </div>
+    
+                    <div class="boton" id="ingresar">
+                        <button type="submit">INGRESAR</button>
+                    </div>
+    
+                    <div id="olvidar-contraseña">
+                        <a href="#">Olvidaste tu contraseña?</a>
+                    </div>
+    
+                </form>
+            </section>
+    
+        </div>
+    </main>
+
+    <%- include("../partials/footer") %>
+
+</body>
+<!-- FontAwesome -->
+<script src="https://kit.fontawesome.com/613ba21445.js" crossorigin="anonymous"></script>
+</html>
