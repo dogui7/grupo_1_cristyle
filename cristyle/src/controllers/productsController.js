@@ -8,5 +8,6 @@ module.exports = {
 
     cart: (req, res) => {
         return res.render(path.resolve (__dirname, "../views/products/productCart.ejs"))
+
     }
 }
