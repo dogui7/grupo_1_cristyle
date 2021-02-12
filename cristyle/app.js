@@ -14,21 +14,21 @@ app.listen (app.get('puerto'), () => {
 } );
 
 app.get('/',(req,res)=>{
-    res.sendFile (path.resolve (__dirname, './views/index.html'))
+    res.render (path.resolve (__dirname, './views/index.ejs'))
 });
 
 app.get('/login',(req,res)=>{
-    res.sendFile (path.resolve (__dirname, './views/login.html'))
+    res.render (path.resolve (__dirname, './views/login.ejs'))
 });
 
 app.get('/register',(req,res)=>{
-    res.sendFile (path.resolve (__dirname, './views/register.html'))
+    res.render (path.resolve (__dirname, './views/register.ejs'))
 });
 
 app.get('/productCart',(req,res)=>{
-    res.sendFile (path.resolve (__dirname, './views/productCart.html'))
+    res.render (path.resolve (__dirname, './views/productCart.ejs'))
 });
 
 app.get('/productDetail',(req,res)=>{
-    res.sendFile (path.resolve (__dirname, './views/productDetail.html'))
+    res.render (path.resolve (__dirname, './views/productDetail.ejs'))
 });
