@@ -3,11 +3,14 @@ const path = require("path");
 module.exports = {
 
     login: (req, res) => {
-        return res.render(path.resolve (__dirname, "../views/users/login.ejs"))
+        let cssSheets = ["login"];
+        let title = "Inicio de sesión";
+        return res.render(path.resolve (__dirname, "../views/users/login.ejs"), {cssSheets, title})
     },
 
     register: (req, res) => {
-        return res.render(path.resolve (__dirname, "../views/users/register.ejs"))
-
+        let cssSheets = ["register"];
+        let title = "Registro";
+        return res.render(path.resolve (__dirname, "../views/users/register.ejs"), {cssSheets, title})
     }
 }
