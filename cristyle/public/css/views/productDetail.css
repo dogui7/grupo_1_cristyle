@@ -108,6 +108,23 @@ ul {
     display: none;
 }
 
+.buton-edit {
+    text-align: center;
+    background-color: #be9e44 ;
+    width: 90%;
+    margin: 0rem auto 0.5rem auto;
+    height: 3rem;
+    border-radius: 1.5rem;
+}
+
+.buton-edit a {
+    list-style: none;
+}
+
+.buton-edit  a li {
+    padding: 0.8rem;
+}
+
 
 /*===================================TABLET=====================================*/
 
@@ -230,5 +247,10 @@ ul {
         width: 100%;  
         padding: 5%;
     }
+
+    .buton-edit {
+        width: 100%;
+    }
+   
 
 }
