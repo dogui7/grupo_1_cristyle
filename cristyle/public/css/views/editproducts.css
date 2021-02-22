@@ -1,0 +1,142 @@
+.container {
+    width: 100%;
+}
+
+.products-title {
+    margin-left: 3%;
+    font-weight: 100;
+}
+
+.form-padding {
+    padding: 3%;
+}
+
+.form-create {
+    background-color: #ebebeb;
+    border-radius: 5%;
+}
+
+.form-class {
+    padding: 1rem;
+}
+
+.form-input {
+    width: 100%;
+    height: 2.5rem;
+    border: solid #1b1b1b 1px;
+    border-radius: 0.5rem;
+    padding: 3%;
+    margin-top: 5%;
+}
+
+.form-image {
+    width: 100%;
+    margin-top: 3%;
+}
+
+.description {
+    width: 100%;
+    height: 6rem;
+    border: solid #1b1b1b 1px;
+    border-radius: 0.5rem;
+    padding: 3%;
+    margin-top: 5%;
+}
+
+.buy-now-button {
+    background-color: #be9e44;
+    width: 55%;
+    height: 3rem;
+    border-radius: 5%;
+}
+
+/*=====================================================TABLET==========================================================*/
+
+@media (min-width: 768px ){
+    .container {
+        width: 45rem;
+        margin: 12% auto;
+    }
+
+ .flex-desktop {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+ } 
+
+ .buy-now-button {
+     width: 30%;
+ }
+
+ .first-flex {
+     margin-top: 1%;
+ }
+
+ .first-flex input {
+    width: 150%;
+ }
+ 
+
+ .form-input {
+     margin-top: 2%;
+ }
+
+ .description {
+     margin-top: 1%;
+     height: 8rem;
+ }
+
+}
+/*==========================================================DESKTOP================================================================*/
+
+@media (min-width: 992px) {
+    .container {
+        width: 60rem;
+        margin: 4% auto;
+    }
+
+    .buy-now-button {
+        width: 23%;
+    }
+
+    .first-flex input {
+        width: 215%;
+     }
+
+    .form-input {
+        width: 130%;
+    }
+
+    .second-flex {
+        margin-right: 11%;
+    }
+
+}
+
+@media (min-width: 1240px) {
+    .container {
+        width:80rem;
+        margin: 2% auto;
+    }
+
+    .buy-now-button {
+        width: 18%;
+    }
+
+    .first-flex input {
+        width: 290%;
+     }
+
+    .second-flex {
+        margin-right: 21%;
+    }
+
+    .form-input {
+        width: 180%;
+
+    }
+
+    .form-class {
+        margin-right: 10px;
+    }
+}
