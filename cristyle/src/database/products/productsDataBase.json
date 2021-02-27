@@ -1,0 +1,92 @@
+[{
+    "id":1,
+    "name":"Campera Cristyle",
+    "description":"Campera de cuero sintetico",
+    "price":4500,
+    "discount":15,
+    "size":"S",
+    "category":"camperas",
+    "image":"http://dummyimage.com/174x149.bmp/dddddd/000000"
+},{
+    "id":2,
+    "name":"Campera Cristyle",
+    "description":"Campera de cuero sintetico",
+    "price":4500,
+    "discount":15,
+    "size":"S",
+    "category":"camperas",
+    "image":"http://dummyimage.com/174x149.bmp/dddddd/000000"
+},{
+    "id":3,
+    "name":"Campera Cristyle",
+    "description":"Campera de cuero sintetico",
+    "price":4500,
+    "discount":15,
+    "size":"S",
+    "category":"camperas",
+    "image":"http://dummyimage.com/174x149.bmp/dddddd/000000"
+},{
+    "id":4,
+    "name":"Campera Cristyle",
+    "description":"Campera de cuero sintetico",
+    "price":4500,
+    "discount":15,
+    "size":"S",
+    "category":"camperas",
+    "image":"http://dummyimage.com/174x149.bmp/dddddd/000000"
+},{
+    "id":5,
+    "name":"Campera Cristyle",
+    "description":"Campera de cuero sintetico",
+    "price":4500,
+    "discount":15,
+    "size":"S",
+    "category":"camperas",
+    "image":"http://dummyimage.com/174x149.bmp/dddddd/000000"
+},{
+    "id":6,
+    "name":"Campera Cristyle",
+    "description":"Campera de cuero sintetico",
+    "price":4500,
+    "discount":15,
+    "size":"S",
+    "category":"camperas",
+    "image":"http://dummyimage.com/174x149.bmp/dddddd/000000"
+},{
+    "id":7,
+    "name":"Campera Cristyle",
+    "description":"Campera de cuero sintetico",
+    "price":4500,
+    "discount":15,
+    "size":"S",
+    "category":"camperas",
+    "image":"http://dummyimage.com/174x149.bmp/dddddd/000000"
+},{
+    "id":8,
+    "name":"Campera Cristyle",
+    "description":"Campera de cuero sintetico",
+    "price":4500,
+    "discount":15,
+    "size":"S",
+    "category":"camperas",
+    "image":"http://dummyimage.com/174x149.bmp/dddddd/000000"
+},{
+    "id":9,
+    "name":"Campera Cristyle",
+    "description":"Campera de cuero sintetico",
+    "price":4500,
+    "discount":15,
+    "size":"S",
+    "category":"camperas",
+    "image":"http://dummyimage.com/174x149.bmp/dddddd/000000"
+},{
+    "id":10,
+    "name":"Campera Cristyle",
+    "description":"Campera de cuero sintetico",
+    "price":4500,
+    "discount":15,
+    "size":"S",
+    "category":"camperas",
+    "image":"http://dummyimage.com/174x149.bmp/dddddd/000000"
+}
+]
