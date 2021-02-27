@@ -1,27 +1,30 @@
 const path = require("path");
 
 module.exports = {
+	//Muestra todos los productos
+	t1: (req, res) => {
+		const products = require("../database/products/productsModel.js");
+		res.send (products.getAll());
+	},
 
-    //Muestra en pantalla las categorias
-    t1: (req, res) => {
+	//Muestra todos los usuarios
+	t2: (req, res) => {
+		const users = require("../database/users/usersModel.js");
+		res.send (users.getAll());
+	},
+
+    //Muestra todas las categorias
+    t3: (req, res) => {
 		const categories = require('../database/products/categoriesModel.js');
 		res.send (categories.getAll());
 	},
 	
-    //Muestra en pantalla los talles
-	t2: (req, res) => {
+    //Muestra todos los talles
+	t4: (req, res) => {
 		const sizes = require("../database/products/sizesModel.js");
 		res.send (sizes.getAll());
 	},
-
-	t3: (req, res) => {
-
-	},
-
-	t4: (req, res) => {
-
-	},
-
+	
 	t5: (req, res) => {
 
 	},

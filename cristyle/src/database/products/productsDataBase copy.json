@@ -1,0 +1,92 @@
+[{
+    "id":1,
+    "name":"Campera Cristyle",
+    "description":"Campera de cuero sintetico",
+    "price":4500,
+    "discount":15,
+    "size":"S",
+    "category":"camperas",
+    "image":"camperaCristyle.jpg"
+},{
+    "id":2,
+    "name":"Reloj Cristyle",
+    "description":"Reloj de muñeca",
+    "price":2200,
+    "discount":0,
+    "size":"",
+    "category":"accesorios",
+    "image":"relojCristyle.jpg"
+},{
+    "id":3,
+    "name":"Campera de jean",
+    "description":"Campera de jean deshilachado intencional",
+    "price":3000,
+    "discount":10,
+    "size":"M",
+    "category":"camperas",
+    "image":"camperaJean.jpg"
+},{
+    "id":4,
+    "name":"Mocasines Cristyle",
+    "description":"Mocasines de cuero y base de goma",
+    "price":8000,
+    "discount":20,
+    "size":"S",
+    "category":"calzados",
+    "image":"mocasinesCristyle.jpg"
+},{
+    "id":5,
+    "name":"Short jean",
+    "description":"Short de jean elastizado tiro alto",
+    "price":1800,
+    "discount":5,
+    "size":"M",
+    "category":"pantalones",
+    "image":"shortJean.jpg"
+},{
+    "id":6,
+    "name":"Top Cristyle",
+    "description":"Top manga corta blanco",
+    "price":950,
+    "discount":0,
+    "size":"S",
+    "category":"tops",
+    "image":"topCristyle.jpg"
+},{
+    "id":7,
+    "name":"Tacos Cristyle",
+    "description":"Tacos altos negro oscuro",
+    "price":2600,
+    "discount":15,
+    "size":"M",
+    "category":"calzados",
+    "image":"tacosAltos.jpg"
+},{
+    "id":8,
+    "name":"Jean Cristyle",
+    "description":"Jean holgado",
+    "price":2500,
+    "discount":20,
+    "size":"L",
+    "category":"pantalones",
+    "image":"jeanCristyle.jpg"
+},{
+    "id":9,
+    "name":"Top negro",
+    "description":"Top con mangas largas transparentes",
+    "price":1200,
+    "discount":40,
+    "size":"M",
+    "category":"tops",
+    "image":"topNegro.jpg"
+},{
+    "id":10,
+    "name":"Collar Cristyle",
+    "description":"Collar de oro y plata",
+    "price":2700,
+    "discount":35,
+    "size":"",
+    "category":"accesorios",
+    "image":"collarCristyle.jpg"
+}
+]
