@@ -19,3 +19,7 @@ app.use("/users", usersRouter);
 
 const productsRouter = require("./routes/products");
 app.use("/products", productsRouter);
+
+//Usar esta ruta para testear cosas en las rutas /t/1, /t/2, etc
+const testsRouter = require("./routes/tests");
+app.use("/t", testsRouter);
