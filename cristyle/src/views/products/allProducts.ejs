@@ -8,22 +8,19 @@
 
     <main>
         <div class="productos-flex">
-
             <% for( let index = 0; index < 9; index++ ) { %>
-                <div class="productos-home">
-                    <section>
-                        <figure>
-                            <a href="/products/detail"><img src="../images/index/vestido_rojo.jpg" class="imgagen-productos"></a>
-                        </figure>
-                        <h3>VESTIDO SUNRISE</h3>
-                        <p>$4.500</p>
-                        <button type="submit" class="boton-comprar">
-                            <a href="/products/cart">COMPRAR</a>
-                        </button>
-                    </section>
-                </div>
+                <article class="productos-home">
+                    <figure>
+                        <a href="/products/detail"><img src="../images/index/vestido_rojo.jpg" class="imgagen-productos"></a>
+                    </figure>
+                    <h3>VESTIDO SUNRISE</h3>
+                    <p>$4.500</p>
+                    <button type="submit" class="boton-comprar">
+                        <a href="/products/cart">COMPRAR</a>
+                    </button>
+                </article>
             <% } %>
-
+        <div>
     </main>
         
     <%- include("../partials/footer") %>
