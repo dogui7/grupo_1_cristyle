@@ -6,7 +6,7 @@
 
 **Acerca del proyecto:** El sitio fue diseñado para la venta de vestimenta.
 
-**Acerca del nombre del proyecto:** Combina los palabras "cristal" y "syle", en referencia al estilo de vestimenta que se propone vender.
+**Acerca del nombre del proyecto:** Combina los palabras "cristal" y "style", en referencia al estilo de vestimenta que se propone vender.
 
 **Público Objetivo:** El público objetivo es principalmente el de mujeres entre 20 y 40 años, así como también hombres en ese mismo rango de edad.
 
@@ -17,6 +17,8 @@ Los integrantes del equipo son:
 -   Guido Maimone: Estudiante de Licenciatura en Sistemas en la Universidad Nacional de La Plata.
     
 -   Franco Assaneo: Estudiante de Analista de Sistemas en ORT.
+
+-   Laura Álvarez: Traductora de inglés y empleada de soporte técnico para Lenovo.
     
 
 **Wireframes:**  [https://www.figma.com/file/UxGvovcVSYaoHbWKj5hjJ5/Proyecto-Digital-House?node-id=0%3A1](https://www.figma.com/file/UxGvovcVSYaoHbWKj5hjJ5/Proyecto-Digital-House?node-id=0%3A1)
