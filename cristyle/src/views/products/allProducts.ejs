@@ -7,14 +7,17 @@
     <%- include("../partials/header") %>
 
     <main>
+        <h1 id="title">Todos los productos</h1>
         <div class="productos-flex">
             <% for( let index = 0; index < 9; index++ ) { %>
                 <article class="productos-home">
                     <figure>
-                        <a href="/products/detail"><img src="../images/index/vestido_rojo.jpg" class="imgagen-productos"></a>
+                        <a href="/products/detail"><img src="../images/products/topCristyle.jpg" class="imgagen-productos"></a>
                     </figure>
-                    <h3>VESTIDO SUNRISE</h3>
-                    <p>$4.500</p>
+                    <h3 class="name">top cristyle</h3>
+                    <p class="description">Top blanco sin mangas </p>
+                    <p class="price">$950</p>
+                    <p class="discount">0% descuento</p>
                     <button type="submit" class="boton-comprar">
                         <a href="/products/cart">COMPRAR</a>
                     </button>

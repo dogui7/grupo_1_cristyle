@@ -1,10 +1,39 @@
 /**** allProducts *****/
 
+#title {
+    margin-top: 2rem;
+    margin-left: 1rem;
+}
+
 .productos-flex {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin: 2rem 0;
+}
+
+.productos-home {
+    text-align: center;
+    box-shadow: 0px 0px 8px rgb(100, 100, 100);
+    margin: 1rem;
+    width: 80vw;
+}
+
+.productos-home img {
+    padding: 2rem;
+}
+
+.name {
+    padding: 0.2rem;
+    text-transform: uppercase;
+}
+
+.description {
+    
+}
+
+.productos-home p {
+    padding: 0.2rem;
 }
 
 .boton-comprar {
@@ -20,25 +49,6 @@
     color: white;
     font-size: 1rem;
     margin: auto;
-}
-
-.productos-home {
-    text-align: center;
-    box-shadow: 0px 0px 8px rgb(100, 100, 100);
-    margin: 1rem;
-    width: 80vw;
-}
-
-.productos-home img {
-    padding: 2rem;
-}
-
-.productos-home h3 {
-    padding: 0.2rem;
-}
-
-.productos-home p {
-    padding: 0.2rem;
 }
 
 /* ===============================================================TABLET==============================================================*/
