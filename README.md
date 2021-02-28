@@ -6,7 +6,7 @@
 
 **Acerca del proyecto:** El sitio fue diseñado para la venta de vestimenta.
 
-**Acerca del nombre del proyecto:** Combina los palabras "cristal" y "style", en referencia al estilo de vestimenta que se propone vender.
+**Acerca del nombre del proyecto:** Combina las palabras "cristal" y "style", en referencia al estilo de vestimenta que se propone vender.
 
 **Público Objetivo:** El público objetivo es principalmente el de mujeres entre 20 y 40 años, así como también hombres en ese mismo rango de edad.
 
