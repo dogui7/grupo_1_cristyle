@@ -12,33 +12,27 @@
 
 /*-----------------------------------------MOBILE-------------------------------------------------*/
 
-.main-header {
+.header {
     background-color: #1b1b1b;
-    position: relative; 
 }   
 
 .top-header {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    padding-top: 2rem;
+    padding-top: 1rem;
 }
 
 .burger-menu i {
     color: #be9e44;
     font-size: 160%;
+    padding-left: 10px;
 }
 
 #logo-header a {
     color: #ffffff;
     font-family: "Poiret One", cursive;
-    font-size: 2rem;
-}
-
-.user i{
-    color:  #be9e44 ;
-    font-size: 160%;
-    margin-left: 2.1875rem;
+    font-size: 2.5rem;
 }
 
 .left-navbar {
@@ -46,35 +40,33 @@
 }
 
 .right-navbar {
-    display: flex;
-    display: none;
+     display: none;
 }
 
-.right-navbar a {
-    color: white;
-    margin-right: 15%;
-}
-
-.search-bar {
+.search-bar-form {
     display: flex;
-    margin: auto;
     margin-top: 5%;
     margin-bottom: 5%;
     background-color: white;
     width: 100%;
-    border: 0.0625rem solid rgb(100, 100, 100);
-    
+    border: 2px solid black;
 }
 
-.search-bar input {
+.search-bar-form input {
     padding: 2%;
     width: 94%;
     outline: none;
 }
 
-.search-bar i{
+.search-bar-form i{
     background-color: white;
     outline: none;
+}
+
+.user i{
+    color:  #be9e44 ;
+    font-size: 160%;
+    padding-right: 8px;
 }
 
 .cart a {
@@ -83,184 +75,107 @@
     outline: none;
 }
 
+.user-and-cart {
+    padding-right: 10px;
+}
+
+
 /* -----------------------------------------TABLET-------------------------------------------------*/
 
 @media (min-width: 768px) {
 
-    .top-header {
-        display: flex;
-        justify-content: space-between;
-        margin: 0;
-        padding: 0;
-    }
-    
-    .user i {
-        position: absolute;
-        right: 8%;
-        font-size: 140%;
-        top: 31%;
-    }
-    
     #burger {
         display: none;
     }
 
-    #logo-header {
-        margin-left: 2rem;
+    .top-header{
+        justify-content: space-between;
     }
-        
-    .search-bar {
-        position: absolute;
-        background-color: white;
-        padding: 0.5%;
-        margin: auto;
-        width: 27%;
-        border-radius: 5px;
-        top: 20%;
-        right: 13%;
+
+    #logo-header{
+        padding-left: 2rem;
     }
-    
-    .search-bar input {
-        display: flex;
-        margin:auto;
-        outline: none;
-        width: 100%;
+
+    h1{
+        font-size: 3.3rem;
     }
-    
-    .icono-barrabusqueda {
-        outline: none;
-        margin-right: 2%;
+
+    .user-and-cart{
+      padding-right: 1rem;
     }
-    
-    .search-bar i {
-        background-color: white;
-        outline: none;
+    .user-and-cart i{
+        padding: 8px;
     }
-    
-    .navbar {
-        display: flex;
-        justify-content: space-around; 
-    }
-    
-    .navbar ul {
-        list-style-type: none;
-    }
-    
-    .navbar a {
-        color: white;
-    }
-    
+
+
     .left-navbar {
         display: flex;
-        position: absolute;
-        left: 24%;
-        top: 28%;
+        padding-top: 0.5rem;
     }
     
     .left-navbar li {
-        margin-right: 25%;
+        margin: auto;
+        list-style: none;
+        margin-bottom: -28px;
     }
-    
-    .right-navbar {
-        display: none;
-        
-    }    
-    
-    .cart {
-        padding: 1.25rem;
-        font-size: 140%;
+
+    .left-navbar a {
+       color: white;
     }
-    
+
+    .left-navbar ul {
+        display: flex;
+        flex-wrap: wrap;
+        width: 80%;
+        margin: 0 10% 0 5%;
+     }
+
+     .search-bar-form input {
+        padding: 8px;
 }
 
 /* -----------------------------------------DESKTOP-------------------------------------------------*/
  
-@media (min-width: 992px) {
-
-.top-header {
-    display: flex;
-    justify-content: space-between;
-    margin:0;
-    padding: 0;
-}
-
-.user {
-    display: none;
-}
-
-.burger-menu {
-    display: none;
-}
-    
-.search-bar {
-    position: absolute;
-    background-color: white;
-    padding: 0.1%;
-    margin: auto;
-    width: 21%;
-    border-radius: 5px;
-    top: 25%;
-    right: 7%;
-}
-
-.search-bar input {
-    display: flex;
-    margin:auto;
-    outline: none;
-    width: 100%;
-}
-
-.icono-barrabusqueda {
-    outline: none;
-    margin-right: 2%;
-    margin-top: 1px;
-}
-
-.search-bar i {
-    background-color: white;
-    outline: none;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-around;
-}
-
-.navbar ul {
-    list-style-type: none;
-}
-
-.navbar a {
-    color: white;
-}
-
-.left-navbar {
-    display: flex;
-    position: absolute;
-    left: 20%;
-    top: 25%;
-}
-
-.left-navbar li {
-    margin-right: 50%;
-}
+@media (min-width: 1200px) {
 
 .right-navbar {
-    position: absolute;
     display: block;
-    width: 15%;
-    top: 5%;
-    right:30%;
+    position: absolute;
+    top: 3%;
+    right:3%;
+}
+
+.right-navbar ul {
+    list-style: none;
+    display: flex;
 }
 
 .right-navbar li {
-    margin-bottom: 5%;
+   padding-left: 20px;
 }
 
-.cart {
-    padding: 1rem;
-    margin-right: 0.625rem;
-    margin-top: 0.3rem;
+.right-navbar a {
+   color: white;
+}
+
+.right-navbar i {
+    color: #be9e44;
+    font-size: 1.5rem;
+    padding-right: 8px;
+ }
+
+.user-and-cart{
+    display: none;
+}
+
+h1{
+    font-size: 4.7rem;
+}
+
+.left-navbar{
+    width: 60%;
+    margin: 1% 0 -2% 20%;
+    font-size: 1.2rem;
 }
 
 }

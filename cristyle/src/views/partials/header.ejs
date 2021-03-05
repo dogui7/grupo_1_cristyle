@@ -1,4 +1,4 @@
-<header class="main-header">
+<header class="header">
     <section class="top-header">
 
         <article id="burger">
@@ -11,39 +11,41 @@
             <a href="/" ><h1>CRISTYLE</h1></a>
         </article>
 
-        <article>    
+        <section class="user-and-cart">
             <a href="#" class="user">
                 <i class="fas fa-user"></i>
             </a>
-        </article>
+       
+            <button class="cart">
+                <a href="/products/cart"><i class="fas fa-shopping-cart"></i></a>
+            </button>
+        </section>
 
-        <article>
-            <nav class="navbar">
-                <ul class="left-navbar">
+    </section>
+
+    <section class="navbars">
+        <nav class="left-navbar">
+                <ul class="secondary-categories">
                     <li><a href="/products/all">Todos los productos</a></li>
                     <li><a href="#">Hombre</a></li>
                     <li><a href="#">Mujer</a></li>
                     <li><a href="#">Ofertas</a></li>
                 </ul>
-
-                <ul class="right-navbar">
-                    <li><a href="/users/login">Iniciar Sesión</a></li>
-                    <li><a href="/users/register">Registrarse</a></li>
+        </nav>
+        <nav class="right-navbar">
+                <ul>
+                    <li><a href="/users/login"><i class="fas fa-sign-in-alt"></i>Iniciar Sesión</a></li>
+                    <li><a href="/users/register"><i class="fas fa-user-plus"></i>Registrarse</a></li>
+                    <li><a href="/products/cart"><i class="fas fa-shopping-cart"></i>Mis compras</a></li>
                 </ul>
 
-            </nav>
-        </article>
-        <article>
-            <button class="cart">
-                <a href="/products/cart"><i class="fas fa-shopping-cart"></i></a>
-            </button>
-        </article>
-    </section>
-    <section>
-        <article class="main-searchbar">
-            <form action="GET" class="search-bar">
+        </nav>
+        </section>
+
+    <section class="searchbar-section">
+            <form action="GET" class="search-bar-form">
                 <input type="search" name="BarraBusqueda" placeholder="Buscar productos">
-                <button type="submit" class="icono-barrabusqueda">
+                <button type="submit">
                     <i class="fas fa-search"></i>
                 </button>
             </form>

@@ -1,15 +1,15 @@
 /**** allProducts *****/
 
 #title {
-    margin-top: 2rem;
-    margin-left: 1rem;
+    font-size: 1.4rem;
+    padding-left: 15px;
+
 }
 
 .productos-flex {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 2rem 0;
 }
 
 .productos-home {
@@ -26,10 +26,6 @@
 .name {
     padding: 0.2rem;
     text-transform: uppercase;
-}
-
-.description {
-    
 }
 
 .productos-home p {
@@ -57,7 +53,7 @@
 @media (min-width:768px) {
       
     .productos-flex {
-        justify-content: space-between;
+        justify-content: space-evenly;
     }
 
     .productos-home {
@@ -72,5 +68,10 @@
    
     .productos-home {
        width: 20vw;
+    }
+
+    #title {
+        margin: -1.5rem 0 1rem 1rem;
+        font-size: 2rem;
     }
 }
