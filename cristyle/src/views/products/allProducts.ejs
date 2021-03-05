@@ -9,20 +9,20 @@
     <main>
         <h1 id="title">Todos los productos</h1>
         <div class="productos-flex">
-            <% for( let index = 0; index < 9; index++ ) { %>
+            <% allProducts.forEach(product => { %>
                 <article class="productos-home">
                     <figure>
-                        <a href="/products/detail"><img src="../images/products/topCristyle.jpg" class="imgagen-productos"></a>
+                        <a href="/products/detail/<%= product.id %>"><img src="/images/products/<%= product.image %>" class="imgagen-productos"></a>
                     </figure>
-                    <h3 class="name">top cristyle</h3>
-                    <p class="description">Top blanco sin mangas </p>
-                    <p class="price">$950</p>
-                    <p class="discount">0% descuento</p>
+                    <h3 class="name"><%= product.name %></h3>
+                    <p class="description"><%= product.description %> </p>
+                    <p class="price">$<%= product.price %></p>
+                    <p class="discount"><%= product.discount %>%OFF</p>
                     <button type="submit" class="boton-comprar">
                         <a href="/products/cart">COMPRAR</a>
                     </button>
                 </article>
-            <% } %>
+            <% }) %>
         <div>
     </main>
         

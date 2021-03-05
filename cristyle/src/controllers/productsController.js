@@ -6,7 +6,8 @@ module.exports = {
     detail: (req, res) => {
         let cssSheets = ["productDetail"];
         let title = "Detalle producto";
-        return res.render(path.resolve (__dirname, "../views/products/productDetail.ejs"), {cssSheets, title})
+        let product = products.getOne(req.params.id);
+        return res.render(path.resolve (__dirname, "../views/products/productDetail.ejs"), {cssSheets, title, product});
     },
 
     cart: (req, res) => {
@@ -46,6 +47,16 @@ module.exports = {
     showAll: (req, res) => {
         let cssSheets = ["allProducts"];
         let title = "Todos los productos";
-        return res.render(path.resolve (__dirname, "../views/products/allProducts.ejs"), {cssSheets, title})
+        let allProducts = products.getAll();
+        return res.render(path.resolve (__dirname, "../views/products/allProducts.ejs"), {cssSheets, title, allProducts});
+    },
+
+    delete: (req,res) => {
+        let allProducts = products.getAll();
+        allProducts = allProducts.filter(product => product.id != req.params.id);
+        products.write(allProducts);
+        
+        
+        return res.redirect ('/products/all');
     }
 }

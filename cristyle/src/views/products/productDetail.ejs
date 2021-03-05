@@ -8,38 +8,38 @@
 
     <main>
         <div class="titulo-producto">
-            <h2>PRODUCTO X</h2>
+            <h2><%= product.name %></h2>
         </div>
         <div class="left-flexbox">
             <section class="main-images">
                 <figure>
-                    <img src="/images/productDetail/ropamujer.jpg">
+                    <img src="/images/products/<%= product.image %> ">
                 </figure>
             </section>
             <section class="left-images">
                 <figure>
-                    <img src="/images/productDetail/ropamujer.jpg">
+                    <img src="/images/products/<%= product.image %> ">
                 </figure>
                 <figure>
-                    <img src="/images/productDetail/ropamujer.jpg">
+                    <img src="/images/products/<%= product.image %> ">
                 </figure>
                 <figure>
-                    <img src="/images/productDetail/ropamujer.jpg">
+                    <img src="/images/products/<%= product.image %> ">
                 </figure>
                 <figure>
-                    <img src="/images/productDetail/ropamujer.jpg">
+                    <img src="/images/products/<%= product.image %> ">
                 </figure>
             </section>
         </div>
         <div class="right-flexbox">
             <div class="titulo-producto-desktop">
-                <h3>PRODUCTO X</h3>
+                <h3>PRODUCTO <%= product.name %></h3>
             </div>
             <div class="in-flexbox">
                 <section>
                     <div class="descripcion-producto">
-                        <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h3>
-                        <p> $4500 </p>
+                        <h3><%= product.description %></h3>
+                        <p> <%= product.price %> </p>
                     </div>
                 </section>
 
@@ -51,10 +51,10 @@
                         </article>
                         <article class="colores-images">
                             <figure>
-                                <img src="/images/productDetail/ropamujer.jpg">
+                                <img src="/images/products/<%= product.image %> ">
                             </figure>
                             <figure>
-                                <img src="/images/productDetail/ropamujer.jpg">
+                                <img src="/images/products/<%= product.image %> ">
                             </figure>
         
                         </article>
@@ -97,12 +97,10 @@
                         </ul>
                     </div>
                     <div class="buton-edit">
-                        <a href="/products/edit"><li class="edit-product">Editar Producto</li></a>
-                    </div>
-                </section>
-                <section>
-                    <div class="last-p">
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
+                        <a href="/products/edit/<%= product.id %>"><li class="edit-product">Editar Producto</li></a>
+                        <form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST">
+                        <button type="submit" class="delete">Eliminar Producto</button>
+                        </form>
                     </div>
                 </section>
             </div>
