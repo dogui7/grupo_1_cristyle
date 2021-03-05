@@ -2,12 +2,13 @@
   {
     "id": 1,
     "name": "Campera Cristyle",
-    "description": "Campera de cuero sintetico",
+    "description": "Campera de cuero sintético",
     "price": 4500,
     "discount": 15,
     "size": "S",
     "category": "camperas",
-    "image": "camperaCristyle.jpg"
+    "image": "camperaCristyle.jpg",
+    "gender": "mujer"
   },
   {
     "id": 2,
@@ -17,7 +18,8 @@
     "discount": 0,
     "size": "",
     "category": "accesorios",
-    "image": "relojCristyle.jpg"
+    "image": "relojCristyle.jpg",
+    "gender": "hombre"
   },
   {
     "id": 3,
@@ -27,7 +29,8 @@
     "discount": 10,
     "size": "M",
     "category": "camperas",
-    "image": "camperaJean.jpg"
+    "image": "camperaJean.jpg",
+    "gender": "mujer"
   },
   {
     "id": 4,
@@ -37,7 +40,8 @@
     "discount": 20,
     "size": "S",
     "category": "calzados",
-    "image": "mocasinesCristyle.jpg"
+    "image": "mocasinesCristyle.jpg",
+    "gender": "mujer"
   },
   {
     "id": 5,
@@ -47,7 +51,8 @@
     "discount": 5,
     "size": "M",
     "category": "pantalones",
-    "image": "shortJean.jpg"
+    "image": "shortJean.jpg",
+    "gender": "mujer"
   },
   {
     "id": 6,
@@ -57,7 +62,8 @@
     "discount": 0,
     "size": "S",
     "category": "tops",
-    "image": "topCristyle.jpg"
+    "image": "topCristyle.jpg",
+    "gender": "mujer"
   },
   {
     "id": 7,
@@ -67,7 +73,8 @@
     "discount": 15,
     "size": "M",
     "category": "calzados",
-    "image": "tacosAltos.jpg"
+    "image": "tacosAltos.jpg",
+    "gender": "mujer"
   },
   {
     "id": 8,
@@ -77,7 +84,8 @@
     "discount": 20,
     "size": "L",
     "category": "pantalones",
-    "image": "jeanCristyle.jpg"
+    "image": "jeanCristyle.jpg",
+    "gender": "mujer"
   },
   {
     "id": 9,
@@ -87,7 +95,8 @@
     "discount": 40,
     "size": "M",
     "category": "tops",
-    "image": "topNegro.jpg"
+    "image": "topNegro.jpg",
+    "gender": "mujer"
   },
   {
     "id": 10,
@@ -97,6 +106,7 @@
     "discount": 35,
     "size": "",
     "category": "accesorios",
-    "image": "collarCristyle.jpg"
+    "image": "collarCristyle.jpg",
+    "gender": "mujer"
   }
 ]
