@@ -12,14 +12,14 @@
             <% allProducts.forEach(product => { %>
                 <article class="productos-home">
                     <figure>
-                        <a href="/products/detail/<%= product.id %>"><img src="/images/products/<%= product.image %>" class="imgagen-productos"></a>
+                        <a href="/productos/detalle/<%= product.id %>"><img src="/images/products/<%= product.image %>" class="imgagen-productos"></a>
                     </figure>
                     <h3 class="name"><%= product.name %></h3>
                     <p class="description"><%= product.description %> </p>
                     <p class="price">$<%= product.price %></p>
                     <p class="discount"><%= product.discount %>%OFF</p>
                     <button type="submit" class="boton-comprar">
-                        <a href="/products/cart">COMPRAR</a>
+                        <a href="/productos/carrito">COMPRAR</a>
                     </button>
                 </article>
             <% }) %>

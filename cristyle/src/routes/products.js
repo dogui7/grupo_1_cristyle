@@ -3,16 +3,16 @@ const router = express.Router();
 
 const productsController = require ("../controllers/productsController");
 
-router.get("/detail/:id", productsController.detail);
-router.get("/cart", productsController.cart);
-router.get ('/edit', productsController.edit);
+router.get("/detalle/:id", productsController.detail);
+router.get("/carrito", productsController.cart);
+router.get ('/editar', productsController.edit);
 
-// CREACION DE PRODUCTOS
+// PRODUCT CREATION
 
-router.get ('/create', productsController.create);
+router.get ('/agregar', productsController.create);
 router.post ('/', productsController.store);
 
-router.get('/all', productsController.showAll);
-router.delete('/delete/:id', productsController.delete);
+router.get('/todos', productsController.showAll);
+router.delete('/eliminar/:id', productsController.delete);
 
 module.exports = router;

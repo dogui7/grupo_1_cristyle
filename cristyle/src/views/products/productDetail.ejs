@@ -92,12 +92,12 @@
                 <section>
                     <div class="botones-producto">
                         <ul>
-                            <a href="/products/cart"><li>Añadir al carrito <i class="fas fa-shopping-cart"></i></li></a>
+                            <a href="/productos/carrito"><li>Añadir al carrito <i class="fas fa-shopping-cart"></i></li></a>
                             <a href="#"><li>Favoritos <i class="far fa-heart"></i></li></a>
                         </ul>
                     </div>
                     <div class="buton-edit">
-                        <a href="/products/edit/<%= product.id %>"><li class="edit-product">Editar Producto</li></a>
+                        <a href="/productos/editar/<%= product.id %>"><li class="edit-product">Editar Producto</li></a>
                         <form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST">
                         <button type="submit" class="delete">Eliminar Producto</button>
                         </form>

@@ -41,7 +41,7 @@ module.exports = {
         };
         allProducts.push (newProduct);
         products.write (allProducts);
-        return res.redirect ('/products/all');
+        return res.redirect ('/productos/todos');
     },
 
     showAll: (req, res) => {
@@ -57,6 +57,6 @@ module.exports = {
         products.write(allProducts);
         
         
-        return res.redirect ('/products/all');
+        return res.redirect ('/productos/todos');
     }
 }
