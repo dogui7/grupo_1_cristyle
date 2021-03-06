@@ -4,7 +4,10 @@
   "main": "app.js",
   "scripts": {
     "start": "node cristyle/src/app.js",
-    "test": "nodemon cristyle/src/app.js"
+    "test": "nodemon cristyle/src/app.js",
+    "install": "npm i ejs express method-override multer",
+    "postinstall": "clear && npm i nodemon -D"
+
   },
   "author": "",
   "license": "ISC",
