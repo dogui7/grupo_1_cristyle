@@ -108,5 +108,105 @@
     "category": "accesorios",
     "image": "collarCristyle.jpg",
     "gender": "mujer"
+  },
+  {
+    "id": 11,
+    "name": "Zapatos Marcel",
+    "description": "Zapatos de cuero entrelazado",
+    "price": 6900,
+    "discount": 15,
+    "size": "M",
+    "category": "calzados",
+    "image": "zapatosMarcel.jpg",
+    "gender": "hombre"
+  },
+  {
+    "id": 12,
+    "name": "Saco Brody",
+    "description": "Saco de traje entallado azul marino",
+    "price": 4800,
+    "discount": 20,
+    "size": "M",
+    "category": "tops",
+    "image": "saco.jpg",
+    "gender": "hombre"
+  },
+  {
+    "id": 13,
+    "name": "Cinturón Cristyle",
+    "description": "Cinturón de cuero marrón",
+    "price": 1200,
+    "discount": 20,
+    "size": "M",
+    "category": "accesorios",
+    "image": "cinturon.jpg",
+    "gender": "hombre"
+  },
+  {
+    "id": 14,
+    "name": "Camisa Ray",
+    "description": "Camisa de algodón texturado",
+    "price": 5600,
+    "discount": 20,
+    "size": "M",
+    "category": "tops",
+    "image": "camisa.jpg",
+    "gender": "hombre"
+  },
+  {
+    "id": 15,
+    "name": "Chaleco Benetton",
+    "description": "Chaleco con bolsillo porta-pañuelo",
+    "price": 5400,
+    "discount": 10,
+    "size": "M",
+    "category": "tops",
+    "image": "chaleco.jpg",
+    "gender": "hombre"
+  },
+  {
+    "id": 16,
+    "name": "Moño Stonewall",
+    "description": "Moño símil seda rosado",
+    "price": 2600,
+    "discount": 10,
+    "size": "M",
+    "category": "accesorios",
+    "image": "moño.jpg",
+    "gender": "hombre"
+  },
+  {
+    "id": 17,
+    "name": "Corbata Flowers",
+    "description": "Corbata símil seda estampada",
+    "price": 2100,
+    "discount": 10,
+    "size": "M",
+    "category": "accesorios",
+    "image": "corbata.jpg",
+    "gender": "hombre"
+  },
+  {
+    "id": 18,
+    "name": "Bermuda Wilson",
+    "description": "Bermuda slim fit de gabardina",
+    "price": 3600,
+    "discount": 0,
+    "size": "M",
+    "category": "pantalones",
+    "image": "bermudas.jpg",
+    "gender": "hombre"
+  },
+  {
+    "id": 19,
+    "name": "Pantalón Brighton",
+    "description": "Pantalón de traje molde clásico",
+    "price": 4200,
+    "discount": 10,
+    "size": "M",
+    "category": "pantalones",
+    "image": "pantalon.jpg",
+    "gender": "hombre"
   }
+  
 ]

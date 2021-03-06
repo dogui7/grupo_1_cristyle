@@ -33,13 +33,13 @@
         </div>
         <div class="right-flexbox">
             <div class="titulo-producto-desktop">
-                <h3>PRODUCTO <%= product.name %></h3>
+                <h3><%= product.name %></h3>
             </div>
             <div class="in-flexbox">
                 <section>
                     <div class="descripcion-producto">
                         <h3><%= product.description %></h3>
-                        <p> <%= product.price %> </p>
+                        <p> $ <%= product.price %> </p>
                     </div>
                 </section>
 
@@ -96,8 +96,11 @@
                             <a href="#"><li>Favoritos <i class="far fa-heart"></i></li></a>
                         </ul>
                     </div>
-                    <div class="buton-edit">
+                    <div class="button-edit">
                         <a href="/productos/editar/<%= product.id %>"><li class="edit-product">Editar Producto</li></a>
+                    </div>
+                        
+                    <div class="button-delete">
                         <form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST">
                         <button type="submit" class="delete">Eliminar Producto</button>
                         </form>
