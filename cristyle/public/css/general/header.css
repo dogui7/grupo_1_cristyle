@@ -133,6 +133,7 @@
         transition: width 0.3s ease 0s, left 0.3s ease 0s;
         width: 0;
       }
+
       .left-navbar a:hover:after { 
         width: 100%; 
         left: 0; 
@@ -141,7 +142,6 @@
     .left-navbar a {
        color: white;
        position: relative;
-       text-transform: ;
        padding: 5px;
     }
 
@@ -154,6 +154,8 @@
 
      .search-bar-form input {
         padding: 8px;
+    }
+
 }
 
 /* -----------------------------------------DESKTOP-------------------------------------------------*/
@@ -199,5 +201,4 @@ h1{
     margin: 1% 0 -2% 20%;
     font-size: 1.2rem;
 }
-
 }
