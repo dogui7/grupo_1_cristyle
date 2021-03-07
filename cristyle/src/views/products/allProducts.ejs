@@ -7,7 +7,15 @@
     <%- include("../partials/header") %>
 
     <main>
+        <% if (busqueda != null) { %>
+        <h1 id="title">Tu búsqueda: <%= busqueda %></h1>
+        <% } else { %>
         <h1 id="title">Nuestros productos</h1>
+        <% } %>
+
+        <% if (allProducts.length == 0) { %>
+        <h2 id="noMatch">Lo sentimos, no hemos encontrado productos que coincidan con tu búsqueda</h2>
+        <% } else { %>
         <div class="productos-flex">
             <% allProducts.forEach(product => { %>
                 <article class="productos-home">
@@ -26,6 +34,7 @@
                 </article>
             <% }) %>
         <div>
+        <% } %>
     </main>
         
     <%- include("../partials/footer") %>
