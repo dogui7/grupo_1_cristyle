@@ -1,5 +1,6 @@
 const path = require("path");
 const products = require ("../database/products/productsModel");
+const { all } = require("../routes/products");
 
 module.exports = {
 
@@ -19,7 +20,26 @@ module.exports = {
     edit: (req, res) => {
         let cssSheets = ["editproducts"];
         let title = "Editar producto";
-        return res.render(path.resolve (__dirname, "../views/products/editproducts.ejs"), {cssSheets, title})
+        let product = products.getOne(req.params.id);
+        return res.render(path.resolve (__dirname, "../views/products/editproducts.ejs"),{cssSheets, title,product});
+    },
+
+    update: (req,res)=> {
+        let allProducts = products.getAll ();
+        let originalProduct = products.getOne (req.params.id);
+        let modifiedProduct = {
+            "id": originalProduct.id,
+			"name": req.body.name,
+			"price": req.body.price,
+			"discount": req.body.discount,
+			"category": req.body.category,
+            "size": req.body.size,
+			"description": req.body.description,
+			"image": originalProduct.image
+        };
+        allProducts.splice (req.params.id -1, 1, modifiedProduct);
+        products.write (allProducts);
+        return res.redirect ('/productos/todos');
     },
 
     create: (req, res) => {

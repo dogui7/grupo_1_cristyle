@@ -10,29 +10,29 @@
         <div class="container products-wrapper">
             <div>
                 <div >
-                    <h2 class="products-title">Estas editando "Producto X"</h2>
+                    <h2 class="products-title">Estas editando <i><%= product.name %></i></h2>
                 </div>
             </div>
             <div class="form-padding">
                 <div  class="form-create">
-                    <form action="/productos" method="POST">
+                    <form action="/productos/<%= product.id %>?_method=PUT" method="POST">
                         <div>
                             <div class="flex-desktop">
                                 <div class="first-flex">
                                     <div class="form-class">
                                         <label for="name" class="form-label">Nombre del producto:</label>
                                         <br>
-                                        <input type="text" id="name" name="name"  class="form-input" value=" Campera PrettyStyle">
+                                        <input type="text" id="name" name="name"  class="form-input" value=" <%= product.name %>">
                                     </div>
                                     <div class="form-class">
                                         <label for="price" class="form-label">Precio del producto:</label>
                                         <br>
-                                        <input type="text" id="price" name="price" value="$12000" class="form-input">
+                                        <input type="text" id="price" name="price" value="<%= product.price %>" class="form-input">
                                     </div>
                                     <div class="form-class">
                                         <label for="discount" class="form-label">Descuento:</label>
                                         <br>
-                                        <input type="text" id="discount" name="discount" value="Sin Descuento" class="form-input">
+                                        <input type="text" id="discount" name="discount" value="<%= product.discount %>" class="form-input">
                                     </div>
                                 </div>
                                 <div class="second-flex">    
@@ -68,7 +68,7 @@
                             <div class="form-class">
                                 <label for="description" class="form-label">Descripción:</label>
                                 <br>
-                                <textarea name="description" id="description" class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis, nisi sint officiis unde sapiente pariatur nostrum? Quas nihil omnis officia itaque velit sapiente ex aperiam obcaecati exercitationem iusto? Commodi, tempora?</textarea>
+                                <textarea name="description" id="description" class="description"><%= product.description %></textarea>
                             </div>
                             <div class="form-class">
                                 <button type="submit" class="buy-now-button">Guardar producto</button>

@@ -1,14 +1,13 @@
 [
   {
     "id": 1,
-    "name": "Campera Cristyle",
+    "name": "   Campera Cristyle",
+    "price": "4500",
+    "discount": "15",
+    "category": "",
+    "size": "",
     "description": "Campera de cuero sintético",
-    "price": 4500,
-    "discount": 15,
-    "size": "S",
-    "category": "camperas",
-    "image": "camperaCristyle.jpg",
-    "gender": "mujer"
+    "image": "camperaCristyle.jpg"
   },
   {
     "id": 2,
@@ -208,5 +207,4 @@
     "image": "pantalon.jpg",
     "gender": "hombre"
   }
-  
 ]
