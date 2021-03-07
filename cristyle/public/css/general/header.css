@@ -117,10 +117,32 @@
         margin: auto;
         list-style: none;
         margin-bottom: -28px;
+        
+
     }
+
+    .left-navbar a:after {    
+        background: none repeat scroll 0 0 transparent;
+        bottom: 0;
+        content: "";
+        display: block;
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        background: #fff;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        width: 0;
+      }
+      .left-navbar a:hover:after { 
+        width: 100%; 
+        left: 0; 
+      }
 
     .left-navbar a {
        color: white;
+       position: relative;
+       text-transform: ;
+       padding: 5px;
     }
 
     .left-navbar ul {
