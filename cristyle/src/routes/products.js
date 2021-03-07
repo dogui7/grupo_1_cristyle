@@ -6,7 +6,7 @@ const productsController = require ("../controllers/productsController");
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, path.resolve(__dirname, '../../public/images/usuarios'));    //Aquí deben indicar donde van a guardar la imagen
+      cb(null, path.resolve(__dirname, '../../public/images/products'));    //Aquí deben indicar donde van a guardar la imagen
     },
     filename: function (req, file, cb) {
       cb(null, 'foto' + '-' + Date.now()+ path.extname(file.originalname));      
@@ -14,6 +14,7 @@ const storage = multer.diskStorage({
   })
    
 const upload= multer({ storage });
+
 
 //GET ONE PRODUCT
 
@@ -31,7 +32,7 @@ router.put ('/:id', productsController.update);
 // PRODUCT CREATION
 
 router.get ('/agregar', productsController.create);
-router.post ('/', productsController.store);
+router.post ('/', upload.single ('productImage') ,productsController.store);
 
 //SHOW ALL
 

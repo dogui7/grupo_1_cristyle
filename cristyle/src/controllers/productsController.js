@@ -1,7 +1,7 @@
 const path = require("path");
 const products = require ("../database/products/productsModel");
 const { all } = require("../routes/products");
-
+const multer = require ('multer');
 module.exports = {
 
     detail: (req, res) => {
@@ -51,13 +51,13 @@ module.exports = {
     store: (req,res) => {
         let allProducts = products.getAll();
         let newProduct = {
-            "id": allProducts.length+1,
+            "id": allProducts[allProducts.length-1].id + 1,
             "name": req.body.name,
             "price": req.body.price,
             "discount": req.body.discount,
             "size": req.body.size,
             "category": req.body.category,
-            "image": "default-image.png"
+            "image": 'default-image.jpg'
         };
         allProducts.push (newProduct);
         products.write (allProducts);

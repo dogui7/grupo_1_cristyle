@@ -15,7 +15,7 @@
             </div>
             <div class="form-padding">
                 <div  class="form-create">
-                    <form action="/productos" method="POST">
+                    <form action="/productos" method="POST" enctype="multipart/form-data">
                         <div>
                             <div class="flex-desktop">
                                 <div class="first-flex">
@@ -61,7 +61,7 @@
                                     <div class="form-class">
                                         <label for="image" class="form-label">Insertar Imagen:</label>
                                         <br>
-                                        <input type="file" id="image" class="form-image">
+                                        <input type="file" id="image" class="form-image" name="productImage">
                                     </div>
                                 </div>
                             </div>        
