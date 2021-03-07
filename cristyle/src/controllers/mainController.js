@@ -4,7 +4,7 @@ const products = require ("../database/products/productsModel");
 module.exports = {
 
     index: (req, res) => {
-        let cssSheets = ["index"];
+        let cssSheets = ["index", "showProducts"];
         let title = "Sitio oficial de Cristyle";
 
         let discountToFilter = 20;

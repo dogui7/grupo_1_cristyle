@@ -45,7 +45,7 @@ module.exports = {
     },
 
     showAll: (req, res) => {
-        let cssSheets = ["allProducts"];
+        let cssSheets = ["allProducts","showProducts"];
         let title = "Todos los productos";
         let allProducts = products.getAll();
         return res.render(path.resolve (__dirname, "../views/products/allProducts.ejs"), {cssSheets, title, allProducts});

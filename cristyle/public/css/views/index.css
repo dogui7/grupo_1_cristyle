@@ -21,63 +21,11 @@ main{
     padding: 1rem;
 }
 
-/********************Productos en oferta********************/
-
-.productos-flex {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.productos-home {
-    text-align: center;
-    box-shadow: 0px 0px 8px rgb(100, 100, 100);
-    margin: 1rem;
-    width: 80vw;
-}
-
-.productos-home img {
-    padding: 2rem;
-}
-
-.name {
-    padding: 0.2rem;
-    text-transform: uppercase;
-}
-
-.productos-home p {
-    padding: 0.2rem;
-}
-
-.boton-comprar {
-    background-color: #1b1b1b;
-    border-radius: 5px;
-    width: fit-content;
-    height: 2rem;
-    margin-bottom: 1rem;
-    padding: 0.25rem
-}
-
-.boton-comprar a {
-    color: white;
-    font-size: 1rem;
-    margin: auto;
-    width: fit-content;
-}
-
 /* ===============================================================TABLET==============================================================*/
 
 @media (min-width:768px) {
     .top-carrusel img {
         height: 20rem;
-    }
-
-    .productos-flex {
-        justify-content: space-between;
-    }
-
-    .productos-home {
-        width: 40vw;
     }
 }
 
@@ -87,8 +35,4 @@ main{
     .top-carrusel img {
         height: 25rem;
     }
-    
-    .productos-home {
-        width: 20vw;
-     }
 }

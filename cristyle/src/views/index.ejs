@@ -27,8 +27,10 @@
                     </figure>
                     <h3 class="name"><%= product.name %></h3>
                     <p class="description"><%= product.description %></p>
+                    <% if (product.discount > 0) { %>
+                        <p class="discount"><%= product.discount %>%OFF</p>
+                    <% } %>
                     <p class="price">$<%= product.price %></p>
-                    <p class="discount"><%= product.discount %>%OFF</p>
                     <button type="submit" class="boton-comprar">
                         <a href="/productos/carrito">COMPRAR</a>
                     </button>
