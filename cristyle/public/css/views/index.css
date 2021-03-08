@@ -4,6 +4,10 @@ main{
     background-color: white;
 }
 
+#carrusel {
+    display: inline;
+}
+
 /********************Carrusel********************/
 
 .top-carrusel {
