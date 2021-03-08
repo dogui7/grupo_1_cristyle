@@ -1,92 +1,221 @@
-[{
-    "id":1,
-    "name":"Campera Cristyle",
-    "description":"Campera de cuero sintetico",
-    "price":4500,
-    "discount":15,
-    "size":"S",
-    "category":"camperas",
-    "image":"camperaCristyle.jpg"
-},{
-    "id":2,
-    "name":"Reloj Cristyle",
-    "description":"Reloj de muñeca",
-    "price":2200,
-    "discount":0,
-    "size":"",
-    "category":"accesorios",
-    "image":"relojCristyle.jpg"
-},{
-    "id":3,
-    "name":"Campera de jean",
-    "description":"Campera de jean deshilachado intencional",
-    "price":3000,
-    "discount":10,
-    "size":"M",
-    "category":"camperas",
-    "image":"camperaJean.jpg"
-},{
-    "id":4,
-    "name":"Mocasines Cristyle",
-    "description":"Mocasines de cuero y base de goma",
-    "price":8000,
-    "discount":20,
-    "size":"S",
-    "category":"calzados",
-    "image":"mocasinesCristyle.jpg"
-},{
-    "id":5,
-    "name":"Short jean",
-    "description":"Short de jean elastizado tiro alto",
-    "price":1800,
-    "discount":5,
-    "size":"M",
-    "category":"pantalones",
-    "image":"shortJean.jpg"
-},{
-    "id":6,
-    "name":"Top Cristyle",
-    "description":"Top manga corta blanco",
-    "price":950,
-    "discount":0,
-    "size":"S",
-    "category":"tops",
-    "image":"topCristyle.jpg"
-},{
-    "id":7,
-    "name":"Tacos Cristyle",
-    "description":"Tacos altos negro oscuro",
-    "price":2600,
-    "discount":15,
-    "size":"M",
-    "category":"calzados",
-    "image":"tacosAltos.jpg"
-},{
-    "id":8,
-    "name":"Jean Cristyle",
-    "description":"Jean holgado",
-    "price":2500,
-    "discount":20,
-    "size":"L",
-    "category":"pantalones",
-    "image":"jeanCristyle.jpg"
-},{
-    "id":9,
-    "name":"Top negro",
-    "description":"Top con mangas largas transparentes",
-    "price":1200,
-    "discount":40,
-    "size":"M",
-    "category":"tops",
-    "image":"topNegro.jpg"
-},{
-    "id":10,
-    "name":"Collar Cristyle",
-    "description":"Collar de oro y plata",
-    "price":2700,
-    "discount":35,
-    "size":"",
-    "category":"accesorios",
-    "image":"collarCristyle.jpg"
-}
+[
+  {
+    "id": 1,
+    "name": "Campera Cristyle",
+    "price": "4500",
+    "discount": "15",
+    "category": "Camperas",
+    "size": "Medium",
+    "description": "Campera de cuero sintético",
+    "image": "camperaCristyle.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Reloj Cristyle",
+    "description": "Reloj de muñeca",
+    "price": "2200",
+    "discount": "0",
+    "size": "Small",
+    "category": "Accesorios",
+    "image": "relojCristyle.jpg",
+    "gender": "hombre"
+  },
+  {
+    "id": 3,
+    "name": "Campera de jean",
+    "description": "Campera de jean deshilachado intencional",
+    "price": "3000",
+    "discount": "10",
+    "size": "Medium",
+    "category": "Camperas",
+    "image": "camperaJean.jpg",
+    "gender": "mujer"
+  },
+  {
+    "id": 4,
+    "name": "Mocasines Cristyle",
+    "description": "Mocasines de cuero y base de goma",
+    "price": "8000",
+    "discount": "20",
+    "size": "Small",
+    "category": "Calzados",
+    "image": "mocasinesCristyle.jpg",
+    "gender": "mujer"
+  },
+  {
+    "id": 5,
+    "name": "Short jean",
+    "description": "Short de jean elastizado tiro alto",
+    "price": "1800",
+    "discount": "5",
+    "size": "Medium",
+    "category": "Pantalones",
+    "image": "shortJean.jpg",
+    "gender": "mujer"
+  },
+  {
+    "id": 6,
+    "name": "Top Cristyle",
+    "description": "Top manga corta blanco",
+    "price": "950",
+    "discount": "0",
+    "size": "Small",
+    "category": "Tops",
+    "image": "topCristyle.jpg",
+    "gender": "mujer"
+  },
+  {
+    "id": 7,
+    "name": "Tacos Cristyle",
+    "description": "Tacos altos negro oscuro",
+    "price": "2600",
+    "discount": "15",
+    "size": "Medium",
+    "category": "Calzados",
+    "image": "tacosAltos.jpg",
+    "gender": "mujer"
+  },
+  {
+    "id": 8,
+    "name": "Jean Cristyle",
+    "description": "Jean holgado",
+    "price": "2500",
+    "discount": "20",
+    "size": "Largse",
+    "category": "Pantalones",
+    "image": "jeanCristyle.jpg",
+    "gender": "mujer"
+  },
+  {
+    "id": 9,
+    "name": "Top negro",
+    "description": "Top con mangas largas transparentes",
+    "price": "1200",
+    "discount": "40",
+    "size": "Medium",
+    "category": "Tops",
+    "image": "topNegro.jpg",
+    "gender": "mujer"
+  },
+  {
+    "id": 10,
+    "name": "Collar Cristyle",
+    "description": "Collar de oro y plata",
+    "price": "2700",
+    "discount": "35",
+    "size": "Small",
+    "category": "Accesorios",
+    "image": "collarCristyle.jpg",
+    "gender": "mujer"
+  },
+  {
+    "id": 11,
+    "name": "Zapatos Marcel",
+    "description": "Zapatos de cuero entrelazado",
+    "price": "6900",
+    "discount": "15",
+    "size": "Medium",
+    "category": "Calzados",
+    "image": "zapatosMarcel.jpg",
+    "gender": "hombre"
+  },
+  {
+    "id": 12,
+    "name": "Saco Brody",
+    "description": "Saco de traje entallado azul marino",
+    "price": "4800",
+    "discount": "20",
+    "size": "Medium",
+    "category": "Tops",
+    "image": "saco.jpg",
+    "gender": "hombre"
+  },
+  {
+    "id": 13,
+    "name": "Cinturón Cristyle",
+    "description": "Cinturón de cuero marrón",
+    "price": "1200",
+    "discount": "20",
+    "size": "Medium",
+    "category": "Accesorios",
+    "image": "cinturon.jpg",
+    "gender": "hombre"
+  },
+  {
+    "id": 14,
+    "name": "Camisa Ray",
+    "description": "Camisa de algodón texturado",
+    "price": "5600",
+    "discount": "20",
+    "size": "Medium",
+    "category": "Tops",
+    "image": "camisa.jpg",
+    "gender": "hombre"
+  },
+  {
+    "id": 15,
+    "name": "Chaleco Benetton",
+    "description": "Chaleco con bolsillo porta-pañuelo",
+    "price": "5400",
+    "discount": "10",
+    "size": "Medium",
+    "category": "Tops",
+    "image": "chaleco.jpg",
+    "gender": "hombre"
+  },
+  {
+    "id": 16,
+    "name": "Moño Stonewall",
+    "description": "Moño símil seda rosado",
+    "price": "2600",
+    "discount": "10",
+    "size": "Medium",
+    "category": "Accesorios",
+    "image": "moño.jpg",
+    "gender": "hombre"
+  },
+  {
+    "id": 17,
+    "name": "Corbata Flowers",
+    "description": "Corbata símil seda estampada",
+    "price": "2100",
+    "discount": "10",
+    "size": "Medium",
+    "category": "Accesorios",
+    "image": "corbata.jpg",
+    "gender": "hombre"
+  },
+  {
+    "id": 18,
+    "name": "Bermuda Wilson",
+    "description": "Bermuda slim fit de gabardina",
+    "price": "3600",
+    "discount": "0",
+    "size": "Medium",
+    "category": "Pantalones",
+    "image": "bermudas.jpg",
+    "gender": "hombre"
+  },
+  {
+    "id": 19,
+    "name": "Pantalón Brighton",
+    "description": "Pantalón de traje molde clásico",
+    "price": "4200",
+    "discount": "10",
+    "size": "Medium",
+    "category": "Pantalones",
+    "image": "pantalon.jpg",
+    "gender": "hombre"
+  },
+  {
+    "id": 20,
+    "name": "Collar",
+    "description": "Patata",
+    "price": "15000",
+    "discount": "15",
+    "size": "Medium",
+    "category": "Accesorios",
+    "image": "foto-1615244638815.jpg",
+    "gender": "mujer"
+  }
 ]
