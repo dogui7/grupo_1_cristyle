@@ -1,6 +1,7 @@
 const path = require("path");
 const products = require ("../database/products/productsModel");
-const { all } = require("../routes/products");
+const categoriesModel = require ("../database/products/categoriesModel");
+const sizesModel = require ("../database/products/sizesModel");
 
 module.exports = {
 
@@ -45,19 +46,23 @@ module.exports = {
     create: (req, res) => {
         let cssSheets = ["createProduct"];
         let title = "Crear producto";
-        return res.render(path.resolve (__dirname, "../views/products/createProduct.ejs"), {cssSheets, title})
+        let categories = categoriesModel.getAll();
+        let sizes = sizesModel.getAll();
+        return res.render(path.resolve (__dirname, "../views/products/createProduct.ejs"), {cssSheets, title, categories, sizes})
     },
 
     store: (req,res) => {
         let allProducts = products.getAll();
         let newProduct = {
-            "id": allProducts.length+1,
+            "id": allProducts[allProducts.length-1].id + 1,
             "name": req.body.name,
+            "description": req.body.description,
             "price": req.body.price,
             "discount": req.body.discount,
             "size": req.body.size,
             "category": req.body.category,
-            "image": "default-image.png"
+            "image": req.file.filename,
+            "gender": req.body.gender
         };
         allProducts.push (newProduct);
         products.write (allProducts);

@@ -29,6 +29,10 @@
     margin-top: 5%;
 }
 
+#gender {
+    margin-left: 1rem;
+}
+
 .form-image {
     width: 100%;
     margin-top: 3%;
@@ -75,7 +79,6 @@
  .first-flex input {
     width: 150%;
  }
- 
 
  .form-input {
      margin-top: 2%;
@@ -101,7 +104,7 @@
 
     .first-flex input {
         width: 215%;
-     }
+    }
 
     .form-input {
         width: 130%;
@@ -125,7 +128,7 @@
 
     .first-flex input {
         width: 290%;
-     }
+    }
 
     .second-flex {
         margin-right: 21%;
@@ -133,7 +136,6 @@
 
     .form-input {
         width: 180%;
-
     }
 
     .form-class {
