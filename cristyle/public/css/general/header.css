@@ -63,6 +63,10 @@
     outline: none;
 }
 
+::placeholder{
+    font-family:  "Poiret One", cursive, sans-serif;
+}
+
 .user i{
     color:  #be9e44 ;
     font-size: 160%;
