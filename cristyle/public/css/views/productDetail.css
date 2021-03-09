@@ -140,9 +140,10 @@ ul {
 }
 
 .button-delete  button {
-    padding-top: 4px;
+    padding-top: 5px;
     color: rgb(255, 255, 255);
     font-size: 0.9rem;
+    font-family:  "Poiret One", cursive, sans-serif;
 }
 
 
@@ -164,6 +165,7 @@ ul {
         display: block;
         text-align: left;
         margin-top: 2rem;
+        font-size: 2rem;
     }
 
     main {
@@ -181,7 +183,7 @@ ul {
     .right-flexbox {
        text-align: center;
        width: 25%;
-       margin: 0 auto;
+       margin: -20px auto 0 auto;
        position: relative;
     }
 
@@ -191,7 +193,11 @@ ul {
 
     .descripcion-producto {
         text-align: left;
-        font-size: 0.7rem;
+        font-size: 0.8rem;
+    }
+
+    .descripcion-producto h3{
+        margin-bottom: 20px;
     }
 
    
@@ -210,7 +216,7 @@ ul {
         display: flex;
         width: 80%;
         align-items: center;
-        margin-bottom: 10%;
+        margin-bottom: 0%;
 
     }
 
@@ -234,7 +240,7 @@ ul {
 
     .botones-producto ul li {
         width: 100%;
-        margin: 7% 0%;
+        margin: 5% 0%;
     }
 
     .last-p {
@@ -265,7 +271,7 @@ ul {
         padding: 5%;
     }
 
-    .buton-edit {
+    .button-edit {
         width: 100%;
     }
    
