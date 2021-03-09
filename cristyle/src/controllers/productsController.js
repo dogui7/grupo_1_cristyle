@@ -75,8 +75,19 @@ module.exports = {
     showAll: (req, res) => {
         let cssSheets = ["allProducts","showProducts"];
         let title = "Todos los productos";
-        let allProducts = products.getAll();
-        return res.render(path.resolve (__dirname, "../views/products/allProducts.ejs"), {cssSheets, title, allProducts});
+
+        let allProducts;
+        if (req.query && req.query.busqueda == null) {
+            allProducts = products.getAll();
+        } else {
+            allProducts = products.getAll() //Traemos todos los productos
+            .filter(product => //Filtramos
+                 product.name.toLowerCase().includes(req.query.busqueda.toLowerCase()));
+                 /*Nos fijamos si en el nombre en minuscula del producto está incluido
+                   el término buscado en la barra también en minuscula*/
+        }
+
+        return res.render(path.resolve (__dirname, "../views/products/allProducts.ejs"), {cssSheets, title, allProducts, busqueda: req.query.busqueda});
     },
 
     delete: (req,res) => {
