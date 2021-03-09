@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "Campera Cristyle",
+    "name": " Campera Cristyle",
     "price": "4500",
     "discount": "15",
     "category": "Camperas",
@@ -198,24 +198,12 @@
   },
   {
     "id": 19,
-    "name": "Pantalón Brighton",
-    "description": "Pantalón de traje molde clásico",
+    "name": " Pantalón Brighton",
     "price": "4200",
     "discount": "10",
-    "size": "Medium",
     "category": "Pantalones",
-    "image": "pantalon.jpg",
-    "gender": "hombre"
-  },
-  {
-    "id": 20,
-    "name": "Collar",
-    "description": "Patata",
-    "price": "15000",
-    "discount": "15",
     "size": "Medium",
-    "category": "Accesorios",
-    "image": "foto-1615244638815.jpg",
-    "gender": "mujer"
+    "description": "Pantalón de traje molde clásico",
+    "image": "pantalon.jpg"
   }
 ]

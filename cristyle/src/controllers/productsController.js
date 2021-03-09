@@ -22,7 +22,9 @@ module.exports = {
         let cssSheets = ["editproducts"];
         let title = "Editar producto";
         let product = products.getOne(req.params.id);
-        return res.render(path.resolve (__dirname, "../views/products/editproducts.ejs"),{cssSheets, title,product});
+        let categories = categoriesModel.getAll();
+        let sizes = sizesModel.getAll();
+        return res.render(path.resolve (__dirname, "../views/products/editproducts.ejs"),{cssSheets, title, product, categories, sizes});
     },
 
     update: (req,res)=> {
@@ -36,9 +38,10 @@ module.exports = {
 			"category": req.body.category,
             "size": req.body.size,
 			"description": req.body.description,
-			"image": originalProduct.image
+			//Si vino un archivo, cargar el nombre de ese archivo. Sino, dejar el nombre original
+			"image": req.file ? req.file.filename : originalProduct.image
         };
-        allProducts.splice (req.params.id -1, 1, modifiedProduct);
+        allProducts.splice (req.params.id-1, 1, modifiedProduct);
         products.write (allProducts);
         return res.redirect ('/productos/todos');
     },

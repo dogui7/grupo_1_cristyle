@@ -41,11 +41,9 @@
                                         <br>
                                         <select name="category" id="category" class="form-input">
                                             <option value="">Elegí</option>
-                                            <option value="in-sale">En oferta</option>
-                                            <option value="visited">Últimos agregados</option>
-                                            <option value="top-clothing">Prenda Superior</option>
-                                            <option value="bottom-clothing">Prenda Inferior</option>
-                                            <option value="accesorie">Accesorio</option>
+                                            <% categories.forEach(categorie => { %>
+                                                <option value=<%= categorie %> ><%= categorie %></option>
+                                            <% }) %>
                                         </select>
                                     </div>
                                     <div class="form-class">
@@ -53,9 +51,9 @@
                                         <br>
                                         <select name="size" id="size" class="form-input">
                                             <option value="">Elegí</option>
-                                            <option value="size-S">Small</option>
-                                            <option value="size-M">Medium</option>
-                                            <option value="size-L">Large</option>
+                                            <% sizes.forEach(size => { %>
+                                                <option value=<%= size %> ><%= size %></option>
+                                            <% }) %>
                                         </select>
                                     </div>
                                     <div class="form-class">
@@ -65,6 +63,12 @@
                                     </div>
                                 </div>
                             </div>        
+                            <div id="gender">
+                                <input type="radio" id="male" name="gender" value="hombre">
+                                <label for="male">Hombre</label><br>
+                                <input type="radio" id="female" name="gender" value="mujer">
+                                <label for="female">Mujer</label><br>    
+                            </div> 
                             <div class="form-class">
                                 <label for="description" class="form-label">Descripción:</label>
                                 <br>

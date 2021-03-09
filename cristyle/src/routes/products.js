@@ -28,7 +28,7 @@ router.get("/carrito", productsController.cart);
 //PRODUCT EDIT
 
 router.get ('/editar/:id', productsController.edit);
-router.put ('/:id', productsController.update);
+router.put ('/:id', upload.single ('productImage'), productsController.update);
 
 // PRODUCT CREATION
 

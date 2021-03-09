@@ -206,16 +206,5 @@
     "category": "Pantalones",
     "image": "pantalon.jpg",
     "gender": "hombre"
-  },
-  {
-    "id": 20,
-    "name": "Collar",
-    "description": "Patata",
-    "price": "15000",
-    "discount": "15",
-    "size": "Medium",
-    "category": "Accesorios",
-    "image": "foto-1615244638815.jpg",
-    "gender": "mujer"
   }
 ]
