@@ -86,16 +86,39 @@ module.exports = {
                  /*Nos fijamos si en el nombre en minuscula del producto está incluido
                    el término buscado en la barra también en minuscula*/
         }
+        return res.render(path.resolve (__dirname, "../views/products/allProducts.ejs"), {cssSheets, title, products: allProducts, busqueda: req.query.busqueda});
+    },
 
-        return res.render(path.resolve (__dirname, "../views/products/allProducts.ejs"), {cssSheets, title, allProducts, busqueda: req.query.busqueda});
+    showFiltered: (req, res) => {
+        let cssSheets = ["allProducts","showProducts"];
+        let title, filter = req.params.filter;
+        let allProducts = products.getAll();
+        let filteredProducts;
+        switch(filter){
+            case 'hombre':
+            case 'mujer':
+                filteredProducts = allProducts.filter(product => product.gender == filter);
+                break;
+            case 'ofertas':
+                filteredProducts = allProducts
+                .filter(product => product.discount > 0) // Filtramos los que estan en descuento
+                .sort((a,b) =>{ // Ordenamos de mayor a menor para mostrar primero los de mayor descuento
+                    if(a.discount > b.discount) {return -1}
+                    if(a.discount < b.discount) {return 1}
+                    return 0;
+                })
+                break;
+            default:
+                filteredProducts = allProducts;
+                break;
+        }
+        return res.render(path.resolve (__dirname, "../views/products/allProducts.ejs"), {cssSheets, title, products: filteredProducts, busqueda: null});
     },
 
     delete: (req,res) => {
         let allProducts = products.getAll();
         allProducts = allProducts.filter(product => product.id != req.params.id);
         products.write(allProducts);
-        
-        
         return res.redirect ('/productos/todos');
     }
 }

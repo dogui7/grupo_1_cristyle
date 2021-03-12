@@ -47,7 +47,7 @@
     "name": "Short jean",
     "description": "Short de jean elastizado tiro alto",
     "price": "1800",
-    "discount": "5",
+    "discount": "30",
     "size": "Medium",
     "category": "Pantalones",
     "image": "shortJean.jpg",
@@ -204,6 +204,7 @@
     "category": "Pantalones",
     "size": "Medium",
     "description": "Pantalón de traje molde clásico",
-    "image": "pantalon.jpg"
+    "image": "pantalon.jpg",
+    "gender": "hombre"
   }
 ]
