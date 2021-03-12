@@ -39,6 +39,10 @@ router.post ('/', upload.single ('productImage') ,productsController.store);
 
 router.get('/todos', productsController.showAll);
 
+//SHOW FILTERED
+
+router.get('/todos/:filter', productsController.showFiltered);
+
 //DELETE ONE PRODUCT
 
 router.delete('/eliminar/:id', productsController.delete);

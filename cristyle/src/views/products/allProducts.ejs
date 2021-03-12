@@ -13,11 +13,11 @@
         <h1 id="title">Nuestros productos</h1>
         <% } %>
 
-        <% if (allProducts.length == 0) { %>
+        <% if (products.length == 0) { %>
         <h2 id="noMatch">Lo sentimos, no hemos encontrado productos que coincidan con tu búsqueda</h2>
         <% } else { %>
         <div class="productos-flex">
-            <% allProducts.forEach(product => { %>
+            <% products.forEach(product => { %>
                 <article class="productos-home">
                     <figure>
                         <a href="/productos/detalle/<%= product.id %>"><img src="/images/products/<%= product.image %>" class="imgagen-productos"></a>
