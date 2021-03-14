@@ -25,7 +25,7 @@
     height: 2.5rem;
     border: solid #1b1b1b 1px;
     border-radius: 0.5rem;
-    padding: 3%;
+    padding-left: 3%;
     margin-top: 5%;
 }
 
@@ -57,10 +57,6 @@
 /*=====================================================TABLET==========================================================*/
 
 @media (min-width: 768px ){
-    .container {
-        width: 45rem;
-        margin: 12% auto;
-    }
 
  .flex-desktop {
      display: flex;
@@ -74,10 +70,7 @@
 
  .first-flex {
      margin-top: 1%;
- }
-
- .first-flex input {
-    width: 150%;
+     width: 45%;
  }
 
  .form-input {
@@ -89,56 +82,13 @@
      height: 8rem;
  }
 
+ .second-flex{
+  width: 50%;  
+}
+
 }
 /*==========================================================DESKTOP================================================================*/
 
-@media (min-width: 992px) {
-    .container {
-        width: 60rem;
-        margin: 4% auto;
-    }
-
-    .buy-now-button {
-        width: 23%;
-    }
-
-    .first-flex input {
-        width: 215%;
-    }
-
-    .form-input {
-        width: 130%;
-    }
-
-    .second-flex {
-        margin-right: 11%;
-    }
-}
-
-
-@media (min-width: 1240px) {
-    .container {
-        width:80rem;
-        margin: 2% auto;
-    }
-
-    .buy-now-button {
-        width: 18%;
-    }
-
-    .first-flex input {
-        width: 290%;
-    }
-
-    .second-flex {
-        margin-right: 21%;
-    }
-
-    .form-input {
-        width: 180%;
-    }
-
-    .form-class {
-        margin-right: 10px;
-    }
+@media (min-width: 1200px) {
+ 
 }
