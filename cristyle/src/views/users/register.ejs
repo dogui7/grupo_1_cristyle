@@ -12,7 +12,7 @@
 
                 <h2 id="titulo">REGISTRO</h2>
 
-                <form action="/registrarse" method="POST">
+                <form action="/usuarios/registrarse" method="POST" enctype="multipart/form-data">
 
                     <div class="campo-texto">
                         <input type="text" name="firstName" placeholder="Nombre" required>
@@ -39,7 +39,7 @@
                     </div>
 
                     <label class= "label" for="image">Elige tu foto de perfil</label>
-                    <input class= "label" type="file" name="image">
+                    <input class= "label" type="file" name="userImage">
 
                     <div id="terminos-condiciones">
                         <input type="checkbox" name="terminos_condiciones" value="true" id="terminos" checked>

@@ -1,72 +1,101 @@
-[{
-    "id":1,
-    "firstName":"Guido",
-    "lastName":"Maimone",
-    "email":"guido.maimone7@gmail.com",
-    "password":"123456",
-    "category":"1"
-},{
-    "id":2,
-    "firstName":"Franco",
-    "lastName":"Assaneo",
-    "email":"guido.maimone7@gmail.com",
-    "password":"123456",
-    "category":"1"
-},{
-    "id":3,
-    "firstName":"Laura",
-    "lastName":"Alvarez",
-    "email":"guido.maimone7@gmail.com",
-    "password":"123456",
-    "category":"1"
-},{
-    "id":4,
-    "firstName":"Micaela",
-    "lastName":"Segui Rosales",
-    "email":"guido.maimone7@gmail.com",
-    "password":"123456",
-    "category":"2"
-},{
-    "id":5,
-    "firstName":"Camila",
-    "lastName":"Prietto Caffaro",
-    "email":"guido.maimone7@gmail.com",
-    "password":"123456",
-    "category":"2"
-},{
-    "id":6,
-    "firstName":"Soledad Lorena",
-    "lastName":"Santana",
-    "email":"guido.maimone7@gmail.com",
-    "password":"123456",
-    "category":"2"
-},{
-    "id":7,
-    "firstName":"Emanuel",
-    "lastName":"Sotelo",
-    "email":"guido.maimone7@gmail.com",
-    "password":"123456",
-    "category":"2"
-},{
-    "id":8,
-    "firstName":"Felipe",
-    "lastName":"Pissoni",
-    "email":"guido.maimone7@gmail.com",
-    "password":"123456",
-    "category":"2"
-},{
-    "id":9,
-    "firstName":"Ezequiel",
-    "lastName":"Rysovas",
-    "email":"guido.maimone7@gmail.com",
-    "password":"123456",
-    "category":"2"
-},{
-    "id":10,
-    "firstName":"Paula",
-    "lastName":"Giammarini",
-    "email":"guido.maimone7@gmail.com",
-    "password":"123456",
-    "category":"2"
-}
+[
+  {
+    "id": 1,
+    "firstName": "Guido",
+    "lastName": "Maimone",
+    "email": "guido.maimone7@gmail.com",
+    "password": "123456",
+    "category": "1"
+  },
+  {
+    "id": 2,
+    "firstName": "Franco",
+    "lastName": "Assaneo",
+    "email": "guido.maimone7@gmail.com",
+    "password": "123456",
+    "category": "1"
+  },
+  {
+    "id": 3,
+    "firstName": "Laura",
+    "lastName": "Alvarez",
+    "email": "guido.maimone7@gmail.com",
+    "password": "123456",
+    "category": "1"
+  },
+  {
+    "id": 4,
+    "firstName": "Micaela",
+    "lastName": "Segui Rosales",
+    "email": "guido.maimone7@gmail.com",
+    "password": "123456",
+    "category": "2"
+  },
+  {
+    "id": 5,
+    "firstName": "Camila",
+    "lastName": "Prietto Caffaro",
+    "email": "guido.maimone7@gmail.com",
+    "password": "123456",
+    "category": "2"
+  },
+  {
+    "id": 6,
+    "firstName": "Soledad Lorena",
+    "lastName": "Santana",
+    "email": "guido.maimone7@gmail.com",
+    "password": "123456",
+    "category": "2"
+  },
+  {
+    "id": 7,
+    "firstName": "Emanuel",
+    "lastName": "Sotelo",
+    "email": "guido.maimone7@gmail.com",
+    "password": "123456",
+    "category": "2"
+  },
+  {
+    "id": 8,
+    "firstName": "Felipe",
+    "lastName": "Pissoni",
+    "email": "guido.maimone7@gmail.com",
+    "password": "123456",
+    "category": "2"
+  },
+  {
+    "id": 9,
+    "firstName": "Ezequiel",
+    "lastName": "Rysovas",
+    "email": "guido.maimone7@gmail.com",
+    "password": "123456",
+    "category": "2"
+  },
+  {
+    "id": 10,
+    "firstName": "Paula",
+    "lastName": "Giammarini",
+    "email": "guido.maimone7@gmail.com",
+    "password": "123456",
+    "category": "2"
+  },
+  {
+    "id": 11,
+    "firstName": "Laura",
+    "lastName": "Valente",
+    "email": "laui.alvarez@gmail.com",
+    "password": "Lolipop1",
+    "birthdate": "2021-03-02",
+    "category": "2"
+  },
+  {
+    "id": 12,
+    "firstName": "Laura",
+    "lastName": "Lopez",
+    "email": "laui.alvarez@gmail.com",
+    "password": "sdfdsdfdsf",
+    "birthdate": "2021-03-24",
+    "category": "2",
+    "image": "foto-1615745777378.jpg"
+  }
 ]
