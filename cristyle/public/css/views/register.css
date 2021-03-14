@@ -33,6 +33,18 @@ main {
     width: 100%;
 }
 
+#date{
+    margin: 8px 0 35px 0;
+}
+
+#date input{
+    margin: 0;
+}
+
+.label{
+    margin: 8px 0 35px 0;
+}
+
 /********************* Terminos y condiciones *********************/
 
 #terminos-condiciones {

@@ -12,28 +12,34 @@
 
                 <h2 id="titulo">REGISTRO</h2>
 
-                <form action="/registro" method="POST">
+                <form action="/registrarse" method="POST">
 
                     <div class="campo-texto">
-                        <input type="text" placeholder="Nombre" required>
+                        <input type="text" name="firstName" placeholder="Nombre" required>
                     </div>
 
                     <div class="campo-texto">
-                        <input type="text" placeholder="Apellido" required>
+                        <input type="text" name="lastName" placeholder="Apellido" required>
                     </div>
 
+                    <input type="radio" name="category" value="2" checked > Cliente <br>
+                    <input type="radio" name="category" value="1"> Admin
+
                     <div class="campo-texto">
-                        <input type="email" placeholder="Dirección de email" required>
+                        <input type="email" name="email" placeholder="Dirección de email" required>
                     </div>
 
                     <div class="campo-texto" id="contraseña">
-                        <input type="password" placeholder="Contraseña" required minlength="8">
+                        <input type="password" name="password" placeholder="Contraseña" required minlength="8">
                     </div>
 
                     <label for="date" id="fecha-nacimiento">Fecha de nacimiento</label>
                     <div class="campo-texto" id="date">
-                        <input type="date" id="date" required>
+                        <input type="date" name="birthdate" id="date" required>
                     </div>
+
+                    <label class= "label" for="image">Elige tu foto de perfil</label>
+                    <input class= "label" type="file" name="image">
 
                     <div id="terminos-condiciones">
                         <input type="checkbox" name="terminos_condiciones" value="true" id="terminos" checked>
