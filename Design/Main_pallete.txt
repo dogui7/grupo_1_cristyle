@@ -1,0 +1,3 @@
+Negro               #1b1b1b
+Amarillo claro      #be9e44
+Amarillo oscuro     #57430d

@@ -32,3 +32,7 @@ button, input{
     font-family:  "Poiret One", cursive, sans-serif;
     font-size: 1rem;
 }
+
+ul, ol{
+    list-style-type: none;
+}
