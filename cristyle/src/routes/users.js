@@ -18,6 +18,7 @@ const upload= multer({ storage });
 
 //LOGUEARSE
 router.get("/iniciarSesion", usersController.login);
+router.post("/iniciarSesion", usersController.loginValidation);
 
 //REGISTRAR Y ALMACENAR USUARIO
 router.get("/registrarse", usersController.register);

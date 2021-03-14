@@ -1,5 +1,6 @@
 const path = require("path");
 const users = require ("../database/users/usersModel");
+const bcryptjs = require ("bcryptjs");
 
 module.exports = {
 
@@ -7,6 +8,17 @@ module.exports = {
         let cssSheets = ["login"];
         let title = "Inicio de sesión";
         return res.render(path.resolve (__dirname, "../views/users/login.ejs"), {cssSheets, title})
+    },
+
+    loginValidation: (req, res) => {
+    let allUsers = users.getAll();
+    for (let i = 0; i < allUsers.length; i++){
+        if (req.body.email == allUsers[i].email && bcryptjs.compareSync(req.body.password, allUsers[i].password)){
+            res.redirect ('/productos/todos')
+        } else {
+            this.login;
+        }
+        }
     },
 
     register: (req, res) => {
@@ -22,7 +34,7 @@ module.exports = {
             "firstName": req.body.firstName,
             "lastName": req.body.lastName,
             "email": req.body.email,
-            "password": req.body.password,
+            "password": bcryptjs.hashSync (req.body.password, 10),
             "birthdate": req.body.birthdate,
             "category": req.body.category,
             "image": req.file.filename,

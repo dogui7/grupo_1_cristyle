@@ -82,20 +82,21 @@
   {
     "id": 11,
     "firstName": "Laura",
-    "lastName": "Valente",
-    "email": "laui.alvarez@gmail.com",
-    "password": "Lolipop1",
-    "birthdate": "2021-03-02",
-    "category": "2"
+    "lastName": "Alvarez",
+    "email": "laura.q.alvarez@gmail.com",
+    "password": "$2a$10$ch69kfUEMgoRQfdUl1LyL.Rokgz/HZ2ohFXOCq7nP/KysXASUrO4i",
+    "birthdate": "2021-03-03",
+    "category": "2",
+    "image": "foto-1615764446015.jpg"
   },
   {
     "id": 12,
-    "firstName": "Laura",
-    "lastName": "Lopez",
+    "firstName": "Andres",
+    "lastName": "Viola",
     "email": "laui.alvarez@gmail.com",
-    "password": "sdfdsdfdsf",
-    "birthdate": "2021-03-24",
+    "password": "$2a$10$SSCjSB4HKs94TRweXHFEwukGt7xxtuqZ00K.iMleUTFYUOLUFyMRm",
+    "birthdate": "2021-03-02",
     "category": "2",
-    "image": "foto-1615745777378.jpg"
+    "image": "foto-1615765478055.jpg"
   }
 ]
