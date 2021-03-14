@@ -23,12 +23,13 @@
                         <a href="/productos/detalle/<%= product.id %>"><img src="/images/products/<%= product.image %>" class="imgagen-productos"></a>
                     </figure>
                     <h3 class="name"><%= product.name %></h3>
-                    <p class="description"><%= product.description %> </p>
-                    <% if (product.discount > 0) { %>
-                        <p class="discount"><%= product.discount %>%OFF</p>
-                    <% } %>
-                    <p class="price">$<%= product.price %></p>
-                    <button type="submit" class="boton-comprar">
+                    <div class="price-and-dicount">
+                        <p class="price">$<%= product.price %></p>
+                        <% if (product.discount > 0) { %>
+                            <p class="discount"><%= product.discount %>%OFF</p>
+                        <% } %>
+                        </div>
+                    <button type="submit" class="boton-verProducto">
                         <a href="/productos/detalle/<%= product.id %>"> VER PRODUCTO </a>
                     </button>
                 </article>

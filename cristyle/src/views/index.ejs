@@ -14,9 +14,6 @@
                 <figure id="carrusel">
                     <img src="images/index/carrusel.jpg" class="imagen-carrusel">
                 </figure>
-                <figure id="carrusel">
-                    <img src="images/index/carrusel.jpg" class="imagen-carrusel">
-                </figure>
                 <h1>¡Rebajas CriStyle!</h1>
                 <p> Una página donde las prendas estan a la altura de tu estilo </p>
             </section>
@@ -29,13 +26,14 @@
                         <a href="/productos/detalle/<%= product.id %>"><img src="/images/products/<%= product.image %>" class="imgagen-productos"></a>
                     </figure>
                     <h3 class="name"><%= product.name %></h3>
-                    <p class="description"><%= product.description %></p>
+                    <div class="price-and-dicount">
+                    <p class="price">$<%= product.price %></p>
                     <% if (product.discount > 0) { %>
                         <p class="discount"><%= product.discount %>%OFF</p>
                     <% } %>
-                    <p class="price">$<%= product.price %></p>
-                    <button type="submit" class="boton-comprar">
-                        <a href="/productos/carrito">COMPRAR</a>
+                    </div>
+                    <button type="submit" class="boton-verProducto">
+                        <a href="/productos/detalle/<%= product.id %>"> VER PRODUCTO </a>
                     </button>
                 </article>
             <% }) %>

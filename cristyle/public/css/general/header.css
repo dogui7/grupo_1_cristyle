@@ -59,7 +59,6 @@
 
 #logo-header a {
     color: #ffffff;
-    font-family: "Poiret One", cursive;
     font-size: 2.5rem;
 }
 
@@ -89,10 +88,6 @@
 .search-bar-form i{
     background-color: white;
     outline: none;
-}
-
-::placeholder{
-    font-family:  "Poiret One", cursive, sans-serif;
 }
 
 .user i{
