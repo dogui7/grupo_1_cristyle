@@ -14,60 +14,95 @@
 
                 <form action="/usuarios/registrarse" method="POST" enctype="multipart/form-data">
 
-                    <div class="campo-texto">
-                        <input type="text" name="firstName" placeholder="Nombre" required
-                        <% if (locals.oldData && oldData.firstName) { %>
-                            value="<%= oldData.firstName %>" 
-                        <% } %>
+                    <div class="campo-texto label">
+                        <input type="text" name="firstName" placeholder="Nombre" 
+                            <% if (locals.oldData && oldData.firstName) { %>
+                                value="<%= oldData.firstName %>" 
+                            <% } %>
                         >
                     </div>
-
-                    <div class="campo-texto">
-                        <input type="text" name="lastName" placeholder="Apellido" required
-                        <% if (locals.oldData && oldData.lastName) { %>
-                            value="<%= oldData.lastName %>" 
-                        <% } %>
-                        >
-                    </div>
-
-                    <input type="radio" name="category" value="2" 
-                    <% if (!locals.oldData || (locals.oldData && (!oldData.category || oldData.category === "2"))) { %>
-                        checked
+                    <% if (locals.errorMessages && errorMessages.firstName) { %>
+                        <p class="error"> <%= errorMessages.firstName.msg %> </p>
                     <% } %>
-                    > Cliente <br>
-                    <input type="radio" name="category" value="1"
-                    <% if (locals.oldData && oldData.category === "1") { %>
-                        checked
+
+                    <div class="campo-texto label">
+                        <input type="text" name="lastName" placeholder="Apellido"
+                            <% if (locals.oldData && oldData.lastName) { %>
+                                value="<%= oldData.lastName %>" 
+                            <% } %>
+                        >
+                    </div>
+                    <% if (locals.errorMessages && errorMessages.lastName) { %>
+                        <p class="error"> <%= errorMessages.lastName.msg %> </p>
                     <% } %>
-                    > Admin
 
-                    <div class="campo-texto">
-                        <input type="email" name="email" placeholder="Correo electrónico" required
-                        <% if (locals.oldData && oldData.email) { %>
-                            value="<%= oldData.email %>" 
-                        <% } %>
+                    <div class="label">
+                        <input type="radio" name="category" value="2" 
+                            <% if (!locals.oldData || (locals.oldData && (!oldData.category || oldData.category === "2"))) { %>
+                                checked
+                            <% } %>
+                        > Cliente <br>
+                        <input type="radio" name="category" value="1"
+                            <% if (locals.oldData && oldData.category === "1") { %>
+                                checked
+                            <% } %>
+                        > Admin
+                    </div>
+                    <% if (locals.errorMessages && errorMessages.category) { %>
+                        <p class="error"> <%= errorMessages.category.msg %> </p>
+                    <% } %>
+
+                    <div class="campo-texto label">
+                        <input type="email" name="email" placeholder="Correo electrónico" 
+                            <% if (locals.oldData && oldData.email) { %>
+                                value="<%= oldData.email %>" 
+                            <% } %>
                         >
                     </div>
+                    <% if (locals.errorMessages && errorMessages.email) { %>
+                        <p class="error"> <%= errorMessages.email.msg %> </p>
+                    <% } %>
 
-                    <div class="campo-texto" id="contraseña">
-                        <input type="password" name="password" placeholder="Contraseña" required minlength="8">
+                    <div class="campo-texto label" id="contraseña">
+                        <input type="password" name="password" placeholder="Contraseña"  minlength="8">
                     </div>
+                    <% if (locals.errorMessages && errorMessages.password) { %>
+                        <p class="error"> <%= errorMessages.password.msg %> </p>
+                    <% } %>
+                    
+                    <div class="label">
+                        <label for="date" id="fecha-nacimiento">Fecha de nacimiento</label>
+                        <div class="campo-texto" id="date">
+                            <input type="date" name="birthdate" id="date" 
+                                <% if (locals.oldData && oldData.birthdate) { %>
+                                    value="<%= oldData.birthdate %>" 
+                                <% } %>
+                            >
+                        </div>
+                    </div>
+                    <% if (locals.errorMessages && errorMessages.birthdate) { %>
+                        <p class="error"> <%= errorMessages.birthdate.msg %> </p>
+                    <% } %>
 
-                    <label for="date" id="fecha-nacimiento">Fecha de nacimiento</label>
-                    <div class="campo-texto" id="date">
-                        <input type="date" name="birthdate" id="date" required
-                        <% if (locals.oldData && oldData.birthdate) { %>
-                            value="<%= oldData.birthdate %>" 
-                        <% } %>
+                    <div class="label">
+                        <label for="image">Elige tu foto de perfil</label>
+                        <input type="file" name="userImage" >
+                    </div>
+                    
+                    <% if (locals.errorMessages && errorMessages.userImage) { %>
+                        <p class="error"> <%= errorMessages.userImage.msg %> </p>
+                    <% } %>
+
+                    <div class="label" id="terminos-condiciones">
+                        <input type="checkbox" name="terminos_condiciones" value="true" id="terminos"
+                            <% if (!locals.oldData || (locals.oldData && oldData.terminos_condiciones)) { %>
+                                checked
+                            <% } %>
                         >
-                    </div>
-
-                    <label class= "label" for="image">Elige tu foto de perfil</label>
-                    <input class= "label" type="file" name="userImage" required>
-
-                    <div id="terminos-condiciones">
-                        <input type="checkbox" name="terminos_condiciones" value="true" id="terminos" checked required>
                         <label for="terminos">Acepto los términos y condiciones</label>
+                        <% if (locals.errorMessages && errorMessages.terminos_condiciones) { %>
+                            <p class="error"> <%= errorMessages.terminos_condiciones.msg %> </p>
+                        <% } %>
                     </div>
 
                     <div class="boton" id="registrarme">

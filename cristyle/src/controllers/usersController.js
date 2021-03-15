@@ -34,9 +34,11 @@ module.exports = {
         if (!errors.isEmpty()) {
             let cssSheets = ["register"];
             let title = "Registro";
-            let imageName = req.file.filename;
-            fs.unlinkSync(path.resolve (__dirname, "../../public/images/users/") + '/' + imageName);
-            return res.render (path.resolve (__dirname, "../views/users/register.ejs"), {cssSheets, title, errorMessages: errors.array(), oldData: req.body});
+            if (req.file) {
+                let imageName = req.file.fileName;
+                fs.unlinkSync(path.resolve (__dirname, "../../public/images/users/") + '/' + imageName);
+            }
+            return res.render (path.resolve (__dirname, "../views/users/register.ejs"), {cssSheets, title, errorMessages: errors.mapped(), oldData: req.body});
         } else {
             return res.send("Aprobado!")
             let allUsers = users.getAll();
