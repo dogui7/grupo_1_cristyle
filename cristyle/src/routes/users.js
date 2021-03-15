@@ -5,6 +5,9 @@ const path = require('path');
 
 const usersController = require ("../controllers/usersController");
 
+//Middlewares
+const validateRegister = require("../middlewares/routes/users/expressValidatorRegister");
+
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, path.resolve(__dirname, '../../public/images/users'));    //Aquí deben indicar donde van a guardar la imagen
@@ -12,7 +15,7 @@ const storage = multer.diskStorage({
     filename: function (req, file, cb) {
       cb(null, 'foto' + '-' + Date.now()+ path.extname(file.originalname));      
     }
-  })
+})
    
 const upload= multer({ storage });
 
@@ -22,6 +25,6 @@ router.post("/iniciarSesion", usersController.loginValidation);
 
 //REGISTRAR Y ALMACENAR USUARIO
 router.get("/registrarse", usersController.register);
-router.post ("/registrarse", upload.single ('userImage'), usersController.store);
+router.post ("/registrarse", upload.single ('userImage'), validateRegister, usersController.store);
 
 module.exports = router;
