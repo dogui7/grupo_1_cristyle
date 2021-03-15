@@ -15,18 +15,38 @@
                 <form action="/usuarios/registrarse" method="POST" enctype="multipart/form-data">
 
                     <div class="campo-texto">
-                        <input type="text" name="firstName" placeholder="Nombre" required>
+                        <input type="text" name="firstName" placeholder="Nombre" required
+                        <% if (locals.oldData && oldData.firstName) { %>
+                            value="<%= oldData.firstName %>" 
+                        <% } %>
+                        >
                     </div>
 
                     <div class="campo-texto">
-                        <input type="text" name="lastName" placeholder="Apellido" required>
+                        <input type="text" name="lastName" placeholder="Apellido" required
+                        <% if (locals.oldData && oldData.lastName) { %>
+                            value="<%= oldData.lastName %>" 
+                        <% } %>
+                        >
                     </div>
 
-                    <input type="radio" name="category" value="2" checked > Cliente <br>
-                    <input type="radio" name="category" value="1"> Admin
+                    <input type="radio" name="category" value="2" 
+                    <% if (!locals.oldData || (locals.oldData && (!oldData.category || oldData.category === "2"))) { %>
+                        checked
+                    <% } %>
+                    > Cliente <br>
+                    <input type="radio" name="category" value="1"
+                    <% if (locals.oldData && oldData.category === "1") { %>
+                        checked
+                    <% } %>
+                    > Admin
 
                     <div class="campo-texto">
-                        <input type="email" name="email" placeholder="Dirección de email" required>
+                        <input type="email" name="email" placeholder="Correo electrónico" required
+                        <% if (locals.oldData && oldData.email) { %>
+                            value="<%= oldData.email %>" 
+                        <% } %>
+                        >
                     </div>
 
                     <div class="campo-texto" id="contraseña">
@@ -35,7 +55,11 @@
 
                     <label for="date" id="fecha-nacimiento">Fecha de nacimiento</label>
                     <div class="campo-texto" id="date">
-                        <input type="date" name="birthdate" id="date" required>
+                        <input type="date" name="birthdate" id="date" required
+                        <% if (locals.oldData && oldData.birthdate) { %>
+                            value="<%= oldData.birthdate %>" 
+                        <% } %>
+                        >
                     </div>
 
                     <label class= "label" for="image">Elige tu foto de perfil</label>
