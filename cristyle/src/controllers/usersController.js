@@ -2,7 +2,7 @@ const path = require("path");
 const bcryptjs = require ("bcryptjs");
 const fs = require("fs");
 const users = require ("../database/users/usersModel");
-const {validationResult} = require ("express-validator");
+const {validationResult} = require("express-validator");
 
 module.exports = {
 
@@ -13,13 +13,30 @@ module.exports = {
     },
 
     loginValidation: (req, res) => {
-    let allUsers = users.getAll();
-    for (let i = 0; i < allUsers.length; i++){
-        if (req.body.email == allUsers[i].email && bcryptjs.compareSync(req.body.password, allUsers[i].password)){
-            res.redirect ('/productos/todos')
+        let errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            let cssSheets = ["login"];
+            let title = "Inicio de sesión";
+            return res.render (path.resolve (__dirname, "../views/users/login.ejs"), {cssSheets, title, errorMessages: errors.mapped()});
         } else {
-            this.login;
-        }
+            let allUsers = users.getAll();
+            for (let i = 0; i < allUsers.length; i++){
+            if (req.body.email == allUsers[i].email && bcryptjs.compareSync(req.body.password, allUsers[i].password)){
+                res.redirect ('/productos/todos')
+            } else {
+                let customError= {
+                    "password": {
+                        "value": "",
+                        "msg": "Las credenciales no son válidas",
+                        "param": "email",
+                        "location": "body"
+                    }
+                }
+                let cssSheets = ["login"];
+                let title = "Inicio de sesión";
+                res.render (path.resolve (__dirname, "../views/users/login.ejs"), {cssSheets, title, errorMessages: customError});
+            }
+            }
         }
     },
 
@@ -40,7 +57,6 @@ module.exports = {
             }
             return res.render (path.resolve (__dirname, "../views/users/register.ejs"), {cssSheets, title, errorMessages: errors.mapped(), oldData: req.body});
         } else {
-            return res.send("Aprobado!")
             let allUsers = users.getAll();
             let newUser = {
                 "id": allUsers[allUsers.length-1].id + 1,

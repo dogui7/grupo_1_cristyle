@@ -27,15 +27,21 @@
     
                 <form action="/usuarios/iniciarSesion" method="POST" class="formulario-login">
     
-                    <div class="campo-texto">
-                        <input type="email" name ="email" placeholder="Dirección de email" required>
+                    <div class="campo-texto label">
+                        <input type="email" name ="email" placeholder="Correo electrónico">
                     </div>
+                    <% if (locals.errorMessages && errorMessages.email) { %>
+                        <p class="error"> <%= errorMessages.email.msg %> </p>
+                    <% } %>
     
-                    <div class="campo-texto">
-                        <input type="password" name= "password" placeholder="Contraseña" required minlength="8">
+                    <div class="campo-texto label">
+                        <input type="password" name= "password" placeholder="Contraseña">
                     </div>
+                    <% if (locals.errorMessages && errorMessages.password) { %>
+                        <p class="error"> <%= errorMessages.password.msg %> </p>
+                    <% } %>
     
-                    <div id="mantener-conectado">
+                    <div class="label" id="mantener-conectado">
                         <input type="checkbox" name="mantener-conectado" value="mantener-conectado" id="mantener">
                         <label for="mantener">Mantenerme conectado</label>
                     </div>

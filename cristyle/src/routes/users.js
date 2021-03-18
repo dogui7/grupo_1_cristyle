@@ -7,6 +7,7 @@ const usersController = require ("../controllers/usersController");
 
 //Middlewares
 const validateRegister = require("../middlewares/routes/users/expressValidatorRegister");
+const validateLogin = require("../middlewares/routes/users/expressValidatorLogin");
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -21,7 +22,7 @@ const upload= multer({ storage });
 
 //LOGUEARSE
 router.get("/iniciarSesion", usersController.login);
-router.post("/iniciarSesion", usersController.loginValidation);
+router.post("/iniciarSesion", validateLogin, usersController.loginValidation);
 
 //REGISTRAR Y ALMACENAR USUARIO
 router.get("/registrarse", usersController.register);
