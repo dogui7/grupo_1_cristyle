@@ -35,7 +35,7 @@ module.exports = {
             let cssSheets = ["register"];
             let title = "Registro";
             if (req.file) {
-                let imageName = req.file.fileName;
+                let imageName = req.file.filename;
                 fs.unlinkSync(path.resolve (__dirname, "../../public/images/users/") + '/' + imageName);
             }
             return res.render (path.resolve (__dirname, "../views/users/register.ejs"), {cssSheets, title, errorMessages: errors.mapped(), oldData: req.body});
