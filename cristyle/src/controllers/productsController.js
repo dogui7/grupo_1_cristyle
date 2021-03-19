@@ -2,6 +2,7 @@ const path = require("path");
 const products = require ("../database/products/productsModel");
 const categoriesModel = require ("../database/products/categoriesModel");
 const sizesModel = require ("../database/products/sizesModel");
+const {validationResult} = require("express-validator");
 
 module.exports = {
 
@@ -55,6 +56,22 @@ module.exports = {
     },
 
     store: (req,res) => {
+        let errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            let cssSheets = ["createProduct"];
+            let title = "Crear producto";
+            let categories = categoriesModel.getAll();
+            let sizes = sizesModel.getAll();
+            if (req.file) {
+                let imageName = req.file.filename;
+                fs.unlinkSync(path.resolve (__dirname, "../../public/images/products/") + '/' + imageName);
+            }
+            //return res.send(errors.mapped());
+            //return res.send(req.body.description);
+            return res.render (path.resolve (__dirname, "../views/products/createProduct.ejs"), {cssSheets, title, categories, sizes, errorMessages: errors.mapped(), oldData: req.body});
+        } else {
+
+        }
         let allProducts = products.getAll();
         let newProduct = {
             "id": allProducts[allProducts.length-1].id + 1,

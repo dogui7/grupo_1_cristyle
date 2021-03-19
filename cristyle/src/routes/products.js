@@ -5,6 +5,9 @@ const path = require('path');
 
 const productsController = require ("../controllers/productsController");
 
+//Middlewares
+const validateProducts = require("../middlewares/routes/products/expressValidatorProducts");
+
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, path.resolve(__dirname, '../../public/images/products'));    //Aquí deben indicar donde van a guardar la imagen
@@ -33,7 +36,7 @@ router.put ('/:id', upload.single ('productImage'), productsController.update);
 // PRODUCT CREATION
 
 router.get ('/agregar', productsController.create);
-router.post ('/', upload.single ('productImage') ,productsController.store);
+router.post ('/', upload.single ('productImage') , validateProducts, productsController.store);
 
 //SHOW ALL
 

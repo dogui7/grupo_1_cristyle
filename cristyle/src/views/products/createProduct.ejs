@@ -19,22 +19,38 @@
                         <div>
                             <div class="flex-desktop">
                                 <div class="first-flex">
+
                                     <div class="form-class">
                                         <label for="name" class="form-label">Nombre del producto:</label>
                                         <br>
-                                        <input type="text" id="name" name="name" placeholder="Ej: Vestido Superfashon " class="form-input">
+                                        <input type="text" id="name" name="name" placeholder="Ej: Vestido Superfashon " class="form-input"
+                                        <% if (locals.oldData && oldData.name) { %>
+                                            value="<%= oldData.name %>" 
+                                        <% } %>
+                                        >
                                     </div>
+
                                     <div class="form-class">
                                         <label for="price" class="form-label">Precio del producto:</label>
                                         <br>
-                                        <input type="text" id="price" name="price" placeholder="Ej:4562" class="form-input">
+                                        <input type="text" id="price" name="price" placeholder="Ej:4562" class="form-input"
+                                        <% if (locals.oldData && oldData.price) { %>
+                                            value="<%= oldData.price %>" 
+                                        <% } %>
+                                        >
                                     </div>
+
                                     <div class="form-class">
                                         <label for="discount" class="form-label">Descuento:</label>
                                         <br>
-                                        <input type="text" id="discount" name="discount" placeholder="Ej: 10" class="form-input">
+                                        <input type="text" id="discount" name="discount" placeholder="Ej: 10" class="form-input"
+                                        <% if (locals.oldData && oldData.discount) { %>
+                                            value="<%= oldData.discount %>" 
+                                        <% } %>
+                                        >
                                     </div>
                                 </div>
+
                                 <div class="second-flex">    
                                     <div class="form-class">
                                         <label for="category" class="form-label">Categoría:</label>
@@ -42,36 +58,54 @@
                                         <select name="category" id="category" class="form-input">
                                             <option value="">Elegí</option>
                                             <% categories.forEach(categorie => { %>
-                                                <option value=<%= categorie %> ><%= categorie %></option>
+                                                <option value=<%= categorie %> 
+                                                    <%= locals.oldData && oldData.category === categorie ? "selected" : null %> 
+                                                > <%= categorie %> </option>
                                             <% }) %>
                                         </select>
                                     </div>
+
                                     <div class="form-class">
                                         <label for="size" class="form-label">Talle:</label>
                                         <br>
                                         <select name="size" id="size" class="form-input">
                                             <option value="">Elegí</option>
                                             <% sizes.forEach(size => { %>
-                                                <option value=<%= size %> ><%= size %></option>
+                                                <option value=<%= size %> 
+                                                    <%= locals.oldData && oldData.size === size ? "selected" : null %> 
+                                                > <%= size %> </option>
                                             <% }) %>
                                         </select>
                                     </div>
+
                                     <div class="form-class">
                                         <label for="image" class="form-label">Insertar Imagen:</label>
                                         <br>
                                         <input type="file" id="image" class="form-image" name="productImage">        
                                     </div>
+
                                 </div>
                             </div>
+
                             <div id="gender">
-                            <label for="gender">Selecciona el género: </label><br>
-                            <input type="radio" id="male" name="gender" value="hombre"> Hombre<br>
-                            <input type="radio" id="female" name="gender" value="mujer"> Mujer<br>    
-                            </div>    
+                                <label for="gender">Selecciona el género: </label><br>
+                                <input type="radio" id="male" name="gender" value="hombre"
+                                    <% if (locals.oldData && oldData.gender === "hombre") { %>
+                                        checked
+                                    <% } %>
+                                > Hombre <br>
+                                <input type="radio" id="female" name="gender" value="mujer"
+                                    <% if (locals.oldData && oldData.gender === "mujer") { %>
+                                        checked
+                                    <% } %>
+                                > Mujer <br>    
+                            </div>  
+
                             <div class="form-class">
                                 <label for="description" class="form-label">Descripción:</label>
                                 <br>
-                                <textarea name="description" id="description" class="description"></textarea>
+                                <!-- The following line MUST NOT be altered, it must remain in a single line -->
+                                <textarea name="description" id="description" class="description"><% if (locals.oldData && oldData.description) { %><%= oldData.description %><% } %></textarea>
                             </div>
                             <div class="form-class">
                                 <button type="submit" class="buy-now-button">Guardar producto</button>
