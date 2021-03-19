@@ -66,10 +66,10 @@
                                         <br>
                                         <select name="category" id="category" class="form-input">
                                             <option value="">Elegí</option>
-                                            <% categories.forEach(categorie => { %>
-                                                <option value=<%= categorie %> 
-                                                    <%= locals.oldData && oldData.category === categorie ? "selected" : null %> 
-                                                > <%= categorie %> </option>
+                                            <% categories.forEach(category => { %>
+                                                <option value=<%= category %> 
+                                                    <%= locals.oldData && oldData.category === category ? "selected" : null %> 
+                                                > <%= category %> </option>
                                             <% }) %>
                                         </select>
                                     </div>
