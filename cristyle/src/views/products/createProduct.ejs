@@ -15,7 +15,7 @@
             </div>
             <div class="form-padding">
                 <div  class="form-create">
-                    <form action="/productos" method="POST" enctype="multipart/form-data">
+                    <form action="/productos/agregar" method="POST" enctype="multipart/form-data">
                         <div>
                             <div class="flex-desktop">
                                 <div class="first-flex">
@@ -29,6 +29,9 @@
                                         <% } %>
                                         >
                                     </div>
+                                    <% if (locals.errorMessages && errorMessages.name) { %>
+                                        <p class="error"> <%= errorMessages.name.msg %> </p>
+                                    <% } %>
 
                                     <div class="form-class">
                                         <label for="price" class="form-label">Precio del producto:</label>
@@ -39,6 +42,9 @@
                                         <% } %>
                                         >
                                     </div>
+                                    <% if (locals.errorMessages && errorMessages.price) { %>
+                                        <p class="error"> <%= errorMessages.price.msg %> </p>
+                                    <% } %>
 
                                     <div class="form-class">
                                         <label for="discount" class="form-label">Descuento:</label>
@@ -49,6 +55,9 @@
                                         <% } %>
                                         >
                                     </div>
+                                    <% if (locals.errorMessages && errorMessages.discount) { %>
+                                        <p class="error"> <%= errorMessages.discount.msg %> </p>
+                                    <% } %>
                                 </div>
 
                                 <div class="second-flex">    
@@ -64,6 +73,9 @@
                                             <% }) %>
                                         </select>
                                     </div>
+                                    <% if (locals.errorMessages && errorMessages.category) { %>
+                                        <p class="error"> <%= errorMessages.category.msg %> </p>
+                                    <% } %>
 
                                     <div class="form-class">
                                         <label for="size" class="form-label">Talle:</label>
@@ -77,12 +89,18 @@
                                             <% }) %>
                                         </select>
                                     </div>
+                                    <% if (locals.errorMessages && errorMessages.size) { %>
+                                        <p class="error"> <%= errorMessages.size.msg %> </p>
+                                    <% } %>
 
                                     <div class="form-class">
                                         <label for="image" class="form-label">Insertar Imagen:</label>
                                         <br>
                                         <input type="file" id="image" class="form-image" name="productImage">        
                                     </div>
+                                    <% if (locals.errorMessages && errorMessages.productImage) { %>
+                                        <p class="error"> <%= errorMessages.productImage.msg %> </p>
+                                    <% } %>
 
                                 </div>
                             </div>
@@ -99,7 +117,10 @@
                                         checked
                                     <% } %>
                                 > Mujer <br>    
-                            </div>  
+                            </div>
+                            <% if (locals.errorMessages && errorMessages.gender) { %>
+                                <p class="error"> <%= errorMessages.gender.msg %> </p>
+                            <% } %>
 
                             <div class="form-class">
                                 <label for="description" class="form-label">Descripción:</label>
@@ -107,7 +128,11 @@
                                 <!-- The following line MUST NOT be altered, it must remain in a single line -->
                                 <textarea name="description" id="description" class="description"><% if (locals.oldData && oldData.description) { %><%= oldData.description %><% } %></textarea>
                             </div>
-                            <div class="form-class">
+                            <% if (locals.errorMessages && errorMessages.description) { %>
+                                <p class="error"> <%= errorMessages.description.msg %> </p>
+                            <% } %>
+
+                            <div class="form-class" id="buy-now-div">
                                 <button type="submit" class="buy-now-button">Guardar producto</button>
                             </div>
                         </div>

@@ -17,7 +17,7 @@
 }
 
 .form-class {
-    padding: 1rem;
+    padding: 1rem 1rem 0;
 }
 
 .form-input {
@@ -31,6 +31,7 @@
 
 #gender {
     margin-left: 1rem;
+    margin-top: 1rem;
 }
 
 .form-image {
@@ -43,7 +44,7 @@
     height: 6rem;
     border: solid #1b1b1b 1px;
     border-radius: 0.5rem;
-    padding: 3%;
+    padding: 1rem;
     margin-top: 5%;
 }
 
@@ -52,6 +53,14 @@
     width: 55%;
     height: 3rem;
     border-radius: 5%;
+    margin-bottom: 1.5rem;
+}
+
+/********************* Errores *********************/
+
+.error {
+    color: red;
+    margin-left: 1rem;
 }
 
 /*=====================================================TABLET==========================================================*/

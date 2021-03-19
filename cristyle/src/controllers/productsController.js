@@ -66,8 +66,6 @@ module.exports = {
                 let imageName = req.file.filename;
                 fs.unlinkSync(path.resolve (__dirname, "../../public/images/products/") + '/' + imageName);
             }
-            //return res.send(errors.mapped());
-            //return res.send(req.body.description);
             return res.render (path.resolve (__dirname, "../views/products/createProduct.ejs"), {cssSheets, title, categories, sizes, errorMessages: errors.mapped(), oldData: req.body});
         } else {
 

@@ -36,7 +36,7 @@ router.put ('/:id', upload.single ('productImage'), productsController.update);
 // PRODUCT CREATION
 
 router.get ('/agregar', productsController.create);
-router.post ('/', upload.single ('productImage') , validateProducts, productsController.store);
+router.post ('/agregar', upload.single ('productImage') , validateProducts, productsController.store);
 
 //SHOW ALL
 

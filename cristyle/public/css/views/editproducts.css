@@ -17,7 +17,7 @@
 }
 
 .form-class {
-    padding: 1rem;
+    padding: 1rem 1rem 0;
 }
 
 .form-input {
@@ -25,12 +25,13 @@
     height: 2.5rem;
     border: solid #1b1b1b 1px;
     border-radius: 0.5rem;
-    padding: 3%;
+    padding-left: 3%;
     margin-top: 5%;
 }
 
 #gender {
     margin-left: 1rem;
+    margin-top: 1rem;
 }
 
 .form-image {
@@ -52,15 +53,19 @@
     width: 55%;
     height: 3rem;
     border-radius: 5%;
+    margin-bottom: 1.5rem;
+}
+
+/********************* Errores *********************/
+
+.error {
+    color: red;
+    margin-left: 1rem;
 }
 
 /*=====================================================TABLET==========================================================*/
 
 @media (min-width: 768px ){
-    .container {
-        width: 45rem;
-        margin: 12% auto;
-    }
 
  .flex-desktop {
      display: flex;
@@ -74,12 +79,8 @@
 
  .first-flex {
      margin-top: 1%;
+     width: 45%;
  }
-
- .first-flex input {
-    width: 150%;
- }
- 
 
  .form-input {
      margin-top: 2%;
@@ -90,57 +91,13 @@
      height: 8rem;
  }
 
+ .second-flex{
+  width: 50%;  
+}
+
 }
 /*==========================================================DESKTOP================================================================*/
 
-@media (min-width: 992px) {
-    .container {
-        width: 60rem;
-        margin: 4% auto;
-    }
-
-    .buy-now-button {
-        width: 23%;
-    }
-
-    .first-flex input {
-        width: 215%;
-     }
-
-    .form-input {
-        width: 130%;
-    }
-
-    .second-flex {
-        margin-right: 11%;
-    }
-
-}
-
-@media (min-width: 1240px) {
-    .container {
-        width:80rem;
-        margin: 2% auto;
-    }
-
-    .buy-now-button {
-        width: 18%;
-    }
-
-    .first-flex input {
-        width: 290%;
-     }
-
-    .second-flex {
-        margin-right: 21%;
-    }
-
-    .form-input {
-        width: 180%;
-
-    }
-
-    .form-class {
-        margin-right: 10px;
-    }
+@media (min-width: 1200px) {
+ 
 }

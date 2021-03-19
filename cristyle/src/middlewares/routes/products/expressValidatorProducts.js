@@ -11,6 +11,7 @@ const validateProducts = [
         .isInt({min: 0}).withMessage('El precio debe ser positivo').bail(),
 
     check('discount')
+        .notEmpty().withMessage('Debes poner al menos 0 de descuento').bail()
         .isInt().withMessage('El descuento debe ser un número, sin simbolo de porcentaje').bail()
         .isInt({min: 0, max: 99}).withMessage('El descuento tiene que estar en el rango de 0 a 99').bail(),
 
