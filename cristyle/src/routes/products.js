@@ -6,8 +6,8 @@ const path = require('path');
 const productsController = require ("../controllers/productsController");
 
 //Middlewares
-const validateProducts = require("../middlewares/routes/products/expressValidatorProducts");
-
+const validateProductsCreate = require("../middlewares/routes/products/expressValidatorProductsCreate");
+const validateProductsEdit = require("../middlewares/routes/products/expressValidatorProductsEdit");
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, path.resolve(__dirname, '../../public/images/products'));    //Aquí deben indicar donde van a guardar la imagen
@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
     }
   })
    
-const upload= multer({ storage });
+const upload = multer({ storage });
 
 
 //GET ONE PRODUCT
@@ -31,12 +31,12 @@ router.get("/carrito", productsController.cart);
 //PRODUCT EDIT
 
 router.get ('/editar/:id', productsController.edit);
-router.put ('/:id', upload.single ('productImage'), productsController.update);
+router.put ('/:id', upload.single ('productImage'), validateProductsEdit, productsController.update);
 
-// PRODUCT CREATION
+//PRODUCT CREATION
 
 router.get ('/agregar', productsController.create);
-router.post ('/agregar', upload.single ('productImage') , validateProducts, productsController.store);
+router.post ('/agregar', upload.single ('productImage'), validateProductsCreate, productsController.store);
 
 //SHOW ALL
 

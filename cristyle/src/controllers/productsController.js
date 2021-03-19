@@ -2,6 +2,7 @@ const path = require("path");
 const products = require ("../database/products/productsModel");
 const categoriesModel = require ("../database/products/categoriesModel");
 const sizesModel = require ("../database/products/sizesModel");
+const fs = require('fs')
 const {validationResult} = require("express-validator");
 
 module.exports = {
@@ -29,22 +30,37 @@ module.exports = {
     },
 
     update: (req,res)=> {
-        let allProducts = products.getAll ();
-        let originalProduct = products.getOne (req.params.id);
-        let modifiedProduct = {
-            "id": originalProduct.id,
-			"name": req.body.name,
-			"price": req.body.price,
-			"discount": req.body.discount,
-			"category": req.body.category,
-            "size": req.body.size,
-			"description": req.body.description,
-			//Si vino un archivo, cargar el nombre de ese archivo. Sino, dejar el nombre original
-			"image": req.file ? req.file.filename : originalProduct.image
-        };
-        allProducts.splice (req.params.id-1, 1, modifiedProduct);
-        products.write (allProducts);
-        return res.redirect ('/productos/todos');
+        let errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            let cssSheets = ["editproducts"];
+            let title = "Editar producto";
+            let product = products.getOne(req.params.id);
+            let categories = categoriesModel.getAll();
+            let sizes = sizesModel.getAll();
+            if (req.file) {
+                let imageName = req.file.filename;
+                fs.unlinkSync(path.resolve (__dirname, "../../public/images/products/") + '/' + imageName);
+            }
+            return res.render (path.resolve (__dirname, "../views/products/editproducts.ejs"), {cssSheets, title, product, categories, sizes, errorMessages: errors.mapped(), oldData: req.body});
+        } else {
+            //return res.send("Producto editado! (mentirita, remover el return)");
+            let allProducts = products.getAll ();
+            let originalProduct = products.getOne (req.params.id);
+            let modifiedProduct = {
+                "id": originalProduct.id,
+                "name": req.body.name,
+                "price": req.body.price,
+                "discount": req.body.discount,
+                "category": req.body.category,
+                "size": req.body.size,
+                "description": req.body.description,
+                //Si vino un archivo, cargar el nombre de ese archivo. Sino, dejar el nombre original
+                "image": req.file ? req.file.filename : originalProduct.image
+            };
+            allProducts.splice (req.params.id-1, 1, modifiedProduct);
+            products.write (allProducts);
+            return res.redirect ('/productos/todos');
+        }
     },
 
     create: (req, res) => {
@@ -68,23 +84,24 @@ module.exports = {
             }
             return res.render (path.resolve (__dirname, "../views/products/createProduct.ejs"), {cssSheets, title, categories, sizes, errorMessages: errors.mapped(), oldData: req.body});
         } else {
-
+            //return res.send("Producto agregado! (mentirita, remover el return)");
+            let allProducts = products.getAll();
+            let newProduct = {
+                "id": allProducts[allProducts.length-1].id + 1,
+                "name": req.body.name,
+                "description": req.body.description,
+                "price": req.body.price,
+                "discount": req.body.discount,
+                "size": req.body.size,
+                "category": req.body.category,
+                "image": req.file.filename,
+                "gender": req.body.gender
+            };
+            allProducts.push (newProduct);
+            products.write (allProducts);
+            return res.redirect ('/productos/todos');
         }
-        let allProducts = products.getAll();
-        let newProduct = {
-            "id": allProducts[allProducts.length-1].id + 1,
-            "name": req.body.name,
-            "description": req.body.description,
-            "price": req.body.price,
-            "discount": req.body.discount,
-            "size": req.body.size,
-            "category": req.body.category,
-            "image": req.file.filename,
-            "gender": req.body.gender
-        };
-        allProducts.push (newProduct);
-        products.write (allProducts);
-        return res.redirect ('/productos/todos');
+        
     },
 
     showAll: (req, res) => {
