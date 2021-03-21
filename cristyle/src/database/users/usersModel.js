@@ -10,5 +10,12 @@ module.exports = {
     write: (data) => fs.writeFileSync(path.resolve(__dirname, './usersDataBase.json'), JSON.stringify(data, null, 2)),
 
     //Devuelve un usuario filtrado por id
-    getOne: (id) => (JSON.parse(fs.readFileSync(path.resolve(__dirname, './usersDataBase.json'),{encoding:'utf-8'}))).find(user => user.id == id)
+    getOne: (id) => (JSON.parse(fs.readFileSync(path.resolve(__dirname, './usersDataBase.json'),{encoding:'utf-8'}))).find(user => user.id == id),
+
+    //Busca según un campo
+    findByField: function (field, text) {
+        let allUsers = this. getAll();
+        let userFound = allUsers.find(oneUser => oneUser[field] === text);
+        return userFound;
+    }
 }

@@ -3,6 +3,7 @@ const bcryptjs = require ("bcryptjs");
 const fs = require("fs");
 const users = require ("../database/users/usersModel");
 const {validationResult} = require("express-validator");
+const session = require ("express-session");
 
 module.exports = {
 
@@ -20,23 +21,31 @@ module.exports = {
             return res.render (path.resolve (__dirname, "../views/users/login.ejs"), {cssSheets, title, errorMessages: errors.mapped()});
         } else {
             let allUsers = users.getAll();
+            let usuarioALoguearse;
             for (let i = 0; i < allUsers.length; i++){
-            if (req.body.email == allUsers[i].email && bcryptjs.compareSync(req.body.password, allUsers[i].password)){
-                res.redirect ('/productos/todos')
-            } else {
-                let customError= {
-                    "password": {
-                        "value": "",
-                        "msg": "Las credenciales no son válidas",
-                        "param": "email",
-                        "location": "body"
-                    }
+                if (req.body.email == allUsers[i].email && bcryptjs.compareSync(req.body.password, allUsers[i].password)){
+                    usuarioALoguearse = allUsers[i];
+                    break;
                 }
+            }
+        
+            if (usuarioALoguearse == undefined){
+                let customError= {
+                        "password": {
+                            "value": "",
+                            "msg": "Las credenciales no son válidas",
+                            "param": "email",
+                            "location": "body"
+                        }
+                    }
                 let cssSheets = ["login"];
                 let title = "Inicio de sesión";
-                res.render (path.resolve (__dirname, "../views/users/login.ejs"), {cssSheets, title, errorMessages: customError});
-            }
-            }
+                return res.render (path.resolve (__dirname, "../views/users/login.ejs"), {cssSheets, title, errorMessages: customError});
+                }
+            //Borro la propiedad password para guardar el usuario en session sin su contraseña, por seguridad:
+            delete usuarioALoguearse.password;
+            req.session.usuarioLogueado = usuarioALoguearse;
+            res.redirect ('/productos/todos');
         }
     },
 
@@ -47,6 +56,21 @@ module.exports = {
     },
 
     store: (req,res) => {
+        //Evitar que un usuario se registre con un email ya utilizado (NO ANDA LA VISUALIZACION DEL MENSAJE DE ERROR, PERO SI LA FUNCION):
+        let userInDB = users.findByField("email", req.body.email);
+        let cssSheets = ["register"];
+        let title = "Registro";
+        if (userInDB) {
+            return res.render (path.resolve (__dirname, "../views/users/register.ejs"), {cssSheets, title,
+                errors: {
+                    email: {
+                        msg: "Este e-mail ya está registrado"
+                    }
+                },
+                oldData: req.body
+            });
+        }
+        //Verifica que los campos se hayan llenado correctamente:
         let errors = validationResult(req);
         if (!errors.isEmpty()) {
             let cssSheets = ["register"];
@@ -57,6 +81,7 @@ module.exports = {
             }
             return res.render (path.resolve (__dirname, "../views/users/register.ejs"), {cssSheets, title, errorMessages: errors.mapped(), oldData: req.body});
         } else {
+            //Almacena el nuevo usuario:
             let allUsers = users.getAll();
             let newUser = {
                 "id": allUsers[allUsers.length-1].id + 1,
@@ -73,4 +98,5 @@ module.exports = {
             return res.redirect ('/productos/todos');
         };
     }
+
 }

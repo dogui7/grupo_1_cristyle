@@ -19,9 +19,15 @@
         </article>
 
         <section class="user-and-cart">
+            <% if (locals.isLogged) { %>
+            <img src="/images/users/<%= locals.usuarioLogueado.image %>" alt="imagen de perfil">
+            <p id="user-greeting">¡Hola, <%= locals.usuarioLogueado.firstName %>!</p>
+
+            <% } else { %>
             <a href="/usuarios/iniciarSesion" class="user">
                 <i class="fas fa-user"></i>
             </a>
+            <% } %>
        
             <button class="cart">
                 <a href="/productos/carrito"><i class="fas fa-shopping-cart"></i></a>
@@ -40,12 +46,22 @@
                     <li><a href="/productos/agregar">Agregar productos</a></li>
                 </ul>
         </nav>
+        
         <nav class="right-navbar">
+        <% if (locals.isLogged) { %>
+            <nav class="user-logged">
+                <img src="/images/users/<%= locals.usuarioLogueado.image %>" alt="imagen de perfil">
+                <p>¡Hola, <%= locals.usuarioLogueado.firstName %>!</p>
+                <a href="/productos/carrito"><i class="fas fa-shopping-cart"></i>Tus compras</a>
+            </nav>
+
+            <% } else { %>
                 <ul>
                     <li><a href="/usuarios/iniciarSesion"><i class="fas fa-sign-in-alt"></i>Iniciar Sesión</a></li>
                     <li><a href="/usuarios/registrarse"><i class="fas fa-user-plus"></i>Registrarse</a></li>
                     <li><a href="/productos/carrito"><i class="fas fa-shopping-cart"></i>Mis compras</a></li>
                 </ul>
+                <% } %>
         </nav>
         </section>
 

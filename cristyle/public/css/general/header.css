@@ -103,7 +103,19 @@
 }
 
 .user-and-cart {
-    padding-right: 10px;
+    margin: 0 5%;
+}
+
+.user-and-cart img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    align-self: auto;
+    margin-right: 6px;
+}
+
+#user-greeting {
+    display: none;
 }
 
 
@@ -130,8 +142,20 @@
     .user-and-cart{
       padding-right: 1rem;
     }
-    .user-and-cart i{
-        padding: 8px;
+
+    .user-logged{
+        display: flex;
+    }
+    
+    .user-logged img{
+        max-width: 50px;
+        max-height: 50px;
+        margin-top: 2px;
+        border-radius: 50%;
+    }
+    
+    .user-logged p{
+        color: white;
     }
 
 
@@ -183,6 +207,12 @@
         padding: 8px;
     }
 
+    #user-greeting{
+        display: inline-block;
+        color: white;
+        margin-right: 8px;
+    }
+
 }
 
 /* -----------------------------------------DESKTOP-------------------------------------------------*/
@@ -190,10 +220,11 @@
 @media (min-width: 1200px) {
 
 .right-navbar {
-    display: block;
+    display: flex;
     position: absolute;
     top: 3%;
     right:3%;
+    align-content: center;
 }
 
 .right-navbar ul {
@@ -228,4 +259,28 @@ h1{
     margin: 1% 0 -2% 20%;
     font-size: 1.2rem;
 }
+
+.user-logged{
+    margin-right: 25px;
+}
+
+.user-logged img {
+    width: 70px;
+    height: 70px;
+    margin: 10px 10px 0 0;
+}
+
+.user-logged p{
+    margin-top: 28px;
+    margin-right: 10px;
+}
+
+.user-logged a{
+    margin: 16px 0 0 10px;
+}
+
+.user-logged i{
+    font-size: 2rem;
+}
+
 }

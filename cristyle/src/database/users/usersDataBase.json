@@ -91,12 +91,12 @@
   },
   {
     "id": 12,
-    "firstName": "Andres",
-    "lastName": "Viola",
+    "firstName": "Ana",
+    "lastName": "Mora",
     "email": "laui.alvarez@gmail.com",
-    "password": "$2a$10$SSCjSB4HKs94TRweXHFEwukGt7xxtuqZ00K.iMleUTFYUOLUFyMRm",
-    "birthdate": "2021-03-02",
+    "password": "$2a$10$58zzF.jgRXt5gYbNOGkIROtSBMvzxVO8VM00GLbK1.sqAJhxh3yhe",
+    "birthdate": "2021-03-01",
     "category": "2",
-    "image": "foto-1615765478055.jpg"
+    "image": "foto-1616269618403.png"
   }
 ]

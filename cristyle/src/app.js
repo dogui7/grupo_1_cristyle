@@ -2,6 +2,8 @@ const express = require ("express");
 const app = express ();
 const path = require ("path");
 const methodOverride = require('method-override');
+const session = require ("express-session");
+const userLoggedMiddleware = require ('./middlewares/users/userLoggedMiddleware');
 
 
 // Initial config
@@ -13,6 +15,13 @@ app.use(express.static (path.resolve (__dirname, "../public")));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(methodOverride("_method"));
+app.use(session ({
+    secret: "Secret",
+    resave: false,
+    saveUninitialized: false    
+}));
+app.use(userLoggedMiddleware);
+
 
 //View engine
 app.set("view engine", "ejs");
