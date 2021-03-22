@@ -1,2 +1,0 @@
-Con respesco al sprint n°3 los integrantes se manejaron de una manera muy colaborativa el uno con el otro. Dividiendo las tareas de manera casi igual. En este sprint en particular Guido "se puso la 10", ya que Franco gran parte de este estuvo de  vacaciones y no pudo contribuir a tiempo con las tareas. Una vez que este volvio de las vacacines, se puso al dia e hizo sus respectivos objetivos.
-En un panorama en general, el equipo viene super bien, cada dia tomando mas confianza entre los integrantes y pudiendo formar una sinergia de trabajo muy productiva.

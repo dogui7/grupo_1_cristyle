@@ -1,0 +1,3 @@
+En nuestro sprint Nro.4 al grupo Cristyle se le sumo una nueva integrante, Laura Alvarez. Esta integrante se acoplo al trabajo del equipo de una manera muy efectiva y logro aportar todos sus conocimientos de una manera efetiva al grupo!
+Se hicieron varias llamadas debatiendo ciertos temas sin entender y se llego a entender todo a tiempo.
+El grupo viene en un muy buen camino gracias a los tres integrantes !
