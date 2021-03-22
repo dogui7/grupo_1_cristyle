@@ -100,6 +100,10 @@ module.exports = {
             users.write (allUsers);
             return res.redirect ('/productos/todos');
         };
-    }
+    },
+    logout: (req,res) =>{
+        req.session.destroy();
+        res.redirect('/')
+      }
 
 }

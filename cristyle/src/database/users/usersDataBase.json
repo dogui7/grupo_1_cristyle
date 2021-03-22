@@ -98,5 +98,15 @@
     "birthdate": "2021-03-01",
     "category": "2",
     "image": "foto-1616269618403.png"
+  },
+  {
+    "id": 13,
+    "firstName": "Franco",
+    "lastName": "Assaneo",
+    "email": "francoassaneo@gmail.com",
+    "password": "$2a$10$uhBTPPfAKtpBuqj2nvX5n./WEOXI46FRadOCPzU6tEcaW7e9ccBti",
+    "birthdate": "1998-12-28",
+    "category": "1",
+    "image": "foto-1616434601408.jpg"
   }
 ]

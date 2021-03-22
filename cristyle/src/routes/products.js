@@ -8,6 +8,7 @@ const productsController = require ("../controllers/productsController");
 //Middlewares
 const validateProductsCreate = require("../middlewares/routes/products/expressValidatorProductsCreate");
 const validateProductsEdit = require("../middlewares/routes/products/expressValidatorProductsEdit");
+const authMiddleware = require("../middlewares/routes/users/authMiddleware");
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, path.resolve(__dirname, '../../public/images/products'));    //Aquí deben indicar donde van a guardar la imagen
@@ -26,7 +27,7 @@ router.get("/detalle/:id", productsController.detail);
 
 //CART
 
-router.get("/carrito", productsController.cart);
+router.get("/carrito",authMiddleware,productsController.cart);
 
 //PRODUCT EDIT
 

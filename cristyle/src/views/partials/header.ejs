@@ -43,7 +43,9 @@
                     <li><a href="/productos/todos/hombre">Hombre</a></li>
                     <li><a href="/productos/todos/mujer">Mujer</a></li>
                     <li><a href="/productos/todos/ofertas">Ofertas</a></li>
+                    <% if (locals.usuarioLogueado && locals.usuarioLogueado.category == 1) { %>
                     <li><a href="/productos/agregar">Agregar productos</a></li>
+                    <% } %>
                 </ul>
         </nav>
         
@@ -53,13 +55,13 @@
                 <img src="/images/users/<%= locals.usuarioLogueado.image %>" alt="imagen de perfil">
                 <p>¡Hola, <%= locals.usuarioLogueado.firstName %>!</p>
                 <a href="/productos/carrito"><i class="fas fa-shopping-cart"></i>Tus compras</a>
+                <a href="/usuarios/logout"><i class="fas fa-sign-out-alt"></i>Cerrar sesión</a>
             </nav>
 
             <% } else { %>
                 <ul>
                     <li><a href="/usuarios/iniciarSesion"><i class="fas fa-sign-in-alt"></i>Iniciar Sesión</a></li>
                     <li><a href="/usuarios/registrarse"><i class="fas fa-user-plus"></i>Registrarse</a></li>
-                    <li><a href="/productos/carrito"><i class="fas fa-shopping-cart"></i>Mis compras</a></li>
                 </ul>
                 <% } %>
         </nav>

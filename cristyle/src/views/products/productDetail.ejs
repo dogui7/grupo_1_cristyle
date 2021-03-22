@@ -96,6 +96,7 @@
                             <a href="#"><li>Favoritos <i class="far fa-heart"></i></li></a>
                         </ul>
                     </div>
+                    <% if (locals.usuarioLogueado && locals.usuarioLogueado.category == 1){ %>
                     <div class="button-edit">
                         <a href="/productos/editar/<%= product.id %>"><li class="edit-product">Editar Producto</li></a>
                     </div>
@@ -105,6 +106,7 @@
                         <button type="submit" class="delete">Eliminar Producto</button>
                         </form>
                     </div>
+                    <% } %>
                 </section>
             </div>
         </div>
