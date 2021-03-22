@@ -2,13 +2,13 @@ const express = require ("express");
 const router = express.Router();
 const multer = require ('multer');
 const path = require('path');
-const guestMiddleware = require ('../middlewares/users/guestMiddleware');
+const guestMiddleware = require ('../middlewares/routes/users/guestMiddleware');
 
 const usersController = require ("../controllers/usersController");
 
 //Middlewares
-const validateRegister = require("../middlewares/users/expressValidatorRegister");
-const validateLogin = require("../middlewares/users/expressValidatorLogin");
+const validateRegister = require("../middlewares/routes/users/expressValidatorRegister");
+const validateLogin = require("../middlewares/routes/users/expressValidatorLogin");
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {

@@ -1,8 +1,10 @@
+const path = require("path");
+
 function guestMiddleware (req,res,next){
     if (req.session.usuarioLogueado == undefined){
         next();
     } else {
-        res.send ("Ya estás logueado");
+        res.redirect (path.resolve (__dirname, "../views/index"));
     }
 }
 

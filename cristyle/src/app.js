@@ -3,7 +3,7 @@ const app = express ();
 const path = require ("path");
 const methodOverride = require('method-override');
 const session = require ("express-session");
-const userLoggedMiddleware = require ('./middlewares/users/userLoggedMiddleware');
+const userLoggedMiddleware = require ('./middlewares/application/userLoggedMiddleware');
 
 
 // Initial config

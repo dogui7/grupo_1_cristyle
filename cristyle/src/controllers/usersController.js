@@ -62,9 +62,12 @@ module.exports = {
         let title = "Registro";
         if (userInDB) {
             return res.render (path.resolve (__dirname, "../views/users/register.ejs"), {cssSheets, title,
-                errors: {
-                    email: {
-                        msg: "Este e-mail ya está registrado"
+                errorMessages: {
+                    "email": {
+                        "value": "",
+                        "msg": "Ya hay un usuario registrado con este correo electrónico.",
+                        "param": "email",
+                        "location": "body"
                     }
                 },
                 oldData: req.body
