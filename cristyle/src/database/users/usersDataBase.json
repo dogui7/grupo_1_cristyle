@@ -108,5 +108,15 @@
     "birthdate": "1998-12-28",
     "category": "1",
     "image": "foto-1616434601408.jpg"
+  },
+  {
+    "id": 14,
+    "firstName": "Admin",
+    "lastName": "Groso",
+    "email": "admin@gmail.com",
+    "password": "$2a$10$jOyIRnyEQecn17C9VHADk.zbIaIyuJGzOz8ZbXM9W8QCpo4wiTbQy",
+    "birthdate": "2007-07-07",
+    "category": "1",
+    "image": "foto-1616688870963.jpg"
   }
 ]
