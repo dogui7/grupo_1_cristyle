@@ -22,17 +22,17 @@ const validateProducts = [
         .notEmpty().withMessage('Debes elegir un talle').bail(),
 
     check('productImage')
-    .custom((value, {req}) => {
-        let file = req.file;
-        let acceptedExtendions = ['.jpg', '.png', '.gif'];
-        if (file != null) {
-            let fileExtension = path.extname(file.originalname);
-            if (!acceptedExtendions.includes(fileExtension)) {
-                throw new Error ('Las extensiones de archivo permitidas son ' + acceptedExtendions.join(', '))
+        .custom((value, {req}) => {
+            let file = req.file;
+            let acceptedExtendions = ['.jpg', '.png', '.gif'];
+            if (file != null) {
+                let fileExtension = path.extname(file.originalname);
+                if (!acceptedExtendions.includes(fileExtension)) {
+                    throw new Error ('Las extensiones de archivo permitidas son ' + acceptedExtendions.join(', '))
+                }
             }
-        }
-        return true;
-    }),
+            return true;
+        }),
 
     check('gender')
         .notEmpty().withMessage('Debes elegir una opción').bail(),

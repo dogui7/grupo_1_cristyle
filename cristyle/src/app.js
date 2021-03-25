@@ -12,6 +12,7 @@ app.listen (app.get("port"), () => console.log ("Server running in http://localh
 
 // Middlewares Aplication
 app.use(express.static (path.resolve (__dirname, "../public")));
+app.set('views', path.resolve(__dirname, './views'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(methodOverride("_method"));

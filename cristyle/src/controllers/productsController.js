@@ -11,13 +11,13 @@ module.exports = {
         let cssSheets = ["productDetail"];
         let title = "Detalle producto";
         let product = products.getOne(req.params.id);
-        return res.render(path.resolve (__dirname, "../views/products/productDetail.ejs"), {cssSheets, title, product});
+        return res.render("products/productDetail.ejs", {cssSheets, title, product});
     },
 
     cart: (req, res) => {
         let cssSheets = ["productCart"];
         let title = "Carrito";
-        return res.render(path.resolve (__dirname, "../views/products/productCart.ejs"), {cssSheets, title})
+        return res.render("products/productCart.ejs", {cssSheets, title})
     },
 
     edit: (req, res) => {
@@ -26,7 +26,7 @@ module.exports = {
         let product = products.getOne(req.params.id);
         let categories = categoriesModel.getAll();
         let sizes = sizesModel.getAll();
-        return res.render(path.resolve (__dirname, "../views/products/editproducts.ejs"),{cssSheets, title, product, categories, sizes});
+        return res.render("products/editproducts.ejs", {cssSheets, title, product, categories, sizes});
     },
 
     update: (req,res)=> {
@@ -41,7 +41,7 @@ module.exports = {
                 let imageName = req.file.filename;
                 fs.unlinkSync(path.resolve (__dirname, "../../public/images/products/") + '/' + imageName);
             }
-            return res.render (path.resolve (__dirname, "../views/products/editproducts.ejs"), {cssSheets, title, product, categories, sizes, errorMessages: errors.mapped(), oldData: req.body});
+            return res.render ("products/editproducts.ejs", {cssSheets, title, product, categories, sizes, errorMessages: errors.mapped(), oldData: req.body});
         } else {
             //return res.send("Producto editado! (mentirita, remover el return)");
             let allProducts = products.getAll ();
@@ -68,7 +68,7 @@ module.exports = {
         let title = "Crear producto";
         let categories = categoriesModel.getAll();
         let sizes = sizesModel.getAll();
-        return res.render(path.resolve (__dirname, "../views/products/createProduct.ejs"), {cssSheets, title, categories, sizes})
+        return res.render("products/createProduct.ejs", {cssSheets, title, categories, sizes})
     },
 
     store: (req,res) => {
@@ -82,7 +82,7 @@ module.exports = {
                 let imageName = req.file.filename;
                 fs.unlinkSync(path.resolve (__dirname, "../../public/images/products/") + '/' + imageName);
             }
-            return res.render (path.resolve (__dirname, "../views/products/createProduct.ejs"), {cssSheets, title, categories, sizes, errorMessages: errors.mapped(), oldData: req.body});
+            return res.render ("products/createProduct.ejs", {cssSheets, title, categories, sizes, errorMessages: errors.mapped(), oldData: req.body});
         } else {
             //return res.send("Producto agregado! (mentirita, remover el return)");
             let allProducts = products.getAll();
@@ -118,7 +118,7 @@ module.exports = {
                  /*Nos fijamos si en el nombre en minuscula del producto está incluido
                    el término buscado en la barra también en minuscula*/
         }
-        return res.render(path.resolve (__dirname, "../views/products/allProducts.ejs"), {cssSheets, title, products: allProducts, busqueda: req.query.busqueda});
+        return res.render("products/allProducts.ejs", {cssSheets, title, products: allProducts, busqueda: req.query.busqueda});
     },
 
     showFiltered: (req, res) => {
@@ -144,7 +144,7 @@ module.exports = {
                 filteredProducts = allProducts;
                 break;
         }
-        return res.render(path.resolve (__dirname, "../views/products/allProducts.ejs"), {cssSheets, title, products: filteredProducts, busqueda: null});
+        return res.render("products/allProducts.ejs", {cssSheets, title, products: filteredProducts, busqueda: null});
     },
 
     delete: (req,res) => {

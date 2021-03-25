@@ -10,7 +10,7 @@ module.exports = {
     login: (req, res) => {
         let cssSheets = ["login"];
         let title = "Inicio de sesión";
-        return res.render(path.resolve (__dirname, "../views/users/login.ejs"), {cssSheets, title})
+        return res.render("users/login.ejs", {cssSheets, title})
     },
 
     loginValidation: (req, res) => {
@@ -18,7 +18,7 @@ module.exports = {
         if (!errors.isEmpty()) {
             let cssSheets = ["login"];
             let title = "Inicio de sesión";
-            return res.render (path.resolve (__dirname, "../views/users/login.ejs"), {cssSheets, title, errorMessages: errors.mapped()});
+            return res.render ("users/login.ejs", {cssSheets, title, errorMessages: errors.mapped()});
         } else {
             let allUsers = users.getAll();
             let usuarioALoguearse;
@@ -40,7 +40,7 @@ module.exports = {
                     }
                 let cssSheets = ["login"];
                 let title = "Inicio de sesión";
-                return res.render (path.resolve (__dirname, "../views/users/login.ejs"), {cssSheets, title, errorMessages: customError});
+                return res.render ("users/login.ejs", {cssSheets, title, errorMessages: customError});
                 }
             //Borro la propiedad password para guardar el usuario en session sin su contraseña, por seguridad:
             delete usuarioALoguearse.password;
@@ -52,7 +52,7 @@ module.exports = {
     register: (req, res) => {
         let cssSheets = ["register"];
         let title = "Registro";
-        return res.render(path.resolve (__dirname, "../views/users/register.ejs"), {cssSheets, title})
+        return res.render("users/register.ejs", {cssSheets, title})
     },
 
     store: (req,res) => {
@@ -61,7 +61,7 @@ module.exports = {
         let cssSheets = ["register"];
         let title = "Registro";
         if (userInDB) {
-            return res.render (path.resolve (__dirname, "../views/users/register.ejs"), {cssSheets, title,
+            return res.render ("users/register.ejs", {cssSheets, title,
                 errorMessages: {
                     "email": {
                         "value": "",
@@ -82,7 +82,7 @@ module.exports = {
                 let imageName = req.file.filename;
                 fs.unlinkSync(path.resolve (__dirname, "../../public/images/users/") + '/' + imageName);
             }
-            return res.render (path.resolve (__dirname, "../views/users/register.ejs"), {cssSheets, title, errorMessages: errors.mapped(), oldData: req.body});
+            return res.render ("users/register.ejs", {cssSheets, title, errorMessages: errors.mapped(), oldData: req.body});
         } else {
             //Almacena el nuevo usuario:
             let allUsers = users.getAll();
@@ -101,9 +101,10 @@ module.exports = {
             return res.redirect ('/productos/todos');
         };
     },
+
     logout: (req,res) =>{
         req.session.destroy();
         res.redirect('/')
-      }
+    }
 
 }

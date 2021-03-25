@@ -22,6 +22,7 @@ module.exports = {
             );
         }
 
-        return res.render(path.resolve (__dirname, "../views/index.ejs"), {cssSheets, title, discountProductsToShow})
+        //return res.render(path.resolve (__dirname, "../views/index.ejs"), {cssSheets, title, discountProductsToShow})
+        return res.render("index.ejs", {cssSheets, title, discountProductsToShow})
     }
 }
