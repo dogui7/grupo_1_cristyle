@@ -1,27 +1,15 @@
 const express = require ("express");
 const router = express.Router();
-const multer = require ('multer');
-const path = require('path');
-const guestMiddleware = require ('../middlewares/routes/users/guestMiddleware');
 
 const usersController = require ("../controllers/usersController");
 
 //Middlewares
 const validateRegister = require("../middlewares/routes/users/expressValidatorRegister");
 const validateLogin = require("../middlewares/routes/users/expressValidatorLogin");
+const guestMiddleware = require ('../middlewares/routes/users/guestMiddleware');
+const upload = require("../middlewares/routes/users/multerUsers");
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, path.resolve(__dirname, '../../public/images/users'));    //Aquí deben indicar donde van a guardar la imagen
-    },
-    filename: function (req, file, cb) {
-      cb(null, 'foto' + '-' + Date.now()+ path.extname(file.originalname));      
-    }
-})
-   
-const upload= multer({ storage });
-
-//LOGUEARSE
+//INICIAR SESION
 router.get("/iniciarSesion", guestMiddleware, usersController.login);
 router.post("/iniciarSesion", validateLogin, usersController.loginValidation);
 
@@ -29,6 +17,7 @@ router.post("/iniciarSesion", validateLogin, usersController.loginValidation);
 router.get("/registrarse", guestMiddleware, usersController.register);
 router.post ("/registrarse", upload.single ('userImage'), validateRegister, usersController.store);
 
+//CERRAR SESION
 router.get ('/logout', usersController.logout);
 
 module.exports = router;

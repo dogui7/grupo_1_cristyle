@@ -7,8 +7,7 @@ const productsController = require ("../controllers/productsController");
 const validateProductsCreate = require("../middlewares/routes/products/expressValidatorProductsCreate");
 const validateProductsEdit = require("../middlewares/routes/products/expressValidatorProductsEdit");
 const authMiddleware = require("../middlewares/routes/users/authMiddleware");
-const upload = require("../middlewares/routes/products/multerProduct");
-
+const upload = require("../middlewares/routes/products/multerProducts");
 
 //GET ONE PRODUCT
 

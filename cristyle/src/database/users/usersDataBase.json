@@ -118,5 +118,15 @@
     "birthdate": "2007-07-07",
     "category": "1",
     "image": "foto-1616688870963.jpg"
+  },
+  {
+    "id": 15,
+    "firstName": "Pato",
+    "lastName": "Genialoso",
+    "email": "pato@gmail.com",
+    "password": "$2a$10$GpzfYPHCotsbu0worMWZ0.qfN5gsN9buZv3pONZM9ZI/ABYlphb4u",
+    "birthdate": "2021-03-19",
+    "category": "2",
+    "image": "foto-1616689750212.jpg"
   }
 ]
