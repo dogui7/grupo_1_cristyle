@@ -23,10 +23,6 @@
     padding-top: 1rem;
 }
 
-.burger-menu {
-    position: relative;
-}
-
 .burger-menu i {
     color: #be9e44;
     font-size: 160%;
@@ -34,11 +30,17 @@
 }
 
 #burger-dropdown {
-    display: none;
-    position: absolute;
+    display: block;
+    display: flex;
+    position: fixed;
+    top: 10vh;
     z-index: 1;
     left: 0.5rem;
     background-color: #be9e44;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all .5s ease-out
 }
 
 #burger-dropdown li {
@@ -49,8 +51,9 @@
     color:#ffffff;
 }
 
-#burger:hover #burger-dropdown {
-    display: block;
+#burger-dropdown:target {
+    height: 50vh;
+    opacity: 100;
 }
 
 #burger-dropdown li:hover {
