@@ -1,7 +1,7 @@
 const path = require("path");
 const bcryptjs = require ("bcryptjs");
 const fs = require("fs");
-const users = require ("../database/users/usersModel");
+const users = require ("../data/users/usersModel");
 const {validationResult} = require("express-validator");
 const session = require ("express-session");
 

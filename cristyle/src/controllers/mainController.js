@@ -1,5 +1,5 @@
 const path = require("path");
-const products = require ("../database/products/productsModel");
+const products = require ("../data/products/productsModel");
 
 module.exports = {
 

@@ -1,7 +1,7 @@
 const path = require("path");
-const products = require ("../database/products/productsModel");
-const categoriesModel = require ("../database/products/categoriesModel");
-const sizesModel = require ("../database/products/sizesModel");
+const products = require ("../data/products/productsModel");
+const categoriesModel = require ("../data/products/categoriesModel");
+const sizesModel = require ("../data/products/sizesModel");
 const fs = require('fs')
 const {validationResult} = require("express-validator");
 
