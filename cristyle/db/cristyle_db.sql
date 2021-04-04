@@ -19,6 +19,10 @@
 -- Table structure for table `carts`
 --
 
+DROP DATABASE IF EXISTS cristyle_db;
+CREATE DATABASE cristyle_db;
+USE cristyle_db;
+
 DROP TABLE IF EXISTS `carts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
