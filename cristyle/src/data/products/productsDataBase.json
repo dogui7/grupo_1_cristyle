@@ -7,7 +7,8 @@
     "category": "Camperas",
     "size": "Medium",
     "description": "Campera de cuero sintético",
-    "image": "camperaCristyle.jpg"
+    "image": "camperaCristyle.jpg",
+    "gender": "mujer"
   },
   {
     "id": 2,
@@ -23,11 +24,11 @@
   {
     "id": 3,
     "name": "Campera de jean",
-    "description": "Campera de jean deshilachado intencional",
     "price": "3000",
     "discount": "10",
-    "size": "Medium",
     "category": "Camperas",
+    "size": "Medium",
+    "description": "Campera de jean deshilachado intencional",
     "image": "camperaJean.jpg",
     "gender": "mujer"
   },

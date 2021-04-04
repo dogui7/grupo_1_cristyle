@@ -4,7 +4,7 @@ const path = require ("path");
 const methodOverride = require('method-override');
 const session = require ("express-session");
 const userLoggedMiddleware = require ('./middlewares/application/userLoggedMiddleware');
-
+const cookieParser = require('cookie-parser');
 
 // Initial config
 app.set("port", process.env.PORT || 3500);
@@ -21,6 +21,7 @@ app.use(session ({
     resave: false,
     saveUninitialized: false    
 }));
+app.use(cookieParser());
 app.use(userLoggedMiddleware);
 
 

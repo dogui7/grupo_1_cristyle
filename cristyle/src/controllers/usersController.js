@@ -44,7 +44,13 @@ module.exports = {
                 }
             //Borro la propiedad password para guardar el usuario en session sin su contraseña, por seguridad:
             delete usuarioALoguearse.password;
-            req.session.usuarioLogueado = usuarioALoguearse;
+            req.session.userLogged = usuarioALoguearse;
+            //Guardamos las cookies por un año si el usuario asi lo marcó
+            if (req.body.rememberUser) {
+                console.log("Se guarda la cookie")
+                res.cookie('email', req.body.email, {maxAge: 1000*60*60*24*365})
+            }
+            console.log(req.cookies);
             res.redirect ('/productos/todos');
         }
     },
@@ -104,6 +110,7 @@ module.exports = {
 
     logout: (req,res) =>{
         req.session.destroy();
+        res.clearCookie('email');
         res.redirect('/')
     }
 
