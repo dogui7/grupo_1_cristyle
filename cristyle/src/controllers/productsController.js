@@ -84,7 +84,7 @@ module.exports = {
             }
             return res.render ("products/createProduct.ejs", {cssSheets, title, categories, sizes, errorMessages: errors.mapped(), oldData: req.body});
         } else {
-            //return res.send("Producto agregado! (mentirita, remover el return)");
+         
             let allProducts = products.getAll();
             let newProduct = {
                 "id": allProducts[allProducts.length-1].id + 1,
