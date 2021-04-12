@@ -45,5 +45,27 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     }
     const Product = sequelize.define(alias, cols, config);
+
+    /*  Product.associate = function (models){
+        Product.belongsToMany (models.Cart, {
+            as: "products",
+            through: "carts_products",
+            foreingKey: "product_id",
+            otherKey: "cart_id",
+            timestamps: false
+        })
+
+        Product.belongsTo (models.productSize, {
+            as: "productSize",
+            foreingKey: "size_id"
+        })
+
+        Product.belongsTo (models.productCategory, {
+            as: "productCategory",
+            foreingKey: "category_id"
+        })
+    }  */
+
+
     return Product;
 }

@@ -41,5 +41,18 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     }
     const User = sequelize.define(alias, cols, config);
+
+    User.associate = function (models) {
+        User.belongsTo (models.userRole, {
+            as: "userRole",
+            foreingKey: "role_id"
+        })
+
+        User.hasMany (models.Cart, {
+            as: "userCart",
+            foreingKey: "user_id"
+        })
+    }
+
     return User;
 }
