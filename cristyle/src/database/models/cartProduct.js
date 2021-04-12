@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'user_role';
+    let alias = 'cartProduct';
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -7,15 +7,20 @@ module.exports = (sequelize, dataTypes) => {
             autoIncrement: true,
             allowNull: false
         },
-       role: {
-            type: dataTypes.STRING,
+       cart_id: {
+            type: dataTypes.INTEGER,
+            allowNull: false
+        },
+        product_id: {
+            type: dataTypes.INTEGER,
             allowNull: false
         }
     }
     let config = {
-        tableName: 'user_role',
+        tableName: 'carts_products',
         timestamps: false
     }
-    const user_role = sequelize.define(alias, cols, config);
-    return user_role;
+    const cartProduct = sequelize.define(alias, cols, config);
+
+    return cartProduct;
 }
