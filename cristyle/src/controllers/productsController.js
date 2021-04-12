@@ -1,7 +1,8 @@
 const path = require("path");
 const fs = require('fs')
 const {validationResult} = require("express-validator");
-const db = require ('../database/models');
+const db = require ("../database/models");
+const { title } = require("process");
 const Op = db.sequelize.Op;
 
 
@@ -29,8 +30,8 @@ module.exports = {
         let cssSheets = ["editproducts"];
         let title = "Editar producto";
         let requestProduct = db.Product.findByPk(req.params.id);
-        let requestCategory = db.product_category.findAll();
-        let requestSize = db.product_size.findAll();
+        let requestCategory = db.productCategory.findAll();
+        let requestSize = db.productSize.findAll();
 
         Promise.all([requestProduct, requestSize, requestCategory])
             .then(function ([product, size, category ]){
@@ -45,8 +46,8 @@ module.exports = {
             let cssSheets = ["editproducts"];
             let title = "Editar producto";
             let product = db.Product.findByPk(req.params.id);
-            let categories = db.product_category.findAll();
-            let sizes = db.product_size.findAll();
+            let categories = db.productCategory.findAll();
+            let sizes = db.productSize.findAll();
             if (req.file) {
                 let imageName = req.file.filename;
                 fs.unlinkSync(path.resolve (__dirname, "../../public/images/products/") + '/' + imageName);
