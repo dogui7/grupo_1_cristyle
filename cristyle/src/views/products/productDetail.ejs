@@ -39,8 +39,12 @@
                 <section>
                     <div class="descripcion-producto">
                         <h3><%= product.description %></h3>
-                        <p> $ <%= product.price %> </p>
-                    </div>
+                        <div class="price-and-discount">
+                        <p class="price">$<%= product.price %></p>
+                        <% if (product.discount > 0) { %>
+                            <p id="discount"><%= product.discount %>%OFF</p>
+                        <% } %>
+                        </div>
                 </section>
 
                 <section>

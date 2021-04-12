@@ -36,6 +36,16 @@ ul {
     display: none;
 }
 
+.price-and-discount{
+    display: flex;
+}
+#discount {
+    color: orange;
+    font-size: 0.9rem;
+    margin-left: 7px;
+    font-weight: bolder;
+}
+
 .descripcion-producto {
     text-align: center;
     margin: 0.8rem 0px;

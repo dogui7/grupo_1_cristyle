@@ -1,17 +1,18 @@
 const path = require("path");
-const products = require ("../data/products/productsModel");
-const categoriesModel = require ("../data/products/categoriesModel");
-const sizesModel = require ("../data/products/sizesModel");
 const fs = require('fs')
 const {validationResult} = require("express-validator");
+const db = require ("../database/models");
+const { title } = require("process");
 
 module.exports = {
 
     detail: (req, res) => {
         let cssSheets = ["productDetail"];
         let title = "Detalle producto";
-        let product = products.getOne(req.params.id);
-        return res.render("products/productDetail.ejs", {cssSheets, title, product});
+        db.Product.findByPk(req.params.id)
+            .then(function (product) {
+                res.render("products/productDetail", {cssSheets, title, product});
+            })
     },
 
     cart: (req, res) => {
@@ -23,43 +24,48 @@ module.exports = {
     edit: (req, res) => {
         let cssSheets = ["editproducts"];
         let title = "Editar producto";
-        let product = products.getOne(req.params.id);
-        let categories = categoriesModel.getAll();
-        let sizes = sizesModel.getAll();
-        return res.render("products/editproducts.ejs", {cssSheets, title, product, categories, sizes});
+        let requestProduct = db.Product.findByPk(req.params.id);
+        let requestCategory = db.product_category.findAll();
+        let requestSize = db.product_size.findAll();
+
+        Promise.all([requestProduct, requestSize, requestCategory])
+            .then(function ([product, size, category ]){
+                res.render ("products/editproducts.ejs", {cssSheets: cssSheets, title:title, product:product, size:size, category:category})
+            })
     },
+
 
     update: (req,res)=> {
         let errors = validationResult(req);
         if (!errors.isEmpty()) {
             let cssSheets = ["editproducts"];
             let title = "Editar producto";
-            let product = products.getOne(req.params.id);
-            let categories = categoriesModel.getAll();
-            let sizes = sizesModel.getAll();
+            let product = db.Product.findByPk(req.params.id);
+            let categories = db.product_category.findAll();
+            let sizes = db.product_size.findAll();
             if (req.file) {
                 let imageName = req.file.filename;
                 fs.unlinkSync(path.resolve (__dirname, "../../public/images/products/") + '/' + imageName);
             }
             return res.render ("products/editproducts.ejs", {cssSheets, title, product, categories, sizes, errorMessages: errors.mapped(), oldData: req.body});
         } else {
+            let product = db.Product.findByPk(req.params.id);
             //return res.send("Producto editado! (mentirita, remover el return)");
-            let allProducts = products.getAll ();
-            let originalProduct = products.getOne (req.params.id);
-            let modifiedProduct = {
-                "id": originalProduct.id,
+            db.Product.update ({
                 "name": req.body.name,
                 "price": req.body.price,
                 "discount": req.body.discount,
-                "category": req.body.category,
-                "size": req.body.size,
+                "category_id": req.body.category,
+                "size_id": req.body.size,
                 "description": req.body.description,
-                //Si vino un archivo, cargar el nombre de ese archivo. Sino, dejar el nombre original
-                "image": req.file ? req.file.filename : originalProduct.image
-            };
-            allProducts.splice (req.params.id-1, 1, modifiedProduct);
-            products.write (allProducts);
-            return res.redirect ('/productos/todos');
+                "image": req.file ? req.file.filename : product.image,
+                "gender": req.body.gender
+            }, {
+                where: {
+                    id: req.params.id
+                }
+            });
+            return res.redirect ('detalle/' + req.params.id );
         }
     },
 

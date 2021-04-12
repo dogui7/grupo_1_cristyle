@@ -54,12 +54,17 @@
                                         <label for="category" class="form-label">Categoría:</label>
                                         <br>
                                         <select name="category" id="category" class="form-input">
-                                            <option value="">Elegí</option>
-                                            <% categories.forEach(category => { %>
-                                                <option value=<%= category %> 
-                                                    <%= (locals.oldData && oldData.category === category) || (!locals.oldData && locals.product && product.category === category) ? "selected" : null %>
-                                                ><%= category %></option>
-                                            <% }) %>
+                                            <% for (let i = 0; i < category.length; i++) { %>
+                                                <% if(category[i].id == product.category_id){ %>
+                                                    <option value="<%= category[i].id %>" selected>
+                                                        <%= category[i].category %>
+                                                    </option>
+                                            <% } else { %>
+                                            <option value="<%=category[i].id%>">
+                                                <%= category[i].category %>
+                                            </option>
+                                            <% } %>
+                                        <% } %>
                                         </select>
                                     </div>
                                     <% if (locals.errorMessages && errorMessages.category) { %>
@@ -70,12 +75,17 @@
                                         <label for="size" class="form-label">Talle:</label>
                                         <br>
                                         <select name="size" id="size" class="form-input">
-                                            <option value="">Elegí</option>
-                                            <% sizes.forEach(size => { %>
-                                                <option value=<%= size %>
-                                                    <%= (locals.oldData && oldData.size === size) || (!locals.oldData && locals.product && product.size === size) ? "selected" : null %>
-                                                ><%= size %></option>
-                                            <% }) %>
+                                            <% for (let i = 0; i < size.length; i++) { %>
+                                                <% if(size[i].id == product.size_id){ %>
+                                                    <option value="<%= size[i].id %>" selected>
+                                                        <%= size[i].size %>
+                                                    </option>
+                                            <% } else { %>
+                                            <option value="<%=size[i].id%>">
+                                                <%= size[i].size %>
+                                            </option>
+                                            <% } %>
+                                        <% } %>
                                         </select>
                                     </div>
                                     <% if (locals.errorMessages && errorMessages.size) { %>

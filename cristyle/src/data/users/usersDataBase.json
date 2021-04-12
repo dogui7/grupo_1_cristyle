@@ -90,16 +90,6 @@
     "image": "foto-1615764446015.jpg"
   },
   {
-    "id": 12,
-    "firstName": "Ana",
-    "lastName": "Mora",
-    "email": "laui.alvarez@gmail.com",
-    "password": "$2a$10$58zzF.jgRXt5gYbNOGkIROtSBMvzxVO8VM00GLbK1.sqAJhxh3yhe",
-    "birthdate": "2021-03-01",
-    "category": "2",
-    "image": "foto-1616269618403.png"
-  },
-  {
     "id": 13,
     "firstName": "Franco",
     "lastName": "Assaneo",
@@ -128,5 +118,15 @@
     "birthdate": "2021-03-19",
     "category": "2",
     "image": "foto-1616689750212.jpg"
+  },
+  {
+    "id": 16,
+    "firstName": "Laura",
+    "lastName": "Alvarez",
+    "email": "laui.alvarez@gmail.com",
+    "password": "$2a$10$aMrnr1uEHxcHcBJxw6VQYuzmIshEHIl1YE6fpxAuPztqciU3eGb/O",
+    "birthdate": "2021-04-01",
+    "category": "1",
+    "image": "foto-1618186742717.jpg"
   }
 ]

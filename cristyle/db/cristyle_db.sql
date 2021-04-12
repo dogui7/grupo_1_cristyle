@@ -19,10 +19,6 @@
 -- Table structure for table `carts`
 --
 
-DROP DATABASE IF EXISTS cristyle_db;
-CREATE DATABASE cristyle_db;
-USE cristyle_db;
-
 DROP TABLE IF EXISTS `carts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -85,7 +81,7 @@ CREATE TABLE `product_category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `category` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,6 +90,7 @@ CREATE TABLE `product_category` (
 
 LOCK TABLES `product_category` WRITE;
 /*!40000 ALTER TABLE `product_category` DISABLE KEYS */;
+INSERT INTO `product_category` VALUES (1,'Tops'),(2,'Camperas'),(3,'Pantalones'),(4,'Calzados'),(5,'Accesorios');
 /*!40000 ALTER TABLE `product_category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -108,7 +105,7 @@ CREATE TABLE `product_size` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `size` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -117,6 +114,7 @@ CREATE TABLE `product_size` (
 
 LOCK TABLES `product_size` WRITE;
 /*!40000 ALTER TABLE `product_size` DISABLE KEYS */;
+INSERT INTO `product_size` VALUES (1,'Small'),(2,'Medium'),(3,'Large');
 /*!40000 ALTER TABLE `product_size` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -130,19 +128,19 @@ DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `price` mediumint(9) NOT NULL,
-  `discount` tinyint(4) NOT NULL,
-  `size_id` int(11) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `discount` int(11) DEFAULT NULL,
   `category_id` int(11) DEFAULT NULL,
+  `size_id` int(11) DEFAULT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `gender` tinyint(4) NOT NULL,
+  `gender` text COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_eab3a062-1336-42d5-9c27-9a78c9e7acd1` (`size_id`),
   KEY `FK_cde6d275-462d-4ba8-b1fd-e9f664982cbc` (`category_id`),
   CONSTRAINT `FK_cde6d275-462d-4ba8-b1fd-e9f664982cbc` FOREIGN KEY (`category_id`) REFERENCES `product_category` (`id`),
   CONSTRAINT `FK_eab3a062-1336-42d5-9c27-9a78c9e7acd1` FOREIGN KEY (`size_id`) REFERENCES `product_size` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -151,6 +149,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
+INSERT INTO `products` VALUES (1,'Campera Cristyle',4500,15,2,2,'Campera de cuero sintético','camperaCristyle.jpg','mujer'),(2,'Reloj Cristyle',2200,0,5,1,'Reloj de muñeca','relojCristyle.jpg','hombre'),(3,'Campera de jean',3000,10,2,2,'Campera de jean deshilachado intencional','camperaJean.jpg','mujer'),(4,'Mocasines Cristyle',8000,20,4,1,'Mocasines de cuero y base de goma','mocasinesCristyle.jpg','mujer'),(5,'Short jean',1800,30,3,2,'Short de jean elastizado tiro alto','shortJean.jpg','mujer'),(6,'Top Cristyle',950,0,1,1,'Top manga corta blanco','topCristyle.jpg','mujer'),(7,'Tacos Cristyle',2600,15,4,2,'Tacos altos negro oscuro','tacosAltos.jpg','mujer'),(8,'Jean Cristyle',2500,10,3,3,'Jean holgado','jeanCristyle.jpg','mujer'),(9,'Top negro',1200,40,1,2,'Top con mangas largas transparentes','topNegro.jpg','mujer'),(10,'Collar Cristyle',2700,35,5,1,'Collar de oro y plata','collarCristyle.jpg','mujer'),(11,'Zapatos Marcel',6900,15,4,2,'Zapatos de cuero entrelazado','zapatosMarcel.jpg','hombre'),(12,'Saco Brody',4800,20,1,2,'Saco de traje entallado azul marino','saco.jpg','hombre'),(13,'Cinturón Cristyle',1200,20,5,2,'Cinturón de cuero marrón','cinturon.jpg','hombre'),(14,'Camisa Ray',5600,20,1,2,'Camisa de algodón texturado','camisa.jpg','hombre'),(15,'Chaleco Benetton',5400,10,1,2,'Chaleco con bolsillo porta-pañuelo','chaleco.jpg','hombre'),(16,'Moño Stonewall',2600,10,5,2,'Moño símil seda rosado','moño.jpg','hombre'),(17,'Corbata Flowers',2100,10,5,2,'Corbata símil seda estampada','corbata.jpg','hombre'),(18,'Bermuda Wilson',3600,0,3,2,'Bermuda slim fit de gabardina','bermudas.jpg','hombre'),(19,' Pantalón Brighton',4200,10,3,2,'Pantalón de traje molde clásico','pantalon.jpg','hombre');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -217,4 +216,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-03 21:49:50
+-- Dump completed on 2021-04-11 23:28:13
