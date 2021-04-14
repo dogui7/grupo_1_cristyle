@@ -35,7 +35,10 @@ module.exports = {
 	},
 
 	t6: (req, res) => {
-
+		db.User.findAll()
+			.then(function (users){
+				res.send(users)
+			})
 	},
 
 	t7: (req, res) => {

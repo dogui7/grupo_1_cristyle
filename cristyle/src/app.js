@@ -18,8 +18,8 @@ app.use(express.json());
 app.use(methodOverride("_method"));
 app.use(session ({
     secret: "Secret",
-    resave: false,
-    saveUninitialized: false    
+    resave: true,
+    saveUninitialized: true    
 }));
 app.use(cookieParser());
 app.use(userLoggedMiddleware);

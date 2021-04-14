@@ -2,6 +2,7 @@ const path = require("path");
 const bcryptjs = require ("bcryptjs");
 const fs = require("fs");
 const users = require ("../data/users/usersModel");
+const db = require ("../database/models");
 const {validationResult} = require("express-validator");
 const session = require ("express-session");
 
@@ -13,14 +14,14 @@ module.exports = {
         return res.render("users/login.ejs", {cssSheets, title})
     },
 
-    loginValidation: (req, res) => {
+    loginValidation: async (req, res) => {
         let errors = validationResult(req);
         if (!errors.isEmpty()) {
             let cssSheets = ["login"];
             let title = "Inicio de sesión";
             return res.render ("users/login.ejs", {cssSheets, title, errorMessages: errors.mapped()});
         } else {
-            let allUsers = users.getAll();
+            let allUsers = await db.User.findAll();
             let usuarioALoguearse;
             for (let i = 0; i < allUsers.length; i++){
                 if (req.body.email == allUsers[i].email && bcryptjs.compareSync(req.body.password, allUsers[i].password)){

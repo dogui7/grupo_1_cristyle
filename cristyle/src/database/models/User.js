@@ -42,7 +42,7 @@ module.exports = (sequelize, dataTypes) => {
     }
     const User = sequelize.define(alias, cols, config);
 
-    User.associate = function (models) {
+    /*User.associate = function (models) {
         User.belongsTo (models.userRole, {
             as: "userRole",
             foreingKey: "role_id"
@@ -52,7 +52,7 @@ module.exports = (sequelize, dataTypes) => {
             as: "userCart",
             foreingKey: "user_id"
         })
-    }
+    }*/
 
     return User;
 }
