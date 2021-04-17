@@ -270,10 +270,14 @@ h1{
 .user-logged img {
     width: 70px;
     height: 70px;
-    margin: 10px 10px 0 0;
 }
 
-.user-logged p{
+.user-logged p {
+    margin-top: 28px;
+    margin-right: 10px;
+}
+
+#profile {
     margin-top: 28px;
     margin-right: 10px;
 }

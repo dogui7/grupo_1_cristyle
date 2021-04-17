@@ -20,7 +20,7 @@
 
         <section class="user-and-cart">
             <% if (locals.isLogged) { %>
-            <img src="/images/users/<%= locals.userLogged.image %>" alt="imagen de perfil">
+            <img src="/images/users/<%= locals.userLogged.profile_image %>" alt="imagen de perfil">
             <p id="user-greeting">¡Hola, <%= locals.userLogged.firstName %>!</p>
 
             <% } else { %>
@@ -52,8 +52,8 @@
         <nav class="right-navbar">
         <% if (locals.isLogged) { %>
             <nav class="user-logged">
-                <img src="/images/users/<%= locals.userLogged.image %>" alt="imagen de perfil">
-                <p>¡Hola, <%= locals.userLogged.firstName %>!</p>
+                <a href="/usuarios/perfil"> <img src="/images/users/<%= locals.userLogged.profile_image %>" alt="imagen de perfil"></a>
+                <a id="profile" href="/usuarios/perfil">Tu cuenta</a>
                 <a href="/productos/carrito"><i class="fas fa-shopping-cart"></i>Tus compras</a>
                 <a href="/usuarios/logout"><i class="fas fa-sign-out-alt"></i>Cerrar sesión</a>
             </nav>

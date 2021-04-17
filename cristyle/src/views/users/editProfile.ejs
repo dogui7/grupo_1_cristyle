@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<%-include ("../partials/head", {particularCSS: cssSheets}, {title: title}) %>
+
+<body>
+
+    <%- include("../partials/header") %>
+
+    <main>
+        <div class="container data-wrapper">
+            <div>
+                <div >
+                    <h2 class="title">Edita los datos de tu cuenta:</h2>
+                </div>
+            </div>
+            <div class="form-padding">
+                <div  class="form-create">
+                    <form action="/usuarios/editar?_method=PUT" method="POST" enctype="multipart/form-data">
+                        <div>
+                            <div class="flex-desktop">
+                                <div class="first-flex">
+                                    <div class="form-class">
+                                        <label for="first_name" class="form-label">Nombre:</label>
+                                        <br>
+                                        <input type="text" name="first_name" class="form-input" value="<%= locals.userLogged.first_name %>">
+                                    </div>
+                                    <% if (locals.errorMessages && errorMessages.first_name) { %>
+                                        <p class="error"> <%= errorMessages.first_name.msg %> </p>
+                                    <% } %>
+
+                                    <div class="form-class">
+                                        <label for="last_name" class="form-label">Apellido:</label>
+                                        <br>
+                                        <input type="text" name="last_name" value="<%= locals.userLogged.last_name %>" class="form-input">
+                                    </div>
+                                    <% if (locals.errorMessages && errorMessages.last_name) { %>
+                                        <p class="error"> <%= errorMessages.last_name.msg %> </p>
+                                    <% } %>
+
+                                    <div class="form-class">
+                                        <label for="email" class="form-label">Correo electrónico (es tu usuario y no se puede editar):</label>
+                                        <br>
+                                        <input type="text" name="email" value="<%=  locals.userLogged.email %>" readonly class="form-input">
+                                    </div>
+                                    <% if (locals.errorMessages && errorMessages.email) { %>
+                                        <p class="error"> <%= errorMessages.email.msg %> </p>
+                                    <% } %>
+                                </div>
+
+                                <div class="second-flex">    
+                                    <div class="form-class">
+                                        <label for="password" class="form-label">Contraseña:</label>
+                                        <br>
+                                        <input type="password" name="password" value="<%= locals.userLogged.password %>" class="form-input">
+                                    </div>
+                                    <% if (locals.errorMessages && errorMessages.password) { %>
+                                        <p class="error"> <%= errorMessages.password.msg %> </p>
+                                    <% } %>
+
+                                    <div class="form-class">
+                                        <label for="birthdate" class="form-label">Fecha de nacimiento:</label>
+                                        <br>
+                                        <input type="date" name="birthdate" value="<%= locals.userLogged.birthdate %>" class="form-input">
+
+                                    </div>
+                                    <% if (locals.errorMessages && errorMessages.birthdate) { %>
+                                        <p class="error"> <%= errorMessages.birthdate.msg %> </p>
+                                    <% } %>
+
+                                    <div class="form-class">
+                                        <label for="image" class="form-label">Insertar Imagen: (Si no sube ningún archivo se preservará la imagen anterior)</label>
+                                        <br>
+                                        <input type="file" class="form-image" name="profile_image" value="profile_image">
+                                    </div>
+                                    <% if (locals.errorMessages && errorMessages.profile_image) { %>
+                                        <p class="error"> <%= errorMessages.profile_image.msg %> </p>
+                                    <% } %>
+                                </div>
+                            </div>        
+
+                            
+                            <div class="form-class">
+                                <button type="submit" class="submitButton">Guardar cambios</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <%- include("../partials/footer") %>
+
+</body>
+<script src="https://kit.fontawesome.com/613ba21445.js" crossorigin="anonymous"></script>
+</html>

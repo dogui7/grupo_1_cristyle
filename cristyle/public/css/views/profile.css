@@ -1,0 +1,44 @@
+
+.global-cont {
+    margin: 5vh 0 10vh 5vw;
+}
+
+h1{
+    margin-top: -3%;
+    font-size: 3rem;
+}
+
+img {
+    max-height: 40vh;
+    max-width: 40vw;
+    margin-top: 40px;
+}
+
+.global-data-cont{
+    display: flex;
+    margin-left: 0;
+    justify-content: space-around;
+}
+
+.data-cont {
+    margin: 25px 40px 0 0;
+}
+
+
+h2{
+    margin-left: 0;
+    margin-bottom: 25px;
+    font-size: 2rem;
+}
+
+p {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+i {
+    color: #be9e44;
+}
+
+
+

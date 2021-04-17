@@ -7,11 +7,20 @@ const usersController = require ("../controllers/usersController");
 const validateRegister = require("../middlewares/routes/users/expressValidatorRegister");
 const validateLogin = require("../middlewares/routes/users/expressValidatorLogin");
 const guestMiddleware = require ('../middlewares/routes/users/guestMiddleware');
+const authMiddleware = require ('../middlewares/routes/users/authMiddleware');
 const upload = require("../middlewares/routes/users/multerUsers");
 
 //INICIAR SESION
 router.get("/iniciarSesion", guestMiddleware, usersController.login);
 router.post("/iniciarSesion", validateLogin, usersController.loginValidation);
+
+//VER PERFIL
+router.get("/perfil", authMiddleware, usersController.profile);
+
+//EDITAR PERFIL
+router.get("/editar", authMiddleware, usersController.edit);
+router.post("/editar", authMiddleware, usersController.processEdit);
+
 
 //REGISTRAR Y ALMACENAR USUARIO
 router.get("/registrarse", guestMiddleware, usersController.register);
