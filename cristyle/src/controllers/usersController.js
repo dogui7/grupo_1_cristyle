@@ -88,7 +88,7 @@ module.exports = {
                 "first_name": req.body.first_name,
                 "last_name": req.body.last_name,
                 "birthdate": req.body.birthdate,
-                "profile_image": req.file.filename,
+                "profile_image": req.file ? req.file.filename : req.session.userLogged.profile_image,
             } , {
                 where: {
                     id: req.session.userLogged.id
