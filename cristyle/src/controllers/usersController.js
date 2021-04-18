@@ -71,29 +71,6 @@ module.exports = {
     },
 
     processEdit: (req,res) => {
-        //Evitar que un usuario se registre con un email ya utilizado (NO ANDA LA VISUALIZACION DEL MENSAJE DE ERROR, PERO SI LA FUNCION):
-        db.User.findOne({
-            where: {
-                email: locals.userLogged.email
-            }
-        }).then ((userToEdit) => {
-            let cssSheets = ["editProfile"];
-            let title = "Editar perfil";
-        if (userToEdit) {
-            return res.render ("users/editProfile.ejs", {cssSheets, title,
-                errorMessages: {
-                    "email": {
-                        "value": "",
-                        "msg": "Ya hay un usuario registrado con este correo electrónico.",
-                        "param": "email",
-                        "location": "body"
-                    }
-                },
-                oldData: req.body
-            });
-        }
-        })
-        
         //Verifica que los campos se hayan llenado correctamente:
         let errors = validationResult(req);
         if (!errors.isEmpty()) {
@@ -105,17 +82,16 @@ module.exports = {
             }
             return res.render ("users/editProfile.ejs", {cssSheets, title, errorMessages: errors.mapped(), oldData: req.body});
         } else {
-            //Almacena el nuevo usuario:
+        
+            //Almacena las modificaciones:
             db.User.update ({
                 "first_name": req.body.first_name,
                 "last_name": req.body.last_name,
-                "email": req.body.email,
-                "password": bcryptjs.hashSync (req.body.password, 10),
                 "birthdate": req.body.birthdate,
                 "profile_image": req.file.filename,
             } , {
                 where: {
-                    id: locals.userLogged.id
+                    id: req.session.userLogged.id
                 }
             })
                  return res.redirect ('/productos/todos');

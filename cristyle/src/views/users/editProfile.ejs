@@ -51,7 +51,7 @@
                                     <div class="form-class">
                                         <label for="password" class="form-label">Contraseña:</label>
                                         <br>
-                                        <input type="password" name="password" value="<%= locals.userLogged.password %>" class="form-input">
+                                        <input type="password" name="password" value="<%= locals.userLogged.password %>" readonly class="form-input">
                                     </div>
                                     <% if (locals.errorMessages && errorMessages.password) { %>
                                         <p class="error"> <%= errorMessages.password.msg %> </p>
@@ -81,6 +81,7 @@
                             
                             <div class="form-class">
                                 <button type="submit" class="submitButton">Guardar cambios</button>
+                                <button type="submit" class="deleteButton">Eliminar cuenta</button>
                             </div>
                         </div>
                     </form>

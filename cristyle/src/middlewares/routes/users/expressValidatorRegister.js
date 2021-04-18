@@ -2,15 +2,15 @@ const {check} = require('express-validator');
 const path = require('path');
 
 const validateRegister = [
-    check('firstName')
+    check('first_name')
         .notEmpty().withMessage('Debes completar el nombre').bail()
         .isAlpha().withMessage('El nombre solo puede contener letras').bail(),
 
-    check('lastName')
+    check('last_name')
         .notEmpty().withMessage('Debes completar el apellido').bail()
         .isAlpha().withMessage('El apellido solo puede contener letras').bail(),
 
-    check('category')
+    check('role_id')
         .notEmpty().withMessage('Debes elegir una categoria').bail(),
 
     check('email')
@@ -24,10 +24,10 @@ const validateRegister = [
     check('birthdate')
         .notEmpty().withMessage('Debes completar la fecha de nacimiento').bail(),
 
-    check('userImage')
+    check('profile_image')
         .custom((value, {req}) => {
             let file = req.file;
-            let acceptedExtendions = ['.jpg', '.png', '.gif'];
+            let acceptedExtendions = ['.jpg', '.png', '.gif', '.JPG', '.PNG', '.GIF'];
             if (!file) {
                 throw new Error ('Tienes que subir una imagen de perfil');
             } else {

@@ -6,6 +6,7 @@ const usersController = require ("../controllers/usersController");
 //Middlewares
 const validateRegister = require("../middlewares/routes/users/expressValidatorRegister");
 const validateLogin = require("../middlewares/routes/users/expressValidatorLogin");
+const validateEdit = require("../middlewares/routes/users/expressValidatorEdit")
 const guestMiddleware = require ('../middlewares/routes/users/guestMiddleware');
 const authMiddleware = require ('../middlewares/routes/users/authMiddleware');
 const upload = require("../middlewares/routes/users/multerUsers");
@@ -19,7 +20,7 @@ router.get("/perfil", authMiddleware, usersController.profile);
 
 //EDITAR PERFIL
 router.get("/editar", authMiddleware, usersController.edit);
-router.post("/editar", authMiddleware, usersController.processEdit);
+router.put("/editar", upload.single ('profile_image'), validateEdit, usersController.processEdit);
 
 
 //REGISTRAR Y ALMACENAR USUARIO
