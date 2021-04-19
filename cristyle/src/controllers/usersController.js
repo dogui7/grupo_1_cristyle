@@ -1,7 +1,6 @@
 const path = require("path");
 const bcryptjs = require ("bcryptjs");
 const fs = require("fs");
-const users = require ("../data/users/usersModel");
 const db = require ("../database/models");
 const {validationResult} = require("express-validator");
 const session = require ("express-session");
@@ -81,7 +80,6 @@ module.exports = {
             }
             return res.render ("users/editProfile.ejs", {cssSheets, title, errorMessages: errors.mapped(), oldData: req.body});
         } else {
-        
             //Almacena las modificaciones:
             db.User.update ({
                 "first_name": req.body.first_name,
@@ -93,9 +91,13 @@ module.exports = {
                     id: req.session.userLogged.id
                 }
             })
-                 return res.redirect ('/productos/todos');
+            .then(() => {
+                return res.redirect ('/usuarios/perfil');
+            })
+            .catch((error) => {
+                console.log(error)
+            })
         };
-
     },
 
     register: (req, res) => {
@@ -104,7 +106,7 @@ module.exports = {
         return res.render("users/register.ejs", {cssSheets, title})
     },
 
-    store: (req,res) => {
+    processRegister: (req,res) => {
         //Evitar que un usuario se registre con un email ya utilizado
         let cssSheets = ["register"];
         let title = "Registro";

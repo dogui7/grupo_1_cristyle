@@ -24,7 +24,7 @@ router.put("/editar", upload.single ('profile_image'), validateEdit, usersContro
 
 //REGISTRAR Y ALMACENAR USUARIO
 router.get("/registrarse", guestMiddleware, usersController.register);
-router.post ("/registrarse", upload.single ('profile_image'), validateRegister, usersController.store);
+router.post ("/registrarse", upload.single ('profile_image'), validateRegister, usersController.processRegister);
 
 //CERRAR SESION
 router.get ('/logout', usersController.logout);
