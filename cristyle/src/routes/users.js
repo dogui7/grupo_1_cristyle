@@ -22,10 +22,9 @@ router.get("/perfil", authMiddleware, usersController.profile);
 router.get("/editar", authMiddleware, usersController.edit);
 router.put("/editar", upload.single ('profile_image'), validateEdit, usersController.processEdit);
 
-
 //REGISTRAR Y ALMACENAR USUARIO
 router.get("/registrarse", guestMiddleware, usersController.register);
-router.post ("/registrarse", upload.single ('userImage'), validateRegister, usersController.store);
+router.post ("/registrarse", upload.single ('profile_image'), validateRegister, usersController.store);
 
 //CERRAR SESION
 router.get ('/logout', usersController.logout);

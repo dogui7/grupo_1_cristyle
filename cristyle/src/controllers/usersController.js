@@ -66,7 +66,6 @@ module.exports = {
     edit: (req,res) => {
         let cssSheets = ["editProfile"];
         let title = "Editar perfil";
-
         return res.render("users/editProfile.ejs", {cssSheets, title})
     },
 
@@ -106,50 +105,55 @@ module.exports = {
     },
 
     store: (req,res) => {
-        //Evitar que un usuario se registre con un email ya utilizado (NO ANDA LA VISUALIZACION DEL MENSAJE DE ERROR, PERO SI LA FUNCION):
-        let userInDB = users.findByField("email", req.body.email);
+        //Evitar que un usuario se registre con un email ya utilizado
         let cssSheets = ["register"];
         let title = "Registro";
-        if (userInDB) {
-            return res.render ("users/register.ejs", {cssSheets, title,
-                errorMessages: {
-                    "email": {
-                        "value": "",
-                        "msg": "Ya hay un usuario registrado con este correo electrónico.",
-                        "param": "email",
-                        "location": "body"
-                    }
-                },
-                oldData: req.body
-            });
-        }
-        //Verifica que los campos se hayan llenado correctamente:
-        let errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            let cssSheets = ["register"];
-            let title = "Registro";
-            if (req.file) {
-                let imageName = req.file.filename;
-                fs.unlinkSync(path.resolve (__dirname, "../../public/images/users/") + '/' + imageName);
+        db.User.findOne({
+            where: {email: req.body.email}
+        }).then((userInDB) => {
+            //Se checkea si ya existe el email enviado en la base de datos, en cuyo caso se muestra un error
+            if (userInDB) {
+                return res.render ("users/register.ejs", {cssSheets, title,
+                    errorMessages: {
+                        "email": {
+                            "value": "",
+                            "msg": "Ya hay un usuario registrado con este correo electrónico.",
+                            "param": "email",
+                            "location": "body"
+                        }
+                    },
+                    oldData: req.body
+                });
             }
-            return res.render ("users/register.ejs", {cssSheets, title, errorMessages: errors.mapped(), oldData: req.body});
-        } else {
-            //Almacena el nuevo usuario:
-            let allUsers = users.getAll();
-            let newUser = {
-                "id": allUsers[allUsers.length-1].id + 1,
-                "firstName": req.body.firstName,
-                "lastName": req.body.lastName,
-                "email": req.body.email,
-                "password": bcryptjs.hashSync (req.body.password, 10),
-                "birthdate": req.body.birthdate,
-                "category": req.body.category,
-                "image": req.file.filename,
+
+            //En caso de que el email no exista, se verifica que los campos se hayan llenado correctamente:
+            let errors = validationResult(req);
+            //Si hay errores, recargar la vista con los correspondientes mensajes
+            if (!errors.isEmpty()) {
+                let cssSheets = ["register"];
+                let title = "Registro";
+                if (req.file) {
+                    let imageName = req.file.filename;
+                    fs.unlinkSync(path.resolve (__dirname, "../../public/images/users/") + '/' + imageName);
+                }
+                return res.render ("users/register.ejs", {cssSheets, title, errorMessages: errors.mapped(), oldData: req.body});
+            //Si no hay errores, se guarda el nuevo usuario en la base de datos
+            } else {
+                db.User.create({
+                    ...req.body,
+                    profile_image: req.file.filename,
+                    password: bcryptjs.hashSync(req.body.password, 10)
+                })
+                .then(() => {
+                    return res.redirect ('/usuarios/iniciarSesion');
+                })
+                .catch((error) => {
+                    return res.send(error);
+                })
             };
-            allUsers.push (newUser);
-            users.write (allUsers);
-            return res.redirect ('/productos/todos');
-        };
+        }).catch((error) => {
+            console.log(error)
+        })
     },
 
     logout: (req,res) =>{

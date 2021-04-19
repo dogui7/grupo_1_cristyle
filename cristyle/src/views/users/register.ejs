@@ -15,41 +15,41 @@
                 <form action="/usuarios/registrarse" method="POST" enctype="multipart/form-data">
 
                     <div class="campo-texto label">
-                        <input type="text" name="firstName" placeholder="Nombre" 
-                            <% if (locals.oldData && oldData.firstName) { %>
-                                value="<%= oldData.firstName %>" 
+                        <input type="text" name="first_name" placeholder="Nombre" 
+                            <% if (locals.oldData && oldData.first_name) { %>
+                                value="<%= oldData.first_name %>" 
                             <% } %>
                         >
                     </div>
-                    <% if (locals.errorMessages && errorMessages.firstName) { %>
-                        <p class="error"> <%= errorMessages.firstName.msg %> </p>
+                    <% if (locals.errorMessages && errorMessages.first_name) { %>
+                        <p class="error"> <%= errorMessages.first_name.msg %> </p>
                     <% } %>
 
                     <div class="campo-texto label">
-                        <input type="text" name="lastName" placeholder="Apellido"
-                            <% if (locals.oldData && oldData.lastName) { %>
-                                value="<%= oldData.lastName %>" 
+                        <input type="text" name="last_name" placeholder="Apellido"
+                            <% if (locals.oldData && oldData.last_name) { %>
+                                value="<%= oldData.last_name %>" 
                             <% } %>
                         >
                     </div>
-                    <% if (locals.errorMessages && errorMessages.lastName) { %>
-                        <p class="error"> <%= errorMessages.lastName.msg %> </p>
+                    <% if (locals.errorMessages && errorMessages.last_name) { %>
+                        <p class="error"> <%= errorMessages.last_name.msg %> </p>
                     <% } %>
 
                     <div class="label">
-                        <input type="radio" name="category" value="2" 
-                            <% if (!locals.oldData || (locals.oldData && (!oldData.category || oldData.category === "2"))) { %>
+                        <input type="radio" name="role_id" value="2" 
+                            <% if (!locals.oldData || (locals.oldData && (!oldData.role_id || oldData.role_id === "2"))) { %>
                                 checked
                             <% } %>
                         > Cliente <br>
-                        <input type="radio" name="category" value="1"
-                            <% if (locals.oldData && oldData.category === "1") { %>
+                        <input type="radio" name="role_id" value="1"
+                            <% if (locals.oldData && oldData.role_id === "1") { %>
                                 checked
                             <% } %>
                         > Admin
                     </div>
-                    <% if (locals.errorMessages && errorMessages.category) { %>
-                        <p class="error"> <%= errorMessages.category.msg %> </p>
+                    <% if (locals.errorMessages && errorMessages.role_id) { %>
+                        <p class="error"> <%= errorMessages.role_id.msg %> </p>
                     <% } %>
 
                     <div class="campo-texto label">
@@ -85,12 +85,12 @@
                     <% } %>
 
                     <div class="label">
-                        <label for="image">Elige tu foto de perfil</label>
-                        <input type="file" name="userImage" >
+                        <label for="profile_image">Elige tu foto de perfil</label>
+                        <input type="file" name="profile_image" >
                     </div>
                     
-                    <% if (locals.errorMessages && errorMessages.userImage) { %>
-                        <p class="error"> <%= errorMessages.userImage.msg %> </p>
+                    <% if (locals.errorMessages && errorMessages.profile_image) { %>
+                        <p class="error"> <%= errorMessages.profile_image.msg %> </p>
                     <% } %>
 
                     <div class="label" id="terminos-condiciones">
