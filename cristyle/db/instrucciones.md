@@ -1,6 +1,6 @@
 Para crear la base de datos desde 0, seguir los siguientes pasos:
 
-    * Utilizando Workbench o un software similar, correr el código incluido en el archivo "cristyle_db.sql".
+    * Utilizando Workbench o un software similar, correr el código incluido en el archivo "cristyle_db.sql"(En caso de que se queje porque el DELETE no tiene WHERE, Ir a Edit -> Preferences -> Sql Editor y desmarcar Safe update).
     * Luego de eso correr el código del archivo "populate.sql".
     * Eliminar todo archivo que se encuentre en la ruta "public > images > users", y copiar y pegar alli los archivos ubicados en la ruta "db > images > users".
     * Eliminar todo archivo que se encuentre en la ruta "public > images > products", y copiar y pegar alli los archivos ubicados en la ruta "db > images > products".
