@@ -21,7 +21,7 @@
         <section class="user-and-cart">
             <% if (locals.isLogged) { %>
             <a href="/usuarios/perfil"><img src="/images/users/<%= locals.userLogged.profile_image %>" alt="imagen de perfil"></a>
-            <p id="user-greeting">¡Hola, <%= locals.userLogged.firstName %>!</p>
+            <p id="user-greeting">¡Hola, <%= locals.userLogged.first_name %>!</p>
 
             <% } else { %>
             <a href="/usuarios/iniciarSesion" class="user">
@@ -43,7 +43,7 @@
                     <li><a href="/productos/todos/hombre">Hombre</a></li>
                     <li><a href="/productos/todos/mujer">Mujer</a></li>
                     <li><a href="/productos/todos/ofertas">Ofertas</a></li>
-                    <% if (locals.userLogged && locals.userLogged.category == 1) { %>
+                    <% if (locals.userLogged && locals.userLogged.role_id == 1) { %>
                     <li><a href="/productos/agregar">Agregar productos</a></li>
                     <% } %>
                 </ul>

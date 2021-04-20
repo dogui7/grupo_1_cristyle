@@ -177,9 +177,23 @@ module.exports = {
     },
 
     delete: (req,res) => {
-        let allProducts = products.getAll();
-        allProducts = allProducts.filter(product => product.id != req.params.id);
-        products.write(allProducts);
-        return res.redirect ('/productos/todos');
+        db.Product.findByPk (req.params.id)
+            .then (function (product){
+                let productImage = product.image
+                fs.unlinkSync(path.resolve (__dirname, "../../public/images/products/") + '/' + productImage);
+
+                db.Product.destroy({
+                    where: {
+                        id: req.params.id
+                    }
+                })
+            })
+            .then (() => {
+                res.redirect ("/productos/todos")
+            })
+            .catch (error => {
+                res.send (error)
+            })
+ 
     }
 }
