@@ -33,6 +33,7 @@ const validateProducts = [
                     throw new Error ('Las extensiones de archivo permitidas son ' + acceptedExtendions.join(', '))
                 }
             }
+            // Si no hubo ningun error, devolver true para demostrar que está todo en orden 
             return true;
         }),
 

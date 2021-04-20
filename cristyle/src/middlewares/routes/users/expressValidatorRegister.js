@@ -28,14 +28,18 @@ const validateRegister = [
         .custom((value, {req}) => {
             let file = req.file;
             let acceptedExtendions = ['.jpg', '.png', '.gif', '.JPG', '.PNG', '.GIF'];
+            // Si no vino un archivo
             if (!file) {
                 throw new Error ('Tienes que subir una imagen de perfil');
+            // Si vino un archivo
             } else {
                 let fileExtension = path.extname(file.originalname);
+                // Si no es una extensión válida
                 if (!acceptedExtendions.includes(fileExtension)) {
                     throw new Error ('Las extensiones de archivo permitidas son ' + acceptedExtendions.join(', '))
                 }
             }
+            // Si no hubo ningun error, devolver true para demostrar que está todo en orden
             return true;
         }),
 
