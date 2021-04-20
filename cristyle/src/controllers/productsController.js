@@ -94,7 +94,7 @@ module.exports = {
             let title = "Crear producto";
             let categories = db.productCategory.findAll();
             let size = db.productSize.findAll();
-
+            //PREGUNTAR PROMISE ALL!!
             if (req.file) {
                 let imageName = req.file.filename;
                 fs.unlinkSync(path.resolve (__dirname, "../../public/images/products/") + '/' + imageName);
@@ -131,27 +131,37 @@ module.exports = {
                 res.send ("ERROR!")
             })
         } else {
+            db.Product.findAll ({
+                where : {
+                    products : {[Op.like]: '%req.query.busqueda%'}
+                }
+            })
+            .then (
+                function(products) {
+                    res.render("products/allProducts.ejs", {cssSheets, title, products:products});  
+                }
+            )
             
-            allProducts = products.getAll() //Traemos todos los productos
-            .filter(product => //Filtramos
-                 product.name.toLowerCase().includes(req.query.busqueda.toLowerCase())); 
+           /*  allProducts = products.getAll() */ //Traemos todos los productos
+            /* .filter(product => */ //Filtramos
+                 /* product.name.toLowerCase().includes(req.query.busqueda.toLowerCase())); */ 
                  //Nos fijamos si en el nombre en minuscula del producto está incluido el término buscado en la barra también en minuscula
         }
-        return res.render("products/allProducts.ejs", {cssSheets, title, products: allProducts,}); 
+       /*  return res.render("products/allProducts.ejs", {cssSheets, title, products: allProducts,});  */
     },
 
     showFiltered: (req, res) => {
         let cssSheets = ["allProducts","showProducts"];
         let title, filter = req.params.filter;
-        let allProducts = products.getAll();
+        let products = db.Product.findAll();
         let filteredProducts;
         switch(filter){
             case 'hombre':
             case 'mujer':
-                filteredProducts = allProducts.filter(product => product.gender == filter);
+                filteredProducts = products.filter(product => product.gender == filter);
                 break;
             case 'ofertas':
-                filteredProducts = allProducts
+                filteredProducts = products
                 .filter(product => product.discount > 0) // Filtramos los que estan en descuento
                 .sort((a,b) =>{ // Ordenamos de mayor a menor para mostrar primero los de mayor descuento
                     if(a.discount > b.discount) {return -1}
@@ -160,7 +170,7 @@ module.exports = {
                 })
                 break;
             default:
-                filteredProducts = allProducts;
+                filteredProducts = products;
                 break;
         }
         return res.render("products/allProducts.ejs", {cssSheets, title, products: filteredProducts, busqueda: null});
