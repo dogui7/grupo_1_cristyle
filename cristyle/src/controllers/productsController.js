@@ -132,7 +132,6 @@ module.exports = {
             })
         } else {
             
-            res.send ("HOLA SOY EL ELSE!")
             allProducts = products.getAll() //Traemos todos los productos
             .filter(product => //Filtramos
                  product.name.toLowerCase().includes(req.query.busqueda.toLowerCase())); 
