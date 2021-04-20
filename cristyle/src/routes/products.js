@@ -14,16 +14,16 @@ const upload = require("../middlewares/routes/products/multerProducts");
 
 /************************ Middlewares de ruta hechos por nosotros ************************/
 
-// Checkea que el usuario esté logueado. Utilizarlo para evitar que un usuario NO logueado
+// Evita que un USUARIO NO LOGUEADO acceda a rutas. Utilizarlo para evitar que un USUARIO NO LOGUEADO
 // acceda a sitios como el carrito, y lo lleve a la vista de logueo.
-const authMiddleware = require("../middlewares/routes/users/authMiddleware");
+const loguedMiddleware = require("../middlewares/routes/users/loguedMiddleware");
 
 
 // GET ONE PRODUCT
 router.get("/detalle/:id", productsController.detail);
 
 // CART
-router.get("/carrito",authMiddleware,productsController.cart);
+router.get("/carrito",loguedMiddleware,productsController.cart);
 
 // PRODUCT EDIT
 router.get ('/editar/:id', productsController.edit);

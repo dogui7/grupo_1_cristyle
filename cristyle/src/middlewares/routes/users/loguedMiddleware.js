@@ -1,6 +1,4 @@
-const path = require("path");
-
-function authMiddleware (req,res,next){
+function loguedMiddleware (req,res,next){
     if (req.session && req.session.userLogged != undefined){
         next();
     } else {
@@ -8,4 +6,4 @@ function authMiddleware (req,res,next){
     }
 }
 
-module.exports = authMiddleware;
+module.exports = loguedMiddleware;
