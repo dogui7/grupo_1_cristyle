@@ -14,6 +14,9 @@
 .form-create {
     background-color: #ebebeb;
     border-radius: 5%;
+    padding-bottom: 1.5rem;
+
+
 }
 
 .form-class {
@@ -27,6 +30,10 @@
     border-radius: 0.5rem;
     padding-left: 3%;
     margin-top: 5%;
+    background-color: #fff;
+}
+#email {
+    background-color: #ebebeb;
 }
 
 .form-image {
@@ -40,8 +47,21 @@
     width: 55%;
     height: 3rem;
     border-radius: 5%;
-    margin-bottom: 1.5rem;
+    margin: 1rem 1rem 1.5rem 0;
 }
+
+.deleteButton {
+    background-color: #be4844;
+    width: 40%;
+    height: 3rem;
+    border-radius: 5%;
+    margin-left: 1rem;
+    display: block;
+}
+
+
+
+
 
 /********************* Errores *********************/
 
@@ -65,7 +85,7 @@
  }
 
  .first-flex {
-     margin-top: 1%;
+     margin-top: -3%;
      width: 45%;
  }
 
@@ -74,11 +94,29 @@
  }
  .second-flex{
   width: 50%;  
+  margin-top: 3.6%;
+}
+
+.button-container {
+    display: flex;
+    padding-top: 1rem;
+}
+
+.submitButton{
+    width: 60%;
+}
+
+.deleteButton {
+    width: 30%;
+    height: 3rem;
+    border-radius: 5%;
 }
 
 }
 /*==========================================================DESKTOP================================================================*/
 
 @media (min-width: 1200px) {
- 
+    .deleteButton {
+        width: 10%;
+    }
 }

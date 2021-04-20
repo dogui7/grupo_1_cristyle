@@ -10,26 +10,28 @@
         <section class="global-cont">
 
             <div class="welcome">   
-            <h1>Hola, <%= locals.userLogged.first_name %></h1>
+            <h1 class="welcome">Hola, <%= locals.userLogged.first_name %></h1>
             </div> 
 
-            <section class="global-data-cont">
+            <section class="image-data-editButton">
 
-                <img src="/images/users/<%=locals.userLogged.profile_image%>" alt="imagen">
+                <div class="image-and-data">
+                    <img src="/images/users/<%=locals.userLogged.profile_image%>" alt="imagen">
                 
-                <div class="data-cont" >  
-                    <h2>Estos son tus datos:</h2>
-                    <p>Nombre: <%= locals.userLogged.first_name%> </p>
-                    <p>Apellido: <%= locals.userLogged.last_name %></p>
-                    <p>Correo electrónico: <%= locals.userLogged.email %></p>
-                    <p>Contraseña: *********</p>
-                    <p>Fecha de Nacimiento: <%= locals.userLogged.birthdate%></p>
-                    <% if (locals.userLogged.role_id == 1 ){ %>
-                    <p>Tipo de cuenta: Administrador</p>
-                    <% } else {%>
-                    <p>Tipo de cuenta: Cliente</p>
-                    <% } %>
-                </div> 
+                    <div class="data-cont" >  
+                        <h2>Estos son tus datos:</h2>
+                        <p>Nombre: <%= locals.userLogged.first_name%> </p>
+                        <p>Apellido: <%= locals.userLogged.last_name %></p>
+                        <p>Usuario: <%= locals.userLogged.email %></p>
+                        <p>Contraseña: *********</p>
+                        <p>Fecha de Nacimiento: <%= locals.userLogged.birthdate%></p>
+                        <% if (locals.userLogged.role_id == 1 ){ %>
+                        <p>Tipo de cuenta: Administrador</p>
+                        <% } else {%>
+                        <p>Tipo de cuenta: Cliente</p>
+                        <% } %>
+                    </div> 
+                </div>
                 
                 <div class="edit-button-div">
                 <a href="/usuarios/editar"> Editar tus datos <i class="fas fa-user-edit"></i></a>

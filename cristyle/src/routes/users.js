@@ -21,6 +21,7 @@ router.get("/perfil", authMiddleware, usersController.profile);
 //EDITAR PERFIL
 router.get("/editar", authMiddleware, usersController.edit);
 router.put("/editar", upload.single ('profile_image'), validateEdit, usersController.processEdit);
+router.post("/eliminar", usersController.delete);
 
 //REGISTRAR Y ALMACENAR USUARIO
 router.get("/registrarse", guestMiddleware, usersController.register);

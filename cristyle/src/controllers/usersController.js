@@ -162,6 +162,18 @@ module.exports = {
         req.session.destroy();
         res.clearCookie('email');
         res.redirect('/')
-    }
+    },
 
+    delete: (req,res) => {
+        db.User.destroy({
+                where: {
+                    email: req.session.userLogged.email
+                }
+            })
+        let userImage = req.session.userLogged.profile_image;
+        fs.unlinkSync(path.resolve (__dirname, "../../public/images/users/") + '/' + userImage);
+        req.session.destroy();
+        res.clearCookie('email');
+        res.redirect ("/productos/todos")
+    }
 }
