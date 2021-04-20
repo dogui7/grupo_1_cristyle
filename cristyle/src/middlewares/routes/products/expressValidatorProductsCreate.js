@@ -24,15 +24,18 @@ const validateProducts = [
     check('productImage')
         .custom((value, {req}) => {
             let file = req.file;
-            let acceptedExtendions = ['.jpg', '.png', '.gif'];
+            // Si no vino un archivo
             if (!file) {
                 throw new Error ('Debes subir una imagen de producto');
             } else {
                 let fileExtension = path.extname(file.originalname);
-                if (!acceptedExtendions.includes(fileExtension)) {
-                    throw new Error ('Las extensiones de archivo permitidas son ' + acceptedExtendions.join(', '))
+                let acceptedExtensions = ['.jpg', '.png', '.gif', '.JPEG', '.JPG', '.GIF', '.PNG'];
+                /// Si no es una extensión válida
+                if (!acceptedExtensions.includes(fileExtension)) {
+                    throw new Error ('Las extensiones de archivo permitidas son ' + acceptedExtensions.join(', '))
                 }
             }
+            // Si no hubo ningun error, devolver true para demostrar que está todo en orden 
             return true;
         }),
 
