@@ -66,11 +66,11 @@
                                         <br>
                                         <select name="category" id="category" class="form-input">
                                             <option value="">Elegí</option>
-                                            <% categories.forEach(category => { %>
-                                                <option value=<%= category %> 
-                                                    <%= locals.oldData && oldData.category === category ? "selected" : null %> 
-                                                > <%= category %> </option>
-                                            <% }) %>
+                                            <% for (let i = 0; i < category.length; i++) { %>
+                                                <option value="<%= category[i].id %>" >
+                                                    <%= category[i].category %>
+                                                </option>
+                                        <% } %>
                                         </select>
                                     </div>
                                     <% if (locals.errorMessages && errorMessages.category) { %>
@@ -82,11 +82,12 @@
                                         <br>
                                         <select name="size" id="size" class="form-input">
                                             <option value="">Elegí</option>
-                                            <% sizes.forEach(size => { %>
-                                                <option value=<%= size %> 
-                                                    <%= locals.oldData && oldData.size === size ? "selected" : null %> 
-                                                > <%= size %> </option>
-                                            <% }) %>
+                                            <% for (let i = 0; i < size.length; i++) { %>
+                                                    <option value="<%= size[i].id %>">
+                                                        <%= size[i].size %>
+                                                    </option>
+                                            <% } %>
+
                                         </select>
                                     </div>
                                     <% if (locals.errorMessages && errorMessages.size) { %>

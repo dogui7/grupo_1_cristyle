@@ -77,21 +77,14 @@ module.exports = {
     create: (req, res) => {
         let cssSheets = ["createProduct"];
         let title = "Crear producto";
-        let categories = db.productCategory.findAll ()
-                .then (function (categories){
-                    return categories
-                })
-                .catch (error =>{
-                    res.send ("ERROR!")
-                })
-        let sizes = db.productSize.findAll ()
-                .then (function (sizes){
-                    return sizes
-                })
-                .catch (error => {
-                    res.send ("ERROR!")
-                })
-        return res.render("products/createProduct.ejs", {cssSheets, title, categories, sizes})
+        let requestCategory = db.productCategory.findAll ();
+        let requestSize = db.productSize.findAll ();
+
+        Promise.all([requestSize, requestCategory])
+            .then(function ([size, category ]){
+                res.render ("products/createProduct.ejs", {cssSheets: cssSheets, title:title, size:size, category:category})
+            })
+
     },
 
     store: (req,res) => {
@@ -99,30 +92,17 @@ module.exports = {
         if (!errors.isEmpty()) {
             let cssSheets = ["createProduct"];
             let title = "Crear producto";
-            db.productCategory.findAll ()
-                .then (function (categories){
-                    return categories
-                })
-                .catch (error =>{
-                    res.send ("ERROR!")
-                })
-            db.productSize.findAll ()
-                .then (function (sizes){
-                    return sizes
-                })
-                .catch (error => {
-                    res.send ("ERROR!")
-                })
+            let categories = db.productCategory.findAll();
+            let size = db.productSize.findAll();
+
             if (req.file) {
                 let imageName = req.file.filename;
                 fs.unlinkSync(path.resolve (__dirname, "../../public/images/products/") + '/' + imageName);
             }
-            return res.render ("products/createProduct.ejs", {cssSheets, title, categories, sizes, errorMessages: errors.mapped(), oldData: req.body});
+            return res.render ("products/createProduct.ejs", {cssSheets, title, categories, size, errorMessages: errors.mapped(), oldData: req.body});
         } else {
          
-            let allProducts = products.getAll();
-            let newProduct = {
-                "id": allProducts[allProducts.length-1].id + 1,
+                db.Product.create ({
                 "name": req.body.name,
                 "description": req.body.description,
                 "price": req.body.price,
@@ -131,9 +111,8 @@ module.exports = {
                 "category": req.body.category,
                 "image": req.file.filename,
                 "gender": req.body.gender
-            };
-            allProducts.push (newProduct);
-            products.write (allProducts);
+            })
+
             return res.redirect ('/productos/todos');
         }
         
@@ -154,13 +133,12 @@ module.exports = {
         } else {
             
             res.send ("HOLA SOY EL ELSE!")
-            /* allProducts = products.getAll() */ //Traemos todos los productos
-            /* .filter(product =>  *///Filtramos
-                 /* product.name.toLowerCase().includes(req.query.busqueda.toLowerCase())); */
-                 /*Nos fijamos si en el nombre en minuscula del producto está incluido
-                   el término buscado en la barra también en minuscula*/
+            allProducts = products.getAll() //Traemos todos los productos
+            .filter(product => //Filtramos
+                 product.name.toLowerCase().includes(req.query.busqueda.toLowerCase())); 
+                 //Nos fijamos si en el nombre en minuscula del producto está incluido el término buscado en la barra también en minuscula
         }
-       /*  return res.render("products/allProducts.ejs", {cssSheets, title, products: allProducts,}); */
+        return res.render("products/allProducts.ejs", {cssSheets, title, products: allProducts,}); 
     },
 
     showFiltered: (req, res) => {
