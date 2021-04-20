@@ -40,3 +40,9 @@ Los integrantes del equipo son:
 **Fuente Textos:** [Playfair Display](https://fonts.google.com/specimen/Playfair+Display?query=playf)
 
 **Tablero de trabajo:**  [https://trello.com/b/qdtGZZpR/digital-house-grupo-1](https://trello.com/b/qdtGZZpR/digital-house-grupo-1)
+
+### Base de datos
+
+![Modelo de la base de datos](https://github.com/dogui7/grupo_1_cristyle/blob/main/cristyle/db/database_model.png)
+
+Para poder ver el sitio con la base de datos, seguir las instrucciones que se encuentran en cristyle > db > instrucciones.md
