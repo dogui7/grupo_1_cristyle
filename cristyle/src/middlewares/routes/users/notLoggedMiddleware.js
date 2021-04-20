@@ -1,4 +1,4 @@
-function notLoguedMiddleware (req,res,next){
+function notLoggedMiddleware (req,res,next){
     if (req.session.usuarioLogueado == undefined){
         next();
     } else {
@@ -6,4 +6,4 @@ function notLoguedMiddleware (req,res,next){
     }
 }
 
-module.exports = notLoguedMiddleware;
+module.exports = notLoggedMiddleware;

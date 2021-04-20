@@ -16,14 +16,14 @@ const upload = require("../middlewares/routes/products/multerProducts");
 
 // Evita que un USUARIO NO LOGUEADO acceda a rutas. Utilizarlo para evitar que un USUARIO NO LOGUEADO
 // acceda a sitios como el carrito, y lo lleve a la vista de logueo.
-const loguedMiddleware = require("../middlewares/routes/users/loguedMiddleware");
+const loggedMiddleware = require("../middlewares/routes/users/loggedMiddleware");
 
 
 // GET ONE PRODUCT
 router.get("/detalle/:id", productsController.detail);
 
 // CART
-router.get("/carrito",loguedMiddleware,productsController.cart);
+router.get("/carrito",loggedMiddleware,productsController.cart);
 
 // PRODUCT EDIT
 router.get ('/editar/:id', productsController.edit);

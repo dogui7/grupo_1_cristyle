@@ -17,26 +17,26 @@ const upload = require("../middlewares/routes/users/multerUsers");
 
 // Evita que un USUARIO NO LOGUEADO acceda a rutas. Utilizarlo para evitar que un USUARIO NO LOGUEADO
 // acceda a sitios como el carrito, perfil, etc y lo lleve a la vista de logueo.
-const loguedMiddleware = require ('../middlewares/routes/users/loguedMiddleware');
+const loggedMiddleware = require ('../middlewares/routes/users/loggedMiddleware');
 // Evita que un USUARIO LOGUEADO acceda a rutas. Utilizarlo para evitar que un USUARIO LOGUEADO
 // acceda a sitios como el inicio de sesión, el registro, etc y lo lleve a la vista index.
-const notLoguedMiddleware = require ('../middlewares/routes/users/notLoguedMiddleware');
+const notloggedMiddleware = require ('../middlewares/routes/users/notloggedMiddleware');
 
 
 // INICIAR SESION
-router.get("/iniciarSesion", notLoguedMiddleware, usersController.login);
+router.get("/iniciarSesion", notloggedMiddleware, usersController.login);
 router.post("/iniciarSesion", validateLogin, usersController.loginValidation);
 
 // VER PERFIL
-router.get("/perfil", loguedMiddleware, usersController.profile);
+router.get("/perfil", loggedMiddleware, usersController.profile);
 
 // EDITAR PERFIL
-router.get("/editar", loguedMiddleware, usersController.edit);
+router.get("/editar", loggedMiddleware, usersController.edit);
 router.put("/editar", upload.single ('profile_image'), validateEdit, usersController.processEdit);
 router.post("/eliminar", usersController.delete);
 
 // REGISTRAR Y ALMACENAR USUARIO
-router.get("/registrarse", notLoguedMiddleware, usersController.register);
+router.get("/registrarse", notloggedMiddleware, usersController.register);
 router.post ("/registrarse", upload.single ('profile_image'), validateRegister, usersController.processRegister);
 
 // CERRAR SESION

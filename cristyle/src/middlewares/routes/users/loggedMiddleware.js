@@ -1,4 +1,4 @@
-function loguedMiddleware (req,res,next){
+function loggedMiddleware (req,res,next){
     if (req.session && req.session.userLogged != undefined){
         next();
     } else {
@@ -6,4 +6,4 @@ function loguedMiddleware (req,res,next){
     }
 }
 
-module.exports = loguedMiddleware;
+module.exports = loggedMiddleware;
