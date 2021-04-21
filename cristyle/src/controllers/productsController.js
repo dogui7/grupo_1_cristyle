@@ -3,7 +3,8 @@ const fs = require('fs')
 const {validationResult} = require("express-validator");
 const db = require ("../database/models");
 const { title } = require("process");
-const Op = db.sequelize.Op;
+const sequelize = require("sequelize");
+const Op = sequelize.Op;
 
 
 module.exports = {
@@ -128,16 +129,17 @@ module.exports = {
                 res.render("products/allProducts.ejs", {cssSheets, title, products: products, busqueda: req.query.busqueda})
             })
             .catch (error => {
-                res.send ("ERROR!")
+                res.send (error)
             })
         } else {
             db.Product.findAll ({
                 where : {
-                    products : {[Op.like]: '%req.query.busqueda%'}
+                    name : {[Op.like]: `%${req.query.busqueda}%`}
                 }
             })
             .then (
                 function(products) {
+                    //return res.send(products);
                     res.render("products/allProducts.ejs", {cssSheets, title, products:products});  
                 }
             )
