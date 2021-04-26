@@ -23,11 +23,11 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER,
             allowNull: false
         },
-        size_id: {
+        sizeId: {
             type: dataTypes.INTEGER,
             allowNull: true
         },
-        category_id: {
+        categoryId: {
             type: dataTypes.INTEGER,
             allowNull: true
         },
@@ -37,6 +37,10 @@ module.exports = (sequelize, dataTypes) => {
         },
         gender: {
             type: dataTypes.STRING,
+            allowNull: false
+        },
+        deleted: {
+            type: dataTypes.INTEGER,
             allowNull: false
         }
     }
@@ -49,20 +53,20 @@ module.exports = (sequelize, dataTypes) => {
     /*  Product.associate = function (models){
         Product.belongsToMany (models.Cart, {
             as: "products",
-            through: "carts_products",
-            foreingKey: "product_id",
-            otherKey: "cart_id",
+            through: "cartsProducts",
+            foreingKey: "productId",
+            otherKey: "cartId",
             timestamps: false
         })
 
         Product.belongsTo (models.productSize, {
             as: "productSize",
-            foreingKey: "size_id"
+            foreingKey: "sizeId"
         })
 
         Product.belongsTo (models.productCategory, {
             as: "productCategory",
-            foreingKey: "category_id"
+            foreingKey: "categoryId"
         })
     }  */
 
