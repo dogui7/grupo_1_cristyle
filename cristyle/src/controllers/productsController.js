@@ -106,7 +106,7 @@ module.exports = {
             .then(function ([sizes, categories ]){
                 let cssSheets = ["createProduct"];
                 let title = "Crear producto";
-                return res.render ("products/createProduct.ejs", {cssSheets, title, categories, size, errorMessages: errors.mapped(), oldData: req.body});
+                return res.render ("products/createProduct.ejs", {cssSheets, title, categories, sizes, errorMessages: errors.mapped(), oldData: req.body});
             })
         // Si no hay errores    
         } else {
