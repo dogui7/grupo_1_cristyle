@@ -157,27 +157,30 @@ module.exports = {
     showFiltered: (req, res) => {
         let cssSheets = ["allProducts","showProducts"];
         let title, filter = req.params.filter;
-        let products = db.Product.findAll();
-        let filteredProducts;
-        switch(filter){
-            case 'hombre':
-            case 'mujer':
-                filteredProducts = products.filter(product => product.gender == filter);
-                break;
-            case 'ofertas':
-                filteredProducts = products
-                .filter(product => product.discount > 0) // Filtramos los que estan en descuento
-                .sort((a,b) =>{ // Ordenamos de mayor a menor para mostrar primero los de mayor descuento
-                    if(a.discount > b.discount) {return -1}
-                    if(a.discount < b.discount) {return 1}
-                    return 0;
-                })
-                break;
-            default:
-                filteredProducts = products;
-                break;
-        }
-        return res.render("products/allProducts.ejs", {cssSheets, title, products: filteredProducts, busqueda: null});
+        db.Product.findAll()
+        .then ( function (products){
+            let filteredProducts;
+            switch(filter){
+                case 'hombre':
+                case 'mujer':
+                    filteredProducts = products.filter(product => product.gender == filter);
+                    break;
+                case 'ofertas':
+                    filteredProducts = products
+                    .filter(product => product.discount > 0) // Filtramos los que estan en descuento
+                    .sort((a,b) =>{ // Ordenamos de mayor a menor para mostrar primero los de mayor descuento
+                        if(a.discount > b.discount) {return -1}
+                        if(a.discount < b.discount) {return 1}
+                        return 0;
+                    })
+                    break;
+                default:
+                    filteredProducts = products;
+                    break;
+            }
+            return res.render("products/allProducts.ejs", {cssSheets, title, products: filteredProducts, busqueda: null});
+        })
+       
     },
 
     delete: (req,res) => {
