@@ -32,12 +32,12 @@ router.get("/perfil", loggedMiddleware, usersController.profile);
 
 // EDITAR PERFIL
 router.get("/editar", loggedMiddleware, usersController.edit);
-router.put("/editar", upload.single ('profile_image'), validateEdit, usersController.processEdit);
+router.put("/editar", upload.single ('profileImage'), validateEdit, usersController.processEdit);
 router.post("/eliminar", usersController.delete);
 
 // REGISTRAR Y ALMACENAR USUARIO
 router.get("/registrarse", notloggedMiddleware, usersController.register);
-router.post ("/registrarse", upload.single ('profile_image'), validateRegister, usersController.processRegister);
+router.post ("/registrarse", upload.single ('profileImage'), validateRegister, usersController.processRegister);
 
 // CERRAR SESION
 router.get ('/logout', usersController.logout);

@@ -20,21 +20,21 @@
                             <div class="flex-desktop">
                                 <div class="first-flex">
                                     <div class="form-class">
-                                        <label for="first_name" class="form-label">Nombre:</label>
+                                        <label for="firstName" class="form-label">Nombre:</label>
                                         <br>
-                                        <input type="text" name="first_name" class="form-input" value="<%= locals.userLogged.first_name %>">
+                                        <input type="text" name="firstName" class="form-input" value="<%= locals.userLogged.firstName %>">
                                     </div>
-                                    <% if (locals.errorMessages && errorMessages.first_name) { %>
-                                        <p class="error"> <%= errorMessages.first_name.msg %> </p>
+                                    <% if (locals.errorMessages && errorMessages.firstName) { %>
+                                        <p class="error"> <%= errorMessages.firstName.msg %> </p>
                                     <% } %>
 
                                     <div class="form-class">
-                                        <label for="last_name" class="form-label">Apellido:</label>
+                                        <label for="lastName" class="form-label">Apellido:</label>
                                         <br>
-                                        <input type="text" name="last_name" value="<%= locals.userLogged.last_name %>" class="form-input">
+                                        <input type="text" name="lastName" value="<%= locals.userLogged.lastName %>" class="form-input">
                                     </div>
-                                    <% if (locals.errorMessages && errorMessages.last_name) { %>
-                                        <p class="error"> <%= errorMessages.last_name.msg %> </p>
+                                    <% if (locals.errorMessages && errorMessages.lastName) { %>
+                                        <p class="error"> <%= errorMessages.lastName.msg %> </p>
                                     <% } %>
 
                                     <div class="form-class">
@@ -62,10 +62,10 @@
                                     <div class="form-class" id="image-id">
                                         <label for="image" class="form-label">Seleccionar nueva imagen:</label>
                                         <br>
-                                        <input type="file" class="form-image" name="profile_image" value="profile_image">
+                                        <input type="file" class="form-image" name="profileImage" value="profileImage">
                                     </div>
-                                    <% if (locals.errorMessages && errorMessages.profile_image) { %>
-                                        <p class="error"> <%= errorMessages.profile_image.msg %> </p>
+                                    <% if (locals.errorMessages && errorMessages.profileImage) { %>
+                                        <p class="error"> <%= errorMessages.profileImage.msg %> </p>
                                     <% } %>
 
                                     <div class="form-class">

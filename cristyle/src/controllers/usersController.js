@@ -82,10 +82,11 @@ module.exports = {
         } else {
             //Almacena las modificaciones:
             db.User.update ({
-                "first_name": req.body.first_name,
-                "last_name": req.body.last_name,
-                "birthdate": req.body.birthdate,
-                "profile_image": req.file ? req.file.filename : req.session.userLogged.profile_image,
+                /* "firstName": req.body.firstName,
+                "lastName": req.body.lastName,
+                "birthdate": req.body.birthdate, */
+                ...req.body,
+                "profileImage": req.file ? req.file.filename : req.session.userLogged.profileImage,
             } , {
                 where: {
                     id: req.session.userLogged.id
@@ -143,8 +144,9 @@ module.exports = {
             } else {
                 db.User.create({
                     ...req.body,
-                    profile_image: req.file.filename,
-                    password: bcryptjs.hashSync(req.body.password, 10)
+                    profileImage: req.file.filename,
+                    password: bcryptjs.hashSync(req.body.password, 10),
+                    deleted: 0
                 })
                 .then(() => {
                     return res.redirect ('/usuarios/iniciarSesion');
@@ -170,7 +172,7 @@ module.exports = {
                     email: req.session.userLogged.email
                 }
             })
-        let userImage = req.session.userLogged.profile_image;
+        let userImage = req.session.userLogged.profileImage;
         fs.unlinkSync(path.resolve (__dirname, "../../public/images/users/") + '/' + userImage);
         req.session.destroy();
         res.clearCookie('email');
