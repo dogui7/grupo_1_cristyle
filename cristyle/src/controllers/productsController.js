@@ -13,12 +13,12 @@ module.exports = {
         let cssSheets = ["productDetail"];
         let title = "Detalle producto";
         db.Product.findByPk (req.params.id)
-            .then (function (product){
-                res.render("products/productDetail.ejs", {cssSheets, title, product})
-            })
-            .catch (error => {
-                res.send ('ERROR!')
-            })
+        .then (function (product){
+            res.render("products/productDetail.ejs", {cssSheets, title, product})
+        })
+        .catch (error => {
+            res.send (error)
+        })
     },
 
     cart: (req, res) => {
@@ -31,125 +31,127 @@ module.exports = {
         let cssSheets = ["editproducts"];
         let title = "Editar producto";
         let requestProduct = db.Product.findByPk(req.params.id);
-        let requestCategory = db.productCategory.findAll();
-        let requestSize = db.productSize.findAll();
+        let requestCategories = db.Category.findAll();
+        let requestSizes = db.Size.findAll();
 
-        Promise.all([requestProduct, requestSize, requestCategory])
-            .then(function ([product, size, category ]){
-                res.render ("products/editproducts.ejs", {cssSheets: cssSheets, title:title, product:product, size:size, category:category})
-            })
+        Promise.all([requestProduct, requestSizes, requestCategories])
+        .then(function ([product, sizes, categories ]){
+            res.render ("products/editproducts.ejs", {cssSheets, title, product, sizes, categories})
+        })
     },
 
 
     update: (req,res)=> {
         let errors = validationResult(req);
         if (!errors.isEmpty()) {
-            let cssSheets = ["editproducts"];
-            let title = "Editar producto";
-            let product = db.Product.findByPk(req.params.id);
-            let categories = db.productCategory.findAll();
-            let sizes = db.productSize.findAll();
+            // Si multer guardo archivo en public, eliminamos el mismo, ya que hubo errores
             if (req.file) {
                 let imageName = req.file.filename;
                 fs.unlinkSync(path.resolve (__dirname, "../../public/images/products/") + '/' + imageName);
             }
-            return res.render ("products/editproducts.ejs", {cssSheets, title, product, categories, sizes, errorMessages: errors.mapped(), oldData: req.body});
+            // Pedimos el producto a actualizar, los sizes y las categories de la DB
+            let requestProduct = db.Product.findByPk(req.params.id);
+            let requestSizes = db.Size.findAll();
+            let requestCategories = db.Category.findAll();
+            Promise.all([requestProduct, requestSizes, requestCategories])
+            .then(function ([product, sizes, categories]){
+                let cssSheets = ["editproducts"];
+                let title = "Editar producto";
+                return res.render ("products/editproducts.ejs", {cssSheets, title, product, sizes, categories, errorMessages: errors.mapped(), oldData: req.body});
+            })
         } else {
             let product = db.Product.findByPk(req.params.id);
-            //return res.send("Producto editado! (mentirita, remover el return)");
             db.Product.update ({
-                "name": req.body.name,
-                "price": req.body.price,
-                "discount": req.body.discount,
-                "category_id": req.body.category,
-                "size_id": req.body.size,
-                "description": req.body.description,
-                "image": req.file ? req.file.filename : product.image,
-                "gender": req.body.gender
+                ...req.body,
+                image: req.file ? req.file.filename : product.image
             }, {
                 where: {
                     id: req.params.id
                 }
-            });
-            return res.redirect ('detalle/' + req.params.id );
-        }
-    },
-
-    create: (req, res) => {
-        let cssSheets = ["createProduct"];
-        let title = "Crear producto";
-        let requestCategory = db.productCategory.findAll ();
-        let requestSize = db.productSize.findAll ();
-
-        Promise.all([requestSize, requestCategory])
-            .then(function ([size, category ]){
-                res.render ("products/createProduct.ejs", {cssSheets: cssSheets, title:title, size:size, category:category})
             })
-
-    },
-
-    store: (req,res) => {
-        let errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            let cssSheets = ["createProduct"];
-            let title = "Crear producto";
-            let categories = db.productCategory.findAll();
-            let size = db.productSize.findAll();
-            //PREGUNTAR PROMISE ALL!!
-            if (req.file) {
-                let imageName = req.file.filename;
-                fs.unlinkSync(path.resolve (__dirname, "../../public/images/products/") + '/' + imageName);
-            }
-            return res.render ("products/createProduct.ejs", {cssSheets, title, categories, size, errorMessages: errors.mapped(), oldData: req.body});
-        } else {
-         
-                db.Product.create ({
-                "name": req.body.name,
-                "description": req.body.description,
-                "price": req.body.price,
-                "discount": req.body.discount,
-                "size": req.body.size,
-                "category": req.body.category,
-                "image": req.file.filename,
-                "gender": req.body.gender
-            })
-
-            return res.redirect ('/productos/todos');
-        }
-        
-    },
-
-    showAll: (req, res) => {
-        let cssSheets = ["allProducts","showProducts"];
-        let title = "Todos los productos";
-
-        if (req.query && req.query.busqueda == null) {
-           db.Product.findAll () 
-            .then (function (products){
-                res.render("products/allProducts.ejs", {cssSheets, title, products: products, busqueda: req.query.busqueda})
+            .then( () => {
+                return res.redirect ('detalle/' + req.params.id );
             })
             .catch (error => {
                 res.send (error)
             })
-        } else {
-            db.Product.findAll ({
-                where : {
-                    name : {[Op.like]: `%${req.query.busqueda}%`}
-                }
-            })
-            .then (
-                function(products) {
-                    //return res.send(products);
-                    res.render("products/allProducts.ejs", {cssSheets, title, products:products});  
-                }
-            )
-            
-           /*  allProducts = products.getAll() */ //Traemos todos los productos
-            /* .filter(product => */ //Filtramos
-                 /* product.name.toLowerCase().includes(req.query.busqueda.toLowerCase())); */ 
-                 //Nos fijamos si en el nombre en minuscula del producto está incluido el término buscado en la barra también en minuscula
         }
-       /*  return res.render("products/allProducts.ejs", {cssSheets, title, products: allProducts,});  */
+    },
+
+    create: (req, res) => {
+        // Pedimos los sizes y las categories de la DB
+        let requestSizes = db.Size.findAll();
+        let requestCategories = db.Category.findAll();
+        Promise.all([requestSizes, requestCategories])
+        .then(function ([sizes, categories ]){
+            let cssSheets = ["createProduct"];
+            let title = "Crear producto";
+            res.render ("products/createProduct.ejs", {cssSheets, title, sizes, categories})
+        })
+    },
+
+    store: (req,res) => {
+        let errors = validationResult(req);
+        // Si hay errores
+        if (!errors.isEmpty()) {
+            // Si multer guardo archivo en public, eliminamos el mismo, ya que hubo errores
+            if (req.file) {
+                let imageName = req.file.filename;
+                fs.unlinkSync(path.resolve (__dirname, "../../public/images/products/") + '/' + imageName);
+            }
+            // Pedimos los sizes y las categories de la DB
+            let requestSizes = db.Size.findAll();
+            let requestCategories = db.Category.findAll();
+            Promise.all([requestSizes, requestCategories])
+            .then(function ([sizes, categories ]){
+                let cssSheets = ["createProduct"];
+                let title = "Crear producto";
+                return res.render ("products/createProduct.ejs", {cssSheets, title, categories, size, errorMessages: errors.mapped(), oldData: req.body});
+            })
+        // Si no hay errores    
+        } else {
+            // Agregamos el producto a la DB
+            db.Product.create ({
+                ...req.body,
+                image: req.file.filename,
+                deleted: 0
+            })
+            .then( () => {
+                return res.redirect ('/productos/todos');
+            })
+            .catch (error => {
+                res.send (error)
+            })
+        }
+    },
+
+    showAll: (req, res) => {
+        // Si no se buscó nada
+        if (req.query && req.query.busqueda == null) {
+            db.Product.findAll()
+            .then (function (products){
+                let cssSheets = ["allProducts","showProducts"];
+                let title = "Todos los productos";
+                res.render("products/allProducts.ejs", {cssSheets, title, products, busqueda: null})
+            })
+            .catch (error => {
+                res.send (error)
+            })
+        // Si se usó la barra de busqueda
+        } else {
+            // Buscamos en la base de datos
+            db.Product.findAll ({
+                where : { name : {[Op.like]: `%${req.query.busqueda}%`} }
+            })
+            .then (function(products){
+                let cssSheets = ["allProducts","showProducts"];
+                let title = "Todos los productos";
+                res.render("products/allProducts.ejs", {cssSheets, title, products, busqueda: req.query.busqueda});  
+            })
+            .catch (error => {
+                res.send (error)
+            })
+        }
     },
 
     showFiltered: (req, res) => {
@@ -180,22 +182,24 @@ module.exports = {
 
     delete: (req,res) => {
         db.Product.findByPk (req.params.id)
-            .then (function (product){
-                let productImage = product.image
-                fs.unlinkSync(path.resolve (__dirname, "../../public/images/products/") + '/' + productImage);
-
-                db.Product.destroy({
-                    where: {
-                        id: req.params.id
-                    }
-                })
+        .then (function (product){
+            // Eliminamos la imagen de public
+            let productImage = product.image
+            fs.unlinkSync(path.resolve (__dirname, "../../public/images/products/") + '/' + productImage);
+        })
+        .then (() => {
+            // Eliminamos el producto de la DB
+            return db.Product.destroy({
+                where: {
+                    id: req.params.id
+                }
             })
-            .then (() => {
-                res.redirect ("/productos/todos")
-            })
-            .catch (error => {
-                res.send (error)
-            })
- 
+        })
+        .then (function (){
+            res.redirect ("/productos/todos")
+        })
+        .catch (error => {
+            res.send (error)
+        })
     }
 }

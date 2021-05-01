@@ -64,11 +64,11 @@
                                     <div class="form-class">
                                         <label for="category" class="form-label">Categoría:</label>
                                         <br>
-                                        <select name="category" id="category" class="form-input">
+                                        <select name="categoryId" id="category" class="form-input">
                                             <option value="">Elegí</option>
-                                            <% for (let i = 0; i < category.length; i++) { %>
-                                                <option value="<%= category[i].id %>" >
-                                                    <%= category[i].category %>
+                                            <% for (let i = 0; i < categories.length; i++) { %>
+                                                <option value="<%= categories[i].id %>" >
+                                                    <%= categories[i].category %>
                                                 </option>
                                         <% } %>
                                         </select>
@@ -80,11 +80,11 @@
                                     <div class="form-class">
                                         <label for="size" class="form-label">Talle:</label>
                                         <br>
-                                        <select name="size" id="size" class="form-input">
+                                        <select name="sizeId" id="size" class="form-input">
                                             <option value="">Elegí</option>
-                                            <% for (let i = 0; i < size.length; i++) { %>
-                                                    <option value="<%= size[i].id %>">
-                                                        <%= size[i].size %>
+                                            <% for (let i = 0; i < sizes.length; i++) { %>
+                                                    <option value="<%= sizes[i].id %>">
+                                                        <%= sizes[i].size %>
                                                     </option>
                                             <% } %>
 
@@ -97,10 +97,10 @@
                                     <div class="form-class">
                                         <label for="image" class="form-label">Insertar Imagen:</label>
                                         <br>
-                                        <input type="file" id="image" class="form-image" name="productImage">        
+                                        <input type="file" id="image" class="form-image" name="image">        
                                     </div>
-                                    <% if (locals.errorMessages && errorMessages.productImage) { %>
-                                        <p class="error"> <%= errorMessages.productImage.msg %> </p>
+                                    <% if (locals.errorMessages && errorMessages.image) { %>
+                                        <p class="error"> <%= errorMessages.image.msg %> </p>
                                     <% } %>
 
                                 </div>
@@ -126,7 +126,7 @@
                             <div class="form-class">
                                 <label for="description" class="form-label">Descripción:</label>
                                 <br>
-                                <!-- The following line MUST NOT be altered, it must remain in a single line -->
+                                <!-- La siguiente linea NO DEBE ser alterada, debe permanecer en una sola linea -->
                                 <textarea name="description" id="description" class="description"><% if (locals.oldData && oldData.description) { %><%= oldData.description %><% } %></textarea>
                             </div>
                             <% if (locals.errorMessages && errorMessages.description) { %>
