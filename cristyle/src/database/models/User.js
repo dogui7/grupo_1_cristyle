@@ -7,11 +7,11 @@ module.exports = (sequelize, dataTypes) => {
             autoIncrement: true,
             allowNull: false
         },
-       first_name: {
+        firstName: {
             type: dataTypes.STRING,
             allowNull: false
         },
-        last_name: {
+        lastName: {
             type: dataTypes.STRING,
             allowNull: false
         },
@@ -27,13 +27,17 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.DATE,
             allowNull: true
         },
-        role_id: {
+        roleId: {
             type: dataTypes.INTEGER,
             allowNull: true
         },
-        profile_image: {
+        profileImage: {
             type: dataTypes.STRING,
             allowNull: true
+        },
+        deleted: {
+            type: dataTypes.INTEGER,
+            allowNull: false
         }
     }
     let config = {
@@ -45,12 +49,12 @@ module.exports = (sequelize, dataTypes) => {
     /*User.associate = function (models) {
         User.belongsTo (models.userRole, {
             as: "userRole",
-            foreingKey: "role_id"
+            foreingKey: "roleId"
         })
 
         User.hasMany (models.Cart, {
             as: "userCart",
-            foreingKey: "user_id"
+            foreingKey: "userId"
         })
     }*/
 

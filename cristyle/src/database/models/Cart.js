@@ -7,15 +7,15 @@ module.exports = (sequelize, dataTypes) => {
             autoIncrement: true,
             allowNull: false
         },
-        user_id: {
+        userId: {
             type: dataTypes.INTEGER,
             allowNull: false
         },
-        total_price: {
+        totalPrice: {
             type: dataTypes.INTEGER,
             allowNull: false
         },
-        total_saved: {
+        totalSaved: {
             type: dataTypes.INTEGER,
             allowNull: false
         }
@@ -29,14 +29,14 @@ module.exports = (sequelize, dataTypes) => {
     Cart.associate = function (models) {
         Cart.belongsTo (models.User, {
             as: "userCart",
-            foreingKey: "user_id"
+            foreingKey: "userId"
         })
 
         Cart.belongsToMany (models.cartProduct, {
             as: "cartProduct",
-            through: "carts_products",
-            foreingKey: "cart_id",
-            otherKey: "product_id",
+            through: "cartsProducts",
+            foreingKey: "cartId",
+            otherKey: "productId",
             timestamps:false
         })
     }

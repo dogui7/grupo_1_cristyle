@@ -100,7 +100,7 @@
                             <a href="#"><li>Favoritos <i class="far fa-heart"></i></li></a>
                         </ul>
                     </div>
-                    <% if (locals.userLogged && locals.userLogged.role_id == 1){ %>
+                    <% if (locals.userLogged && locals.userLogged.roleId == 1){ %>
                         <div class="button-edit">
                             <a href="/productos/editar/<%= product.id %>"><li class="edit-product">Editar Producto</li></a>
                         </div>

@@ -15,13 +15,13 @@ const validateProducts = [
         .isInt().withMessage('El descuento debe ser un número, sin simbolo de porcentaje').bail()
         .isInt({min: 0, max: 99}).withMessage('El descuento tiene que estar en el rango de 0 a 99').bail(),
 
-    check('category')
+    check('categoryId')
         .notEmpty().withMessage('Debes elegir una categoría').bail(),
         
-    check('size')
+    check('sizeId')
         .notEmpty().withMessage('Debes elegir un talle').bail(),
 
-    check('productImage')
+    check('image')
         .custom((value, {req}) => {
             let file = req.file;
             // Si no vino un archivo

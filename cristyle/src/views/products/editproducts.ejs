@@ -53,15 +53,15 @@
                                     <div class="form-class">
                                         <label for="category" class="form-label">Categoría:</label>
                                         <br>
-                                        <select name="category" id="category" class="form-input">
-                                            <% for (let i = 0; i < category.length; i++) { %>
-                                                <% if(category[i].id == product.category_id){ %>
-                                                    <option value="<%= category[i].id %>" selected>
-                                                        <%= category[i].category %>
+                                        <select name="categoryId" id="category" class="form-input">
+                                            <% for (let i = 0; i < categories.length; i++) { %>
+                                                <% if(categories[i].id == product.categories_id){ %>
+                                                    <option value="<%= categories[i].id %>" selected>
+                                                        <%= categories[i].category %>
                                                     </option>
                                             <% } else { %>
-                                            <option value="<%=category[i].id%>">
-                                                <%= category[i].category %>
+                                            <option value="<%=categories[i].id%>">
+                                                <%= categories[i].category %>
                                             </option>
                                             <% } %>
                                         <% } %>
@@ -74,15 +74,15 @@
                                     <div class="form-class">
                                         <label for="size" class="form-label">Talle:</label>
                                         <br>
-                                        <select name="size" id="size" class="form-input">
-                                            <% for (let i = 0; i < size.length; i++) { %>
-                                                <% if(size[i].id == product.size_id){ %>
-                                                    <option value="<%= size[i].id %>" selected>
-                                                        <%= size[i].size %>
+                                        <select name="sizeId" id="size" class="form-input">
+                                            <% for (let i = 0; i < sizes.length; i++) { %>
+                                                <% if(sizes[i].id == product.sizes_id){ %>
+                                                    <option value="<%= sizes[i].id %>" selected>
+                                                        <%= sizes[i].size %>
                                                     </option>
                                             <% } else { %>
-                                            <option value="<%=size[i].id%>">
-                                                <%= size[i].size %>
+                                            <option value="<%=sizes[i].id%>">
+                                                <%= sizes[i].size %>
                                             </option>
                                             <% } %>
                                         <% } %>
@@ -95,10 +95,10 @@
                                     <div class="form-class">
                                         <label for="image" class="form-label">Insertar Imagen: (Si no sube ningún archivo se preservará la imagen anterior)</label>
                                         <br>
-                                        <input type="file" id="image" class="form-image" name="productImage">
+                                        <input type="file" id="image" class="form-image" name="image">
                                     </div>
-                                    <% if (locals.errorMessages && errorMessages.productImage) { %>
-                                        <p class="error"> <%= errorMessages.productImage.msg %> </p>
+                                    <% if (locals.errorMessages && errorMessages.image) { %>
+                                        <p class="error"> <%= errorMessages.image.msg %> </p>
                                     <% } %>
                                 </div>
                             </div>        

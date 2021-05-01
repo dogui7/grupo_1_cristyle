@@ -7,17 +7,17 @@ module.exports = (sequelize, dataTypes) => {
             autoIncrement: true,
             allowNull: false
         },
-       cart_id: {
+        cartId: {
             type: dataTypes.INTEGER,
             allowNull: false
         },
-        product_id: {
+        productId: {
             type: dataTypes.INTEGER,
             allowNull: false
         }
     }
     let config = {
-        tableName: 'carts_products',
+        tableName: 'cartsProducts',
         timestamps: false
     }
     const cartProduct = sequelize.define(alias, cols, config);
