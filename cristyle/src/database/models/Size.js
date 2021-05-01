@@ -18,12 +18,12 @@ module.exports = (sequelize, dataTypes) => {
     }
     const Size = sequelize.define(alias, cols, config);
 
-    /* Size.associate = function (models) {
+    Size.associate = function (models) {
         Size.hasMany (models.Product, {
             as: "sizeProduct",
             foreingKey: "sizeId"
         })
     }
- */
+
     return Size;
 }
