@@ -133,7 +133,7 @@ module.exports = {
         } else {
             db.Product.findAll ({
                 where : {
-                    products : {[Op.like]: '%req.query.busqueda%'}
+                    name : {[Op.like]: '%req.query.busqueda%'}
                 }
             })
             .then (
@@ -141,13 +141,8 @@ module.exports = {
                     res.render("products/allProducts.ejs", {cssSheets, title, products:products});  
                 }
             )
-            
-           /*  allProducts = products.getAll() */ //Traemos todos los productos
-            /* .filter(product => */ //Filtramos
-                 /* product.name.toLowerCase().includes(req.query.busqueda.toLowerCase())); */ 
-                 //Nos fijamos si en el nombre en minuscula del producto está incluido el término buscado en la barra también en minuscula
+           
         }
-       /*  return res.render("products/allProducts.ejs", {cssSheets, title, products: allProducts,});  */
     },
 
     showFiltered: (req, res) => {
