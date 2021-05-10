@@ -156,7 +156,8 @@ module.exports = {
 
     showFiltered: (req, res) => {
         let cssSheets = ["allProducts","showProducts"];
-        let title, filter = req.params.filter;
+        let title = ['Productos']
+        let filter = req.params.filter;
         db.Product.findAll()
         .then ( function (products){
             let filteredProducts;

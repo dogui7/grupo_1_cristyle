@@ -20,7 +20,7 @@ module.exports = (sequelize, dataTypes) => {
 
     Size.associate = function (models) {
         Size.hasMany (models.Product, {
-            as: "sizeProduct",
+            as: "product",
             foreingKey: "sizeId"
         })
     }

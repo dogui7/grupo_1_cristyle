@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node cristyle/src/app.js",
     "test": "nodemon cristyle/src/app.js",
-    "install": "npm i ejs express method-override multer bcryptjs"
+    "install": "npm i ejs express method-override multer bcryptjs express-validator"
   },
   "author": "",
   "license": "ISC",

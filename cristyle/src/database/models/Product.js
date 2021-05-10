@@ -59,13 +59,13 @@ module.exports = (sequelize, dataTypes) => {
             timestamps: false
         })
 
-        Product.belongsTo (models.productSize, {
-            as: "productSize",
+         Product.belongsTo (models.Size, {
+            as: "size",
             foreingKey: "sizeId"
         })
 
-        Product.belongsTo (models.productCategory, {
-            as: "productCategory",
+        Product.belongsTo (models.Category, {
+            as: "category",
             foreingKey: "categoryId"
         })
     }  
