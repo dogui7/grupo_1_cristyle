@@ -15,7 +15,7 @@
             </div>
             <div class="form-padding">
                 <div  class="form-create">
-                    <form action="/productos/agregar" method="POST" enctype="multipart/form-data">
+                    <form id="form-create" action="/productos/agregar" method="POST" enctype="multipart/form-data">
                         <div>
                             <div class="flex-desktop">
                                 <div class="first-flex">
@@ -32,6 +32,7 @@
                                     <% if (locals.errorMessages && errorMessages.name) { %>
                                         <p class="error"> <%= errorMessages.name.msg %> </p>
                                     <% } %>
+                                    <p id="nameErrorJs"> </p>
 
                                     <div class="form-class">
                                         <label for="price" class="form-label">Precio del producto:</label>
@@ -102,6 +103,7 @@
                                     <% if (locals.errorMessages && errorMessages.image) { %>
                                         <p class="error"> <%= errorMessages.image.msg %> </p>
                                     <% } %>
+                                    <p id="imageErrorJs"> </p>
 
                                 </div>
                             </div>
@@ -132,6 +134,7 @@
                             <% if (locals.errorMessages && errorMessages.description) { %>
                                 <p class="error"> <%= errorMessages.description.msg %> </p>
                             <% } %>
+                            <p id="descriptionErrorJs"> </p>
 
                             <div class="form-class" id="buy-now-div">
                                 <button type="submit" class="buy-now-button">Guardar producto</button>
@@ -144,7 +147,7 @@
     </main>
 
     <%- include("../partials/footer") %>
-
+    <script src="/js/validationCreateProducts.js" type="text/javascript"></script>
 </body>
 <script src="https://kit.fontawesome.com/613ba21445.js" crossorigin="anonymous"></script>
 </html>
