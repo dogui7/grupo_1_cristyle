@@ -4,11 +4,13 @@ const path = require('path');
 const validateRegister = [
     check('firstName')
         .notEmpty().withMessage('Debes completar el nombre').bail()
-        .isAlpha().withMessage('El nombre solo puede contener letras').bail(),
+        .isAlpha().withMessage('El nombre solo puede contener letras').bail()
+        .isLength(2).withMessage('El nombre debe tener al menos 2 caracteres'),
 
     check('lastName')
         .notEmpty().withMessage('Debes completar el apellido').bail()
-        .isAlpha().withMessage('El apellido solo puede contener letras').bail(),
+        .isAlpha().withMessage('El apellido solo puede contener letras').bail()
+        .isLength(2).withMessage('El apellido debe tener al menos 2 caracteres'),
 
     check('roleId')
         .notEmpty().withMessage('Debes elegir una categoria').bail(),
