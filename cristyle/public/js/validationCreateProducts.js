@@ -31,6 +31,7 @@ window.onload=function(){
     // Si no se escribió nombre
     if (name.value.length == 0) {
       error.innerHTML = 'Debes completar el nombre del producto';
+      name.focus();
       return false;
     }
 

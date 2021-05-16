@@ -12,10 +12,16 @@
 
                 <h2 id="titulo">REGISTRO</h2>
 
-                <form action="/usuarios/registrarse" method="POST" enctype="multipart/form-data">
+                <section class="errors">
+                    <ul>
+                    </ul>
+                 </section>
+                 
+
+                <form action="/usuarios/registrarse" method="POST" class="registerForm" enctype="multipart/form-data">
 
                     <div class="campo-texto label">
-                        <input type="text" name="firstName" placeholder="Nombre" 
+                        <input type="text" name="firstName" class="firstName"placeholder="Nombre" 
                             <% if (locals.oldData && oldData.firstName) { %>
                                 value="<%= oldData.firstName %>" 
                             <% } %>
@@ -26,7 +32,7 @@
                     <% } %>
 
                     <div class="campo-texto label">
-                        <input type="text" name="lastName" placeholder="Apellido"
+                        <input type="text" name="lastName" class="lastName" placeholder="Apellido"
                             <% if (locals.oldData && oldData.lastName) { %>
                                 value="<%= oldData.lastName %>" 
                             <% } %>
@@ -37,12 +43,12 @@
                     <% } %>
 
                     <div class="label">
-                        <input type="radio" name="roleId" value="2" 
+                        <input type="radio" name="roleId" class="roleId" value="2" 
                             <% if (!locals.oldData || (locals.oldData && (!oldData.roleId || oldData.roleId === "2"))) { %>
                                 checked
                             <% } %>
                         > Cliente <br>
-                        <input type="radio" name="roleId" value="1"
+                        <input type="radio" name="roleId" class="roleId" value="1"
                             <% if (locals.oldData && oldData.roleId === "1") { %>
                                 checked
                             <% } %>
@@ -53,7 +59,7 @@
                     <% } %>
 
                     <div class="campo-texto label">
-                        <input type="email" name="email" placeholder="Correo electrónico" 
+                        <input type="email" name="email" class="email" placeholder="Correo electrónico" 
                             <% if (locals.oldData && oldData.email) { %>
                                 value="<%= oldData.email %>" 
                             <% } %>
@@ -64,7 +70,7 @@
                     <% } %>
 
                     <div class="campo-texto label" id="contraseña">
-                        <input type="password" name="password" placeholder="Contraseña">
+                        <input type="password" name="password" class="password" placeholder="Contraseña">
                     </div>
                     <% if (locals.errorMessages && errorMessages.password) { %>
                         <p class="error"> <%= errorMessages.password.msg %> </p>
@@ -73,7 +79,7 @@
                     <div class="label">
                         <label for="date" id="fecha-nacimiento">Fecha de nacimiento</label>
                         <div class="campo-texto" id="date">
-                            <input type="date" name="birthdate" id="date" 
+                            <input type="date" name="birthdate" class="birthdate" id="date" 
                                 <% if (locals.oldData && oldData.birthdate) { %>
                                     value="<%= oldData.birthdate %>" 
                                 <% } %>
@@ -86,7 +92,7 @@
 
                     <div class="label">
                         <label for="profileImage">Elige tu foto de perfil</label>
-                        <input type="file" name="profileImage" >
+                        <input type="file" name="profileImage" class="profileImage" >
                     </div>
                     
                     <% if (locals.errorMessages && errorMessages.profileImage) { %>
@@ -114,7 +120,7 @@
     </main>
 
     <%- include("../partials/footer") %>
-
+<script src="/js/validationUserRegister.js" type="text/javascript"></script>
 </body>
 <script src="https://kit.fontawesome.com/613ba21445.js" crossorigin="anonymous"></script>
 </html>
