@@ -24,18 +24,17 @@
                     <h2 class="titulo">CLIENTES REGISTRADOS</h2>
                     <p class="parrafo">Si ya tienes una cuenta, ingresá tus datos a continuación</p>
                 </section>
-    
-                <form action="/usuarios/iniciarSesion" method="POST" class="formulario-login">
-    
+                <form action="/usuarios/iniciarSesion" method="POST" class="formulario-login" id="formularioLogin">
+                        
                     <div class="campo-texto label">
-                        <input type="email" name ="email" placeholder="Correo electrónico">
+                        <input type="email" name ="email" placeholder="Correo electrónico" class="email">
                     </div>
                     <% if (locals.errorMessages && errorMessages.email) { %>
                         <p class="error"> <%= errorMessages.email.msg %> </p>
                     <% } %>
     
                     <div class="campo-texto label">
-                        <input type="password" name= "password" placeholder="Contraseña">
+                        <input type="password" name= "password" placeholder="Contraseña" class="contrasenia">
                     </div>
                     <% if (locals.errorMessages && errorMessages.password) { %>
                         <p class="error"> <%= errorMessages.password.msg %> </p>
@@ -61,7 +60,7 @@
     </main>
 
     <%- include("../partials/footer") %>
-
+<script src="/js/validationLogin.js"></script>
 </body>
 <!-- FontAwesome -->
 <script src="https://kit.fontawesome.com/613ba21445.js" crossorigin="anonymous"></script>

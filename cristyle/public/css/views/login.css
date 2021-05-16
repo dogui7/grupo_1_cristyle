@@ -74,6 +74,10 @@ main{
     width: 100%;
 }
 
+.campo-texto-error {
+    border: 2px red solid;
+}
+
 #mantener-conectado{
     margin-bottom: 1rem;
 }
