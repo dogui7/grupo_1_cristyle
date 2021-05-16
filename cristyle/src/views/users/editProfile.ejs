@@ -15,28 +15,28 @@
             </div>
             <div class="form-padding">
                 <div  class="form-create">
-                    <form action="/usuarios/editar?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <form id="formEditProfile"  action="/usuarios/editar?_method=PUT" method="POST" enctype="multipart/form-data" >
                         <div>
                             <div class="flex-desktop">
                                 <div class="first-flex">
                                     <div class="form-class">
                                         <label for="firstName" class="form-label">Nombre:</label>
                                         <br>
-                                        <input type="text" name="firstName" class="form-input" value="<%= locals.userLogged.firstName %>">
+                                        <input type="text" name="firstName" class="form-input" value="<%= locals.userLogged.firstName %>" id="name">
                                     </div>
                                     <% if (locals.errorMessages && errorMessages.firstName) { %>
                                         <p class="error"> <%= errorMessages.firstName.msg %> </p>
                                     <% } %>
-
+                                    <p id="nameErrorJs"> </p>
                                     <div class="form-class">
                                         <label for="lastName" class="form-label">Apellido:</label>
                                         <br>
-                                        <input type="text" name="lastName" value="<%= locals.userLogged.lastName %>" class="form-input">
+                                        <input type="text" name="lastName" value="<%= locals.userLogged.lastName %>" class="form-input" id="lastname">
                                     </div>
                                     <% if (locals.errorMessages && errorMessages.lastName) { %>
                                         <p class="error"> <%= errorMessages.lastName.msg %> </p>
                                     <% } %>
-
+                                    <p id="lastNameErrorJs"> </p>
                                     <div class="form-class">
                                         <label for="email" class="form-label">Usuario (no se puede editar):</label>
                                         <br>
@@ -62,12 +62,12 @@
                                     <div class="form-class" id="image-id">
                                         <label for="image" class="form-label">Seleccionar nueva imagen:</label>
                                         <br>
-                                        <input type="file" class="form-image" name="profileImage" value="profileImage">
+                                        <input type="file" class="form-image" name="profileImage" value="profileImage" id="image">
                                     </div>
                                     <% if (locals.errorMessages && errorMessages.profileImage) { %>
                                         <p class="error"> <%= errorMessages.profileImage.msg %> </p>
                                     <% } %>
-
+                                    <p id="imageErrorJs"> </p>
                                     <div class="form-class">
                                         <button type="submit" class="submitButton">Guardar cambios</button>
     
@@ -85,7 +85,7 @@
     </main>
 
     <%- include("../partials/footer") %>
-
+    <script src="/js/validationEditProfile.js"  type="text/javascript"></script>
 </body>
 <script src="https://kit.fontawesome.com/613ba21445.js" crossorigin="anonymous"></script>
 </html>
