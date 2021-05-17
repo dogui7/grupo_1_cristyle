@@ -41,15 +41,25 @@ form.addEventListener("submit", function(event){
             errors.push("La contraseña debe tener al menos 8 caracteres");
             }
 
-    //let profileImageField = document.querySelector("input.profileImage");
+    let profileImageField = document.querySelector("input.profileImage");
 
-        //como verifico que la extension sea valida?
+        if (profileImageField.value.length == 0) {
+        errors.push ('Debes subir una imagen de producto');
+        }
+
+        let acceptedExtensions = ['jpeg', 'jpg', 'gif', 'png', 'JPEG', 'JPG', 'GIF', 'PNG'];
+        let parts = profileImageField.value.split('.');
+        let extension = parts[parts.length-1];
+        if (!acceptedExtensions.includes(extension)){
+        errors.push ('Las extensiones de archivo permitidas son ' + acceptedExtensions.join(', '));
+        }
 
 
 if(errors.length > 0){
    event.preventDefault();
    let ulErrors = document.querySelector(".errors ul");
    ulErrors.innerHTML = "";
+   ulErrors.classList.add('error');
    errors.forEach(error => {
        ulErrors.innerHTML += `<li>${error}</li>`
    });

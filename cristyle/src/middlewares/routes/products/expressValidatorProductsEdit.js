@@ -3,7 +3,8 @@ const path = require('path');
 
 const validateProducts = [
     check('name')
-        .notEmpty().withMessage('Debes completar el nombre del producto').bail(),
+        .notEmpty().withMessage('Debes completar el nombre del producto').bail()
+        .isLength(5).withMessage('El nombre del producto debe tener al menos 5 caracteres'),
 
     check('price')
         .notEmpty().withMessage('Debes completar el precio del producto').bail()
@@ -41,7 +42,8 @@ const validateProducts = [
         .notEmpty().withMessage('Debes elegir una opción').bail(),
         
     check('description')
-        .notEmpty().withMessage('Debes completar la descripción del producto').bail(),   
+        .notEmpty().withMessage('Debes completar la descripción del producto').bail()
+        .isLength(20).withMessage('La descripción del producto debe tener al menos 20 caracteres'),   
 ]
 
 module.exports = validateProducts;
