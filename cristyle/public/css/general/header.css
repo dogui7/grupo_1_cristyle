@@ -31,7 +31,6 @@
 
 #burger-dropdown {
     display: block;
-    display: flex;
     position: fixed;
     top: 10vh;
     z-index: 1;
@@ -47,12 +46,14 @@
     padding: 1rem 0.5rem;
 }
 
+
 #burger-dropdown li a {
     color:#ffffff;
 }
 
 #burger-dropdown:target {
-    height: 50vh;
+    height: fit-content;
+    width: fit-content;
     opacity: 100;
 }
 
@@ -93,17 +94,12 @@
     outline: none;
 }
 
-.user i{
+.user-and-cart i{
     color:  #be9e44 ;
     font-size: 160%;
     padding-right: 8px;
 }
 
-.cart a {
-    font-size: 160%;
-    color:#be9e44;
-    outline: none;
-}
 
 .user-and-cart {
     margin: 0 5%;

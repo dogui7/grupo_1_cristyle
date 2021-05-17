@@ -21,7 +21,7 @@
         <section class="user-and-cart">
             <% if (locals.isLogged) { %>
             <a href="/usuarios/perfil"><img src="/images/users/<%= locals.userLogged.profileImage %>" alt="imagen de perfil"></a>
-            <p id="user-greeting">¡Hola, <%= locals.userLogged.firstName %>!</p>
+            <p id="user-greeting">Tu cuenta</p>
 
             <% } else { %>
             <a href="/usuarios/iniciarSesion" class="user">
@@ -32,6 +32,10 @@
             <button class="cart">
                 <a href="/productos/carrito"><i class="fas fa-shopping-cart"></i></a>
             </button>
+
+            <% if (locals.isLogged) { %>
+            <a href="/usuarios/logout"><i class="fas fa-sign-out-alt"></i></a>
+            <% } %>
         </section>
 
     </section>
