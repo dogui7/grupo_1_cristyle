@@ -5,8 +5,6 @@ window.onload=function(){
     // Si hay errores, evitamos mandar el formulario. Caso contrario se envía
     if (!validateRegisterForm()) {
       evento.preventDefault()
-    }else{
-      fomulario.submit()
     }
   }
 
