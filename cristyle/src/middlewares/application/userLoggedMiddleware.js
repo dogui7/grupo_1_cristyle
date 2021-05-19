@@ -1,4 +1,5 @@
 const db = require ("../../database/models");
+const Op = require("sequelize").Op;
 
 function userLoggedMiddleware (req,res,next){
     // Ponemos la variable isLogged en false por defecto, en caso que 
@@ -10,11 +11,8 @@ function userLoggedMiddleware (req,res,next){
     let emailInCookie = "";
     if (req.cookies.email) emailInCookie = req.cookies.email;
     // Intentamos de buscar en la DB al usuario (emailInCookie tendrá el valor "" o el email guardado en cookies)
-    db.User.findOne({where:
-        {
-            email: emailInCookie
-        }
-    }).then((userFromCookie) => {
+    db.User.findOne( {where:{email: emailInCookie}, [Op.and]: {deleted:0} })
+    .then((userFromCookie) => {
         // Si habia cookies del cliente, esto nos devolvería el cliente, y lo guardamos en session.
         if (userFromCookie) {
             req.session.userLogged = userFromCookie;

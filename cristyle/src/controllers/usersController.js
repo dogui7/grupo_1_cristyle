@@ -2,8 +2,7 @@ const path = require("path");
 const bcryptjs = require ("bcryptjs");
 const fs = require("fs");
 const db = require ("../database/models");
-const Sequelize = require("sequelize");
-const Op = Sequelize.Op;
+const Op = require("sequelize").Op;
 const {validationResult} = require("express-validator");
 
 module.exports = {
@@ -24,7 +23,8 @@ module.exports = {
             return res.render ("users/login.ejs", {cssSheets, title, errorMessages: errors.mapped()});
         } else {
             // Si no hay errores, verificamos que el email y la contraseña sean correctos
-            db.User.findAll( {where: {deleted:0} } ).then(function (allUsers){
+            db.User.findAll( {where: {deleted:0} } )
+            .then(function (allUsers){
                 let usuarioALoguearse;
                 for (let i = 0; i < allUsers.length; i++){
                     if (req.body.email == allUsers[i].email && bcryptjs.compareSync(req.body.password, allUsers[i].password)){
