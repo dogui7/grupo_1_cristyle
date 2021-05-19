@@ -27,11 +27,11 @@ router.get("/carrito",loggedMiddleware,productsController.cart);
 
 // PRODUCT EDIT
 router.get ('/editar/:id', productsController.edit);
-router.put ('/:id', upload.single ('image'), validateProductsEdit, productsController.update);
+router.put ('/:id', upload.single ('image'), validateProductsEdit, productsController.processEdit);
 
 // PRODUCT CREATION
 router.get ('/agregar', productsController.create);
-router.post ('/agregar', upload.single ('image'), validateProductsCreate, productsController.store);
+router.post ('/agregar', upload.single ('image'), validateProductsCreate, productsController.processCreate);
 
 // SHOW ALL
 router.get('/todos', productsController.showAll);

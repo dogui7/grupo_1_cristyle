@@ -35,13 +35,13 @@ module.exports = {
                 // Si no lo encontramos, renderizamos la vista nuevamente con los mensajes de error
                 if (usuarioALoguearse == undefined){
                     let customError= {
-                            "password": {
-                                "value": "",
-                                "msg": "Las credenciales no son válidas",
-                                "param": "email",
-                                "location": "body"
-                            }
+                        "password": {
+                            "value": "",
+                            "msg": "Las credenciales no son válidas",
+                            "param": "email",
+                            "location": "body"
                         }
+                    }
                     let cssSheets = ["login"];
                     let title = "Inicio de sesión"; 
                     return res.render ("users/login.ejs", {cssSheets, title, errorMessages: customError});
@@ -84,8 +84,8 @@ module.exports = {
             let cssSheets = ["editProfile"];
             let title = "Editar perfil";
             return res.render ("users/editProfile.ejs", {cssSheets, title, errorMessages: errors.mapped(), oldData: req.body});
+        // Si no hay errores, almacena las modificaciones
         } else {
-            // Si no hay errores, almacena las modificaciones
             db.User.update ({
                 ...req.body,
                 "profileImage": req.file ? req.file.filename : req.session.userLogged.profileImage,
