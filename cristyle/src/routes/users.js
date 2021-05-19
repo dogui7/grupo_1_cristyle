@@ -15,17 +15,17 @@ const upload = require("../middlewares/routes/users/multerUsers");
 
 /************************ Middlewares de ruta hechos por nosotros ************************/
 
-// Evita que un USUARIO NO LOGUEADO acceda a rutas. Utilizarlo para evitar que un USUARIO NO LOGUEADO
-// acceda a sitios como el carrito, perfil, etc y lo lleve a la vista de logueo.
+// Evita que un USUARIO NO LOGUEADO acceda a rutas. Se utiliza para evitar que un USUARIO NO LOGUEADO
+// acceda a vistas como el carrito, perfil, etc y lo lleve a la vista de logueo.
 const loggedMiddleware = require ('../middlewares/routes/users/loggedMiddleware');
-// Evita que un USUARIO LOGUEADO acceda a rutas. Utilizarlo para evitar que un USUARIO LOGUEADO
-// acceda a sitios como el inicio de sesión, el registro, etc y lo lleve a la vista index.
+// Evita que un USUARIO LOGUEADO acceda a rutas. Se utiliza para evitar que un USUARIO LOGUEADO
+// acceda a vistas como el inicio de sesión, el registro, etc y lo lleve a la vista index.
 const notloggedMiddleware = require ('../middlewares/routes/users/notloggedMiddleware');
 
 
 // INICIAR SESION
 router.get("/iniciarSesion", notloggedMiddleware, usersController.login);
-router.post("/iniciarSesion", validateLogin, usersController.loginValidation);
+router.post("/iniciarSesion", validateLogin, usersController.processLogin);
 
 // VER PERFIL
 router.get("/perfil", loggedMiddleware, usersController.profile);

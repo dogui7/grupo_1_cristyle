@@ -12,7 +12,7 @@ module.exports = {
         let numberOfProductsToShow = 4;
         let discountProductsToShow = [];
 
-        db.Product.findAll() 
+        db.Product.findAll( {where: {deleted: 0}} ) 
         .then (function (products){
             discountProducts = products.filter(product => product.discount >= discountToFilter); // Filtramos los productos
             for (let i = 0; i < numberOfProductsToShow; i++) {

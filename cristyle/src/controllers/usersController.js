@@ -2,9 +2,9 @@ const path = require("path");
 const bcryptjs = require ("bcryptjs");
 const fs = require("fs");
 const db = require ("../database/models");
+const Sequelize = require("sequelize");
+const Op = Sequelize.Op;
 const {validationResult} = require("express-validator");
-const session = require ("express-session");
-const { localsName } = require("ejs");
 
 module.exports = {
 
@@ -14,21 +14,25 @@ module.exports = {
         return res.render("users/login.ejs", {cssSheets, title})
     },
 
-    loginValidation: (req, res) => {
+    processLogin: (req, res) => {
+        // Verifica que los campos se hayan llenado correctamente
         let errors = validationResult(req);
+        // Si hay errores, renderizamos la vista nuevamente con los mensajes de error
         if (!errors.isEmpty()) {
             let cssSheets = ["login"];
             let title = "Inicio de sesión";
             return res.render ("users/login.ejs", {cssSheets, title, errorMessages: errors.mapped()});
         } else {
-            db.User.findAll().then(function (allUsers){
+            // Si no hay errores, verificamos que el email y la contraseña sean correctos
+            db.User.findAll( {where: {deleted:0} } ).then(function (allUsers){
                 let usuarioALoguearse;
                 for (let i = 0; i < allUsers.length; i++){
                     if (req.body.email == allUsers[i].email && bcryptjs.compareSync(req.body.password, allUsers[i].password)){
                         usuarioALoguearse = allUsers[i];
                         break;
                     }
-                }            
+                }
+                // Si no lo encontramos, renderizamos la vista nuevamente con los mensajes de error
                 if (usuarioALoguearse == undefined){
                     let customError= {
                             "password": {
@@ -42,15 +46,14 @@ module.exports = {
                     let title = "Inicio de sesión"; 
                     return res.render ("users/login.ejs", {cssSheets, title, errorMessages: customError});
                     }
-                //Borro la propiedad password para guardar el usuario en session sin su contraseña, por seguridad:
+                // Si lo encontramos, borro la propiedad password para guardar el usuario en session sin su contraseña, por seguridad:
                 delete usuarioALoguearse.password;
                 req.session.userLogged = usuarioALoguearse;
-                //Guardamos las cookies por un año si el usuario asi lo marcó
+                // Si el usuario marcó "mantenerme conectado", guardamos las cookies por un año
                 if (req.body.rememberUser) {
                     console.log("Se guarda la cookie")
                     res.cookie('email', req.body.email, {maxAge: 1000*60*60*24*365})
                 }
-                console.log(req.cookies);
                 res.redirect ('/productos/todos');  
             })
         }
@@ -69,22 +72,21 @@ module.exports = {
     },
 
     processEdit: (req,res) => {
-        //Verifica que los campos se hayan llenado correctamente:
+        // Verifica que los campos se hayan llenado correctamente
         let errors = validationResult(req);
+        // Si hay errores, renderizamos la vista nuevamente con los mensajes de error
         if (!errors.isEmpty()) {
-            let cssSheets = ["editProfile"];
-            let title = "Editar perfil";
+            // Si se subió un archivo, lo eliminamos de public
             if (req.file) {
                 let imageName = req.file.filename;
                 fs.unlinkSync(path.resolve (__dirname, "../../public/images/users/") + '/' + imageName);
             }
+            let cssSheets = ["editProfile"];
+            let title = "Editar perfil";
             return res.render ("users/editProfile.ejs", {cssSheets, title, errorMessages: errors.mapped(), oldData: req.body});
         } else {
-            //Almacena las modificaciones:
+            // Si no hay errores, almacena las modificaciones
             db.User.update ({
-                /* "firstName": req.body.firstName,
-                "lastName": req.body.lastName,
-                "birthdate": req.body.birthdate, */
                 ...req.body,
                 "profileImage": req.file ? req.file.filename : req.session.userLogged.profileImage,
             } , {
@@ -112,7 +114,7 @@ module.exports = {
         let cssSheets = ["register"];
         let title = "Registro";
         db.User.findOne({
-            where: {email: req.body.email}
+            where: {email: req.body.email, [Op.and]: {deleted:0}}
         }).then((userInDB) => {
             //Se checkea si ya existe el email enviado en la base de datos, en cuyo caso se muestra un error
             if (userInDB) {
@@ -161,21 +163,26 @@ module.exports = {
     },
 
     logout: (req,res) =>{
+        // Borramos la informacion de session y de las cookies
         req.session.destroy();
         res.clearCookie('email');
+        // Redirigimos
         res.redirect('/')
     },
 
     delete: (req,res) => {
-        db.User.destroy({
-                where: {
-                    email: req.session.userLogged.email
-                }
-            })
+        // Ponemos la variable deleted en 1, para que se lo considere "eliminado" pero tengamos su información disponible
+        db.User.update(
+            {deleted: 1},
+            {where: {email: req.session.userLogged.email} }
+        )
+        // Eliminamos la foto del usuario de public
         let userImage = req.session.userLogged.profileImage;
         fs.unlinkSync(path.resolve (__dirname, "../../public/images/users/") + '/' + userImage);
+        // Borramos la informacion de session y de las cookies
         req.session.destroy();
         res.clearCookie('email');
+        // Redirigimos
         res.redirect ("/productos/todos")
     }
 }
