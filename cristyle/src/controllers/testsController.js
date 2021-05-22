@@ -43,6 +43,15 @@ module.exports = {
 
 	t7: (req, res) => {
 
+		let allProducts = {
+			prop1: 1,
+			prop2: 2,
+			prop3: 7
+		}
+
+		allProducts.dbRelations = ["sizeId", "categoryId"];
+			return res.send(allProducts)
+
 	},
 
 	t8: (req, res) => {
