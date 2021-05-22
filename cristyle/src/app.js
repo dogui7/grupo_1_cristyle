@@ -54,6 +54,8 @@ app.use("/productos", productsRouter);
 // API routes
 const apiUsersRouter = require("./routes/api/users");
 app.use("/api/usuarios", apiUsersRouter);
+const apiProductsRouter = require("./routes/api/products");
+app.use("/api/productos", apiProductsRouter);
 
 // Usar esta ruta para testear código en las rutas /t/1, /t/2, etc
 const testsRouter = require("./routes/tests");
