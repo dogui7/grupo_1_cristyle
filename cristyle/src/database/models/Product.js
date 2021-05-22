@@ -59,7 +59,7 @@ module.exports = (sequelize, dataTypes) => {
             timestamps: false
         })
 
-         Product.belongsTo (models.Size, {
+        Product.belongsTo (models.Size, {
             as: "size",
             foreingKey: "sizeId"
         })

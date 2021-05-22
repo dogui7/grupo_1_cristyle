@@ -12,37 +12,40 @@ const apiProductsController = {
         let calzados = db.Product.findAll({where: {categoryId: 4, [Op.and]: {deleted: 0} }   });
         let accesorios = db.Product.findAll({where: {categoryId: 5, [Op.and]: {deleted: 0} }   });
 
-
-        
         Promise.all([allProducts, tops, camperas, pantalones, calzados, accesorios])
-        
         .then(([products, tops, camperas, pantalones, calzados, accesorios]) => {
 
-/*             ARRAY CON COLECCION DE PRODUCTOS SEGUN PIDE LA CONSIGNA (NO FUNCIONA):
+            let productsToSend = products.map((product) => {
+                return product.dataValues;
+            })
 
-                let productsToSend = products.map((product) => {
+            productsToSend.forEach((product) => {
                 delete product.price;
                 delete product.discount;
-                delete product.sizeId;
                 delete product.categoryId;
+                delete product.CategoryId;
+                delete product.sizeId;
+                delete product.SizeId;
                 delete product.image;
                 delete product.gender;
                 delete product.deleted;
-                
                 product.dbRelations = ["sizeId", "categoryId"];
-                product.detail = `http://localhost:3500/productos/detalle/${product.id}`
-            }) */
-
+                product.detailURL = `http://localhost:3500/api/productos/${product.id}`
+            })
+            
             return res.status(200).json({
                 count: products.length,
-                countByCategory: {
-                    tops: tops.length,
-                    camperas: camperas.length,
-                    pantalones: pantalones.length,
-                    calzados: calzados.length,
-                    accesorios: accesorios.length
+                data: {
+                    countByCategory: {
+                        tops: tops.length,
+                        camperas: camperas.length,
+                        pantalones: pantalones.length,
+                        calzados: calzados.length,
+                        accesorios: accesorios.length
+                    },
+                    products: productsToSend,
                 },
-                products: products
+                status: 200
             })
         })
         .catch(error => {console.log(error)});
@@ -52,10 +55,13 @@ const apiProductsController = {
         db.Product.findByPk(req.params.id)
         .then(productToSend => { 
             return res.status(200).json({
-                productToSend: productToSend,
-                dbRelations: ["sizeId", "categoryId"],
-                imageURL: ""
-                })
+                data: {
+                    productToSend: productToSend,
+                    dbRelations: ["sizeId", "categoryId"],
+                    imageURL: "",
+                },
+                status: 200
+            })
         })
     }
 }

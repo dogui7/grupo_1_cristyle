@@ -8,19 +8,23 @@ const apiUsersController = {
         db.User.findAll({where: {deleted: 0}})
         .then(usersInDb => {
 
+            let newArray = usersInDb.map((user) => {
+                return user.dataValues;
+            });
+
             // Eliminamos la información sensible que no queremos enviar, dejando solo el ID, firstName, lastName, email, y url
-            // No funciona
-            usersInDb.forEach( (user) => {
+            newArray.forEach((user) => {
                 delete user.password;
                 delete user.birthdate;
                 delete user.roleId;
                 delete user.profileImage;
                 delete user.deleted;
-            }) 
-            // URL de detalle?
+                user.detailURL = `http://localhost:3500/api/usuarios/${user.id}`
+            })
+
             return res.status(200).json({
                 total: usersInDb.length,
-                data: usersInDb,
+                data: newArray,
                 status: 200
             })
         })
@@ -29,18 +33,21 @@ const apiUsersController = {
 
     userId: function (req,res) {
         db.User.findByPk(req.params.id)
-        .then(userToSend => {
-            if (userToSend != null) {
+        .then(user => {
+            if (user != null) {
+                userToSend = user.dataValues;
                 // Eliminamos la información sensible que no queremos enviar, dejando solo el ID, firstName, lastName, email, y url de imagen
-                // No funciona
                 delete userToSend.password;
                 delete userToSend.birthdate;
                 delete userToSend.roleId;
                 delete userToSend.profileImage;
                 delete userToSend.deleted;
-                userToSend.imageUrl = userToSend.profileImage;
+
                 return res.status(200).json({
-                    data: userToSend,
+                    data: {
+                        userToSend,
+                        imageURL: ""
+                    },
                     status: 200
                 })
             }
