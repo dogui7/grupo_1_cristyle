@@ -18,18 +18,20 @@ const apiProductsController = {
             })
 
             let categoriesNames = []
-            let categCount = []
+            let categoriesCount = []
             categoriesToSend.forEach((category) => {
                 categoriesNames.push(category.category);
-                categCount.push(0)
+                categoriesCount.push(0)
             })
-         
+        
             productsToSend.forEach((product) => {
-                categCount[product.categoryId - 1] = categCount[product.categoryId - 1] + 1
+                categoriesCount[product.categoryId - 1] = categoriesCount[product.categoryId - 1] + 1
             })
 
-            
-            
+            let objectToSend = {};
+            for (let i = 0; i < categoriesNames.length; i++) {
+                objectToSend[categoriesNames[i]] = categCount[i];
+            }
 
             productsToSend.forEach((product) => {
                 delete product.price;
@@ -45,11 +47,10 @@ const apiProductsController = {
                 product.detailURL = `http://localhost:3500/api/productos/${product.id}`
             })
 
-               
-            
             return res.status(200).json({
                 count: products.length,
-                /* countByCategory: , */
+                countByCategory: objectToSend,
+                categoriesCount: categoriesToSend.length,
                 products: productsToSend,
                 status: 200
             })
