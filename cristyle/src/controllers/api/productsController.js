@@ -4,20 +4,32 @@ const Op = sequelize.Op;
 
 const apiProductsController = {
 
-    allProducts: function (req,res) {
-        let allProducts = db.Product.findAll({where: {deleted: 0}});
-        let tops = db.Product.findAll({where: {categoryId: 1, [Op.and]: {deleted: 0} }   });
-        let camperas = db.Product.findAll({where: {categoryId: 2, [Op.and]: {deleted: 0} }   });
-        let pantalones = db.Product.findAll({where: {categoryId: 3, [Op.and]: {deleted: 0} }   });
-        let calzados = db.Product.findAll({where: {categoryId: 4, [Op.and]: {deleted: 0} }   });
-        let accesorios = db.Product.findAll({where: {categoryId: 5, [Op.and]: {deleted: 0} }   });
-
-        Promise.all([allProducts, tops, camperas, pantalones, calzados, accesorios])
-        .then(([products, tops, camperas, pantalones, calzados, accesorios]) => {
+    allProducts: (req,res) => {
+        let products = db.Product.findAll({where: {deleted: 0}})
+        let categories = db.Category.findAll()
+        Promise.all([products, categories]).then(([products, categories]) => {
 
             let productsToSend = products.map((product) => {
                 return product.dataValues;
             })
+
+            let categoriesToSend = categories.map((category) => {
+                return category.dataValues;
+            })
+
+            let categoriesNames = []
+            let categCount = []
+            categoriesToSend.forEach((category) => {
+                categoriesNames.push(category.category);
+                categCount.push(0)
+            })
+         
+            productsToSend.forEach((product) => {
+                categCount[product.categoryId - 1] = categCount[product.categoryId - 1] + 1
+            })
+
+            
+            
 
             productsToSend.forEach((product) => {
                 delete product.price;
@@ -32,33 +44,27 @@ const apiProductsController = {
                 product.dbRelations = ["sizeId", "categoryId"];
                 product.detailURL = `http://localhost:3500/api/productos/${product.id}`
             })
+
+               
             
             return res.status(200).json({
                 count: products.length,
-                data: {
-                    countByCategory: {
-                        tops: tops.length,
-                        camperas: camperas.length,
-                        pantalones: pantalones.length,
-                        calzados: calzados.length,
-                        accesorios: accesorios.length
-                    },
-                    products: productsToSend,
-                },
+                /* countByCategory: , */
+                products: productsToSend,
                 status: 200
             })
         })
         .catch(error => {console.log(error)});
     },
 
-    productDetail: function (req,res){
+    productDetail: (req,res) => {
         db.Product.findByPk(req.params.id)
         .then(productToSend => { 
             return res.status(200).json({
                 data: {
                     productToSend: productToSend,
                     dbRelations: ["sizeId", "categoryId"],
-                    imageURL: "",
+                    imageURL: `/public/images/products/${productToSend.image}`,
                 },
                 status: 200
             })

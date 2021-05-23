@@ -46,7 +46,7 @@ const apiUsersController = {
                 return res.status(200).json({
                     data: {
                         userToSend,
-                        imageURL: ""
+                        imageURL: `/public/images/users/${userToSend.image}`
                     },
                     status: 200
                 })
