@@ -30,10 +30,11 @@ const apiProductsController = {
 
             let objectToSend = {};
             for (let i = 0; i < categoriesNames.length; i++) {
-                objectToSend[categoriesNames[i]] = categCount[i];
+                objectToSend[categoriesNames[i]] = categoriesCount[i];
             }
-
+            
             productsToSend.forEach((product) => {
+                // Eliminamos la información sensible que no queremos enviar, dejando solo el ID, firstName, lastName, email, y url
                 delete product.price;
                 delete product.discount;
                 delete product.categoryId;
@@ -43,7 +44,9 @@ const apiProductsController = {
                 delete product.image;
                 delete product.gender;
                 delete product.deleted;
+                // Agregamos los campos por los que se relaciona con otras tablas
                 product.dbRelations = ["sizeId", "categoryId"];
+                // Agregamos la URL para ir al endpoint de cada producto en particular
                 product.detailURL = `http://localhost:3500/api/productos/${product.id}`
             })
 
