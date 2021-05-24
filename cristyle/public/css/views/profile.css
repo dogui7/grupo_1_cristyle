@@ -1,7 +1,8 @@
 .welcome{
     padding: 10px;
 }
-img{
+
+#profile-image{
     max-width: 60vw;
     margin-left: 20vw;
     margin-bottom: 30px;
@@ -28,14 +29,13 @@ h2{
     color: #be9e44;
 }
 
-
 @media (min-width: 590px ){
     .image-and-data{
         display: flex;
         justify-content: space-around;
     }
 
-    img {
+    #profile-image {
         max-width: 35vw;
         margin-left: 0;
     }
@@ -59,7 +59,7 @@ h2{
         font-size: 1.8rem;
     }
 
-    img{
+    #profile-image{
         max-width: 15vw;
         margin-left: 30px;
         margin-top: 10px;
@@ -83,6 +83,3 @@ h2{
         margin: -3% 0 5% 76vw;
     }
 }
-
-
-
