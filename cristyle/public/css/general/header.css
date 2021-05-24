@@ -1,15 +1,5 @@
 /**** Header *****/
 
-/*
-    Franco querido, tene en cuenta que las clases que
-    crees acá NO pueden repetirse en los CSS de Footer,
-    Index, ProductCart, ProductDetail, Register y Login
-*/
-
-/*
-    PD: Usemos estos comentarios en el codigo, tanto HTML como CSS para comunicarnos
-*/
-
 /*-----------------------------------------MOBILE-------------------------------------------------*/
 
 .header {
@@ -30,31 +20,37 @@
 }
 
 #burger-dropdown {
-    display: block;
+    display: none;
     position: fixed;
     top: 10vh;
     z-index: 1;
-    left: 0.5rem;
     background-color: #be9e44;
-    height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: all .5s ease-out
+    animation: growDown 400ms ease-in-out forwards;
+    transform-origin: top center;
+}
+
+@keyframes growDown {
+    0% {
+      transform: scaleY(0)
+    }
+    70% {
+      transform: scaleY(1.05)
+    }
+    100% {
+      transform: scaleY(1)
+    }
+  }
+
+#burger:hover #burger-dropdown {
+    display: block;
 }
 
 #burger-dropdown li {
     padding: 1rem 0.5rem;
 }
 
-
 #burger-dropdown li a {
     color:#ffffff;
-}
-
-#burger-dropdown:target {
-    height: fit-content;
-    width: fit-content;
-    opacity: 100;
 }
 
 #burger-dropdown li:hover {
