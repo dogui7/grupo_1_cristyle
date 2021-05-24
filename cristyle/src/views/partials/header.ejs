@@ -1,11 +1,11 @@
 <header class="header">
     <section class="top-header">
 
-        <article id="burger">
+        <article id="dropdown-burger">
             <a class="burger-menu"> 
                 <i class="fa fa-bars burger"></i>
             </a>
-            <ul id="burger-dropdown">
+            <ul class="dropdown-content">
                 <li><a href="/productos/todos">Todos los productos</a></li>
                 <li><a href="/productos/todos/hombre">Hombre</a></li>
                 <li><a href="/productos/todos/mujer">Mujer</a></li>
@@ -20,13 +20,18 @@
 
         <section class="user-and-cart">
             <% if (locals.isLogged) { %>
-            <a href="/usuarios/perfil"><img src="/images/users/<%= locals.userLogged.profileImage %>" alt="imagen de perfil"></a>
-            <p id="user-greeting">Tu cuenta</p>
-
+                <div>
+                    <a href="/usuarios/perfil"><img src="/images/users/<%= locals.userLogged.profileImage %>" alt="imagen de perfil"></a>
+                    <p id="user-greeting">Tu cuenta</p>
+                </div>
             <% } else { %>
-            <a href="/usuarios/iniciarSesion" class="user">
-                <i class="fas fa-user"></i>
-            </a>
+                <div id="dropdown-user">
+                    <i class="fas fa-user"></i>
+                    <ul class="dropdown-content" id="dropdown-content-user">
+                        <li><a href="/usuarios/iniciarSesion">Iniciar sesion</a></li>
+                        <li><a href="/usuarios/registrarse">Registrarse</a></li>
+                    </ul>
+                </div>
             <% } %>
        
             <button class="cart">
