@@ -10,7 +10,9 @@
                 <li><a href="/productos/todos/hombre">Hombre</a></li>
                 <li><a href="/productos/todos/mujer">Mujer</a></li>
                 <li><a href="/productos/todos/ofertas">Ofertas</a></li>
+                <% if (locals.userLogged && locals.userLogged.roleId == 1) { %>
                 <li><a href="/productos/agregar">Agregar productos</a></li>
+                <% } %>
             </ul>
         </article>
 
@@ -20,7 +22,7 @@
 
         <section class="user-and-cart">
             <% if (locals.isLogged) { %>
-                <div>
+                <div id="user-account">
                     <a href="/usuarios/perfil"><img src="/images/users/<%= locals.userLogged.profileImage %>" alt="imagen de perfil"></a>
                     <p id="user-greeting">Tu cuenta</p>
                 </div>

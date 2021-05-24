@@ -107,15 +107,20 @@
 }
 
 .user-and-cart {
-    margin: 0 5%;
     display: flex;
+    align-items: center;
+    margin: 0 5%;
+}
+
+#user-account {
+    display: flex;
+    align-items: center;
 }
 
 .user-and-cart img{
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    align-self: auto;
     margin-right: 6px;
 }
 
