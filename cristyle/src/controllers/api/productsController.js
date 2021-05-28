@@ -23,15 +23,23 @@ const apiProductsController = {
                 categoriesNames.push(category.category);
                 categoriesCount.push(0)
             })
+            /* categoriesNames = [Camperas, Tops, Accesorios, ...] */
         
             productsToSend.forEach((product) => {
                 categoriesCount[product.categoryId - 1] = categoriesCount[product.categoryId - 1] + 1
             })
+            /* categoriesCount = [4, 5, 8, ...] */
 
-            let objectToSend = {};
+            let countByCategoryToSend = {};
             for (let i = 0; i < categoriesNames.length; i++) {
-                objectToSend[categoriesNames[i]] = categoriesCount[i];
+                countByCategoryToSend[categoriesNames[i]] = categoriesCount[i];
             }
+            /* countByCategoryToSend = {
+                Camperas: 4,
+                Tops: 5,
+                Accesorios: 8,
+                ...
+            }*/
             
             productsToSend.forEach((product) => {
                 // Eliminamos la información sensible que no queremos enviar, dejando solo el ID, firstName, lastName, email, y url
@@ -52,7 +60,7 @@ const apiProductsController = {
 
             return res.status(200).json({
                 count: products.length,
-                countByCategory: objectToSend,
+                countByCategory: countByCategoryToSend,
                 categoriesCount: categoriesToSend.length,
                 products: productsToSend,
                 status: 200
