@@ -1,27 +1,24 @@
 const db = require ("../database/models");
-
+const {Op} = require("sequelize");
+const { Sequelize } = require("../database/models");
 module.exports = {
     index: (req, res) => {
-        // Determina que porcentaje de descuento minimo se va a mostrar en el index 
-        // (se tomarán todos los productos que tengan un descuento entre este valor y 100%)
-        let discountToFilter = 20;
-        // Determina la cantidad de productos que se van a mostrar en el index
-        let numberOfProductsToShow = 4;
-        let discountProductsToShow = [];
-        db.Product.findAll( {where: {deleted: 0}} ) 
-        .then (function (products){
-            discountProducts = products.filter(product => product.discount >= discountToFilter); // Filtramos los productos
-            for (let i = 0; i < numberOfProductsToShow; i++) {
-                if (discountProducts.length == 0) {break}; // Si no hay mas elementos, salimos del for
-                discountProductsToShow.push( // Pusheamos al array que vamos a enviar...
-                    discountProducts.splice( // Tomamos un elemento al azar del array. Splice toma un elemento del array, el primer parametro determina la posicion, el segundo cuantos elementos
-                        Math.floor(Math.random()*discountProducts.length), 1
-                    )[0] // Ya que splice devuelve un array, lo quitamos del mismo para poder pushearlo
-                );
-            }
+         
+        let discountFilter = 20;
+        let numberOfProducts = 7;
+        /* We pick (numberOfProducts) randomly with at least (discountFilter) discount */
+        db.Product.findAll({
+            where: {
+                deleted: 0,
+                discount: {[Op.gte]: discountFilter}
+            },
+            order: Sequelize.literal("rand()"),
+            limit: numberOfProducts
+        }) 
+        .then (function (discountProducts){
             let cssSheets = ["index", "showProducts"];
             let title = "Sitio oficial de Cristyle";
-            return res.render("index.ejs", {cssSheets, title, discountProductsToShow})
+            return res.render("index.ejs", {cssSheets, title, discountProducts})
         })
         .catch (error => {
             console.log(error)

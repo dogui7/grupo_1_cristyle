@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "node cristyle/src/app.js",
-    "test": "nodemon cristyle/src/app.js",
-    "install": "npm i ejs express method-override multer bcryptjs express-validator"
+    "start": "supervisor cristyle/src/app.js"
   },
   "author": "",
   "license": "ISC",
@@ -24,6 +22,6 @@
   },
   "description": "",
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "supervisor": "^0.12.0"
   }
 }
