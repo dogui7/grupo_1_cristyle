@@ -8,9 +8,7 @@ const {validationResult} = require("express-validator");
 module.exports = {
 
     login: (req, res) => {
-        let cssSheets = ["login"];
-        let title = "Inicio de sesión";
-        return res.render("users/login.ejs", {cssSheets, title})
+        return res.render("users/login.ejs")
     },
 
     processLogin: (req, res) => {
@@ -18,9 +16,7 @@ module.exports = {
         let errors = validationResult(req);
         // Si hay errores, renderizamos la vista nuevamente con los mensajes de error
         if (!errors.isEmpty()) {
-            let cssSheets = ["login"];
-            let title = "Inicio de sesión";
-            return res.render ("users/login.ejs", {cssSheets, title, errorMessages: errors.mapped()});
+            return res.render ("users/login.ejs", {errorMessages: errors.mapped()});
         } else {
             // Si no hay errores, verificamos que el email y la contraseña sean correctos
             db.User.findAll( {where: {deleted:0} } )
@@ -42,9 +38,7 @@ module.exports = {
                             "location": "body"
                         }
                     }
-                    let cssSheets = ["login"];
-                    let title = "Inicio de sesión"; 
-                    return res.render ("users/login.ejs", {cssSheets, title, errorMessages: customError});
+                    return res.render ("users/login.ejs", {errorMessages: customError});
                     }
                 // Si lo encontramos, borro la propiedad password para guardar el usuario en session sin su contraseña, por seguridad:
                 delete usuarioALoguearse.password;
@@ -60,15 +54,11 @@ module.exports = {
     },
 
     profile: (req,res) => {
-        let cssSheets = ["profile"];
-        let title = "Tu cuenta";
-        res.render("users/profile.ejs", {cssSheets, title})
+        res.render("users/profile.ejs")
     },
 
     edit: (req,res) => {
-        let cssSheets = ["editProfile"];
-        let title = "Editar perfil";
-        return res.render("users/editProfile.ejs", {cssSheets, title})
+        return res.render("users/editProfile.ejs")
     },
 
     processEdit: (req,res) => {
@@ -81,9 +71,7 @@ module.exports = {
                 let imageName = req.file.filename;
                 fs.unlinkSync(path.resolve (__dirname, "../../public/images/users/") + '/' + imageName);
             }
-            let cssSheets = ["editProfile"];
-            let title = "Editar perfil";
-            return res.render ("users/editProfile.ejs", {cssSheets, title, errorMessages: errors.mapped(), oldData: req.body});
+            return res.render ("users/editProfile.ejs", {errorMessages: errors.mapped(), oldData: req.body});
         // Si no hay errores, almacena las modificaciones
         } else {
             db.User.update ({
@@ -104,21 +92,17 @@ module.exports = {
     },
 
     register: (req, res) => {
-        let cssSheets = ["register"];
-        let title = "Registro";
-        return res.render("users/register.ejs", {cssSheets, title})
+        return res.render("users/register.ejs")
     },
 
     processRegister: (req,res) => {
         //Evitar que un usuario se registre con un email ya utilizado
-        let cssSheets = ["register"];
-        let title = "Registro";
         db.User.findOne({
             where: {email: req.body.email, [Op.and]: {deleted:0}}
         }).then((userInDB) => {
             //Se checkea si ya existe el email enviado en la base de datos, en cuyo caso se muestra un error
             if (userInDB) {
-                return res.render ("users/register.ejs", {cssSheets, title,
+                return res.render ("users/register.ejs", {
                     errorMessages: {
                         "email": {
                             "value": "",
@@ -135,13 +119,11 @@ module.exports = {
             let errors = validationResult(req);
             //Si hay errores, recargar la vista con los correspondientes mensajes
             if (!errors.isEmpty()) {
-                let cssSheets = ["register"];
-                let title = "Registro";
                 if (req.file) {
                     let imageName = req.file.filename;
                     fs.unlinkSync(path.resolve (__dirname, "../../public/images/users/") + '/' + imageName);
                 }
-                return res.render ("users/register.ejs", {cssSheets, title, errorMessages: errors.mapped(), oldData: req.body});
+                return res.render ("users/register.ejs", {errorMessages: errors.mapped(), oldData: req.body});
             //Si no hay errores, se guarda el nuevo usuario en la base de datos
             } else {
                 db.User.create({
