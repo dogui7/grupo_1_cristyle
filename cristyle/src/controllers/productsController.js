@@ -115,29 +115,30 @@ module.exports = {
     },
 
     showAll: (req, res) => {
-        // Si no se buscó nada, renderizamos todos los productos en la vista
-        if (req.query && req.query.busqueda == null) {
-            db.Product.findAll()
-            .then (function (products){
-                res.render("products/allProducts.ejs", {products, busqueda: null})
-            })
-            .catch (error => {
-                res.send (error)
-            })
-        // Si se usó la barra de busqueda, buscamos en la base de datos con un like
-        } else {
-            db.Product.findAll ({
-                where : { name : {[Op.like]: `%${req.query.busqueda}%`} }
-            })
-            .then (function(products){
-                res.render("products/allProducts.ejs", {products, busqueda: req.query.busqueda});  
-            })
-            .catch (error => {
-                res.send (error)
-            })
-        }
+        db.Product.findAll()
+        .then (function (products){
+            res.render("products/allProducts.ejs", {products, busqueda: null})
+        })
+        .catch (error => {
+            res.send (error)
+        })
     },
+    
+    search: (req, res) => {
+        let search = req.query.busqueda;
 
+        db.Product.findAll ({
+            where : { name : {[Op.like]: `%${search}%`} }
+        })
+        .then (function(products){
+            res.render("products/allProducts.ejs", {products, busqueda: req.query.busqueda});  
+        })
+        .catch (error => {
+            res.send (error)
+        })
+        
+    },
+    
     showFiltered: (req, res) => {
         let filter = req.params.filter;
         searchParameters = {}

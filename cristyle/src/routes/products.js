@@ -36,6 +36,9 @@ router.post ('/agregar', upload.single ('image'), validateProductsCreate, produc
 // SHOW ALL
 router.get('/todos', productsController.showAll);
 
+// SEARCH
+router.get('/busqueda/', productsController.search);
+
 // SHOW FILTERED
 router.get('/todos/:filter', productsController.showFiltered);
 
