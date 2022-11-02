@@ -140,29 +140,24 @@ module.exports = {
 
     showFiltered: (req, res) => {
         let filter = req.params.filter;
-        db.Product.findAll()
+        searchParameters = {}
+        switch(filter){
+            case 'hombre':
+            case 'mujer':
+                searchParameters = {
+                    where: {gender: filter}
+                };
+                break;
+            case 'ofertas':
+                searchParameters = {
+                    where: {discount: { [Op.gt]: 0}},
+                    order: [["discount", "desc"]]
+                };
+                break;
+        }
+        db.Product.findAll(searchParameters)
         .then ( function (products){
-            // Aquí se evalua que filtro es necesario hacer según el link que haya tocado el usuario
-            let filteredProducts;
-            switch(filter){
-                case 'hombre':
-                case 'mujer':
-                    filteredProducts = products.filter(product => product.gender == filter);
-                    break;
-                case 'ofertas':
-                    filteredProducts = products
-                    .filter(product => product.discount > 0) // Filtramos los que estan en descuento
-                    .sort((a,b) =>{ // Ordenamos de mayor a menor para mostrar primero los de mayor descuento
-                        if(a.discount > b.discount) {return -1}
-                        if(a.discount < b.discount) {return 1}
-                        return 0;
-                    })
-                    break;
-                default:
-                    filteredProducts = products;
-                    break;
-            }
-            return res.render("products/allProducts.ejs", {products: filteredProducts, busqueda: null});
+            return res.render("products/allProducts.ejs", {products});
         })
        
     },

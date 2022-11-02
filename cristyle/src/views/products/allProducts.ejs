@@ -7,7 +7,7 @@
     <%- include("../partials/header") %>
 
     <main>
-        <% if (busqueda != null) { %>
+        <% if (locals.busqueda) { %>
             <h1 id="title">Tu búsqueda: <%= busqueda %></h1>
         <% } else { %>
             <h1 id="title">Nuestros productos</h1>
