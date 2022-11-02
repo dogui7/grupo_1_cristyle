@@ -11,9 +11,7 @@ module.exports = {
     detail: (req, res) => {
         db.Product.findByPk (req.params.id)
         .then (function (product){
-            let cssSheets = ["productDetail"];
-            let title = "Detalle producto";
-            res.render("products/productDetail.ejs", {cssSheets, title, product})
+            res.render("products/productDetail.ejs", {product})
         })
         .catch (error => {
             res.send (error)
@@ -21,9 +19,7 @@ module.exports = {
     },
 
     cart: (req, res) => {
-        let cssSheets = ["productCart"];
-        let title = "Carrito";
-        return res.render("products/productCart.ejs", {cssSheets, title})
+        return res.render("products/productCart.ejs")
     },
 
     edit: (req, res) => {
@@ -33,9 +29,7 @@ module.exports = {
         let requestCategories = db.Category.findAll();
         Promise.all([requestProduct, requestSizes, requestCategories])
         .then(function ([product, sizes, categories ]){
-            let cssSheets = ["editproducts"];
-            let title = "Editar producto";
-            res.render ("products/editproducts.ejs", {cssSheets, title, product, sizes, categories})
+            res.render ("products/editProducts.ejs", {product, sizes, categories})
         })
     },
 
@@ -55,9 +49,7 @@ module.exports = {
             let requestCategories = db.Category.findAll();
             Promise.all([requestProduct, requestSizes, requestCategories])
             .then(function ([product, sizes, categories]){
-                let cssSheets = ["editproducts"];
-                let title = "Editar producto";
-                return res.render ("products/editproducts.ejs", {cssSheets, title, product, sizes, categories, errorMessages: errors.mapped(), oldData: req.body});
+                return res.render ("products/editProducts.ejs", {product, sizes, categories, errorMessages: errors.mapped(), oldData: req.body});
             })
         // Si no hay errores, almacena las modificaciones
         } else {
@@ -85,9 +77,7 @@ module.exports = {
         let requestCategories = db.Category.findAll();
         Promise.all([requestSizes, requestCategories])
         .then(function ([sizes, categories ]){
-            let cssSheets = ["createProduct"];
-            let title = "Crear producto";
-            res.render ("products/createProduct.ejs", {cssSheets, title, sizes, categories})
+            res.render ("products/createProduct.ejs", {sizes, categories})
         })
     },
 
@@ -106,9 +96,7 @@ module.exports = {
             let requestCategories = db.Category.findAll();
             Promise.all([requestSizes, requestCategories])
             .then(function ([sizes, categories ]){
-                let cssSheets = ["createProduct"];
-                let title = "Crear producto";
-                return res.render ("products/createProduct.ejs", {cssSheets, title, categories, sizes, errorMessages: errors.mapped(), oldData: req.body});
+                return res.render ("products/createProduct.ejs", {categories, sizes, errorMessages: errors.mapped(), oldData: req.body});
             })
         // Si no hay errores, agregamos el producto a la DB
         } else {
@@ -131,9 +119,7 @@ module.exports = {
         if (req.query && req.query.busqueda == null) {
             db.Product.findAll()
             .then (function (products){
-                let cssSheets = ["allProducts","showProducts"];
-                let title = "Todos los productos";
-                res.render("products/allProducts.ejs", {cssSheets, title, products, busqueda: null})
+                res.render("products/allProducts.ejs", {products, busqueda: null})
             })
             .catch (error => {
                 res.send (error)
@@ -144,9 +130,7 @@ module.exports = {
                 where : { name : {[Op.like]: `%${req.query.busqueda}%`} }
             })
             .then (function(products){
-                let cssSheets = ["allProducts","showProducts"];
-                let title = "Todos los productos";
-                res.render("products/allProducts.ejs", {cssSheets, title, products, busqueda: req.query.busqueda});  
+                res.render("products/allProducts.ejs", {products, busqueda: req.query.busqueda});  
             })
             .catch (error => {
                 res.send (error)
@@ -178,9 +162,7 @@ module.exports = {
                     filteredProducts = products;
                     break;
             }
-            let cssSheets = ["allProducts","showProducts"];
-            let title = ['Productos']
-            return res.render("products/allProducts.ejs", {cssSheets, title, products: filteredProducts, busqueda: null});
+            return res.render("products/allProducts.ejs", {products: filteredProducts, busqueda: null});
         })
        
     },
